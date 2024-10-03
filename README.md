@@ -12,7 +12,7 @@ $ source venv/bin/activate
 
 3. Установить необходимые зависимости:
 ```bash
-$ pip3 install -r requirements.txt
+$ pip3 install -r requirements/dev.txt
 ```
 
 4. Задать переменную окуржения ```DJANGO_DEBUG``` в значение ```True```:
@@ -20,7 +20,17 @@ $ pip3 install -r requirements.txt
 $ export DJANGO_DEBUG=True
 ```
 
-5. Запустить сервер:
+5. Перейти в папку проекта:
 ```bash
-$ cd lyceum && python3 manage.py runserver
+$ cd lyceum
+```
+
+6. Сохранить ключ в переменной окружения:
+```bash
+$ echo "SECRET_KEY = 'XXX'" >> .env
+```
+
+7. Запустить сервер:
+```bash
+$ python3 manage.py runserver
 ```
