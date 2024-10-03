@@ -6,35 +6,35 @@
 
 1. Создать виртуальное окружение:
 ```bash
-$ python3 -m venv venv
+python3 -m venv venv
 ```
 
 2. Активировать виртуальное окружение:
 ```bash
-$ source venv/bin/activate
+source venv/bin/activate
 ```
 
 3. Установить необходимые зависимости:
 ```bash
-$ pip3 install -r requirements/dev.txt
+pip3 install -r requirements/dev.txt
 ```
 
 4. Задать переменную окуржения ```DJANGO_DEBUG``` в значение ```True```:
 ```bash
-$ export DJANGO_DEBUG=True
+export DJANGO_DEBUG=True
 ```
 
 5. Перейти в папку проекта:
 ```bash
-$ cd lyceum
+cd lyceum
 ```
 
 6. Сохранить ключ в переменной окружения:
 ```bash
-$ echo "SECRET_KEY = 'XXX'" >> .env
+echo "SECRET_KEY = 'XXX'" >> .env
 ```
 
 7. Запустить сервер:
 ```bash
-$ python3 manage.py runserver
+python3 manage.py runserver
 ```
