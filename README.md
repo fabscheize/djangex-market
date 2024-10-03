@@ -22,5 +22,5 @@ $ export DJANGO_DEBUG=True
 
 5. Запустить сервер:
 ```bash
-$ python3 lyceum/manage.py runserver
+$ cd lyceum && python3 manage.py runserver
 ```
