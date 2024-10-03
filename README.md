@@ -1,3 +1,7 @@
+# Проект "Lyceum"
+
+[![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187/-/commits/main)
+
 Для запуска проекта в dev-режиме необходимо выполнить следующие команды:
 
 1. Создать виртуальное окружение:
