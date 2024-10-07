@@ -7,11 +7,13 @@ env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env.str('SECRET_KEY', default='XXX')
+SECRET_KEY = env.str('DJANGO_SECRET_KEY', env.str('SECRET_KEY', default='XXX'))
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
+ALLOWED_HOSTS = env.list(
+    'DJANGO_ALLOWED_HOSTS', env.list('ALLOWED_HOSTS', default=['*'])
+)
 
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = env.bool('DJANGO_DEBUG', env.bool('DEBUG', default=False))
 
 INSTALLED_APPS = [
     'about.apps.AboutConfig',
