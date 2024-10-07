@@ -5,3 +5,5 @@ mypy-extensions==1.0.0
 packaging==24.1
 pathspec==0.12.1
 platformdirs==4.3.6
+django-debug-toolbar==4.4.6
+
