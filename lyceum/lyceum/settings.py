@@ -15,6 +15,11 @@ ALLOWED_HOSTS = env.list(
 
 DEBUG = env.bool('DJANGO_DEBUG', env.bool('DEBUG', default=False))
 
+raw_value = env.str(
+    'DJANGO_ALLOW_REVERSE', env.str('ALLOW_REVERSE', default='')
+)
+ALLOW_REVERSE = raw_value.lower() in ('', 'true', 'yes', '1', 'y')
+
 INSTALLED_APPS = [
     'about.apps.AboutConfig',
     'catalog.apps.CatalogConfig',
@@ -35,14 +40,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'lyceum.middleware.ReverseMiddleware',
 ]
 
 if DEBUG:
     INTERNAL_IPS = [
         '127.0.0.1',
     ]
-    INSTALLED_APPS += 'debug_toolbar'
-    MIDDLEWARE += 'debug_toolbar.middleware.DebugToolbarMiddleware'
+    INSTALLED_APPS += ['debug_toolbar']
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
 
 ROOT_URLCONF = 'lyceum.urls'
 
