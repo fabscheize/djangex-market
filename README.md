@@ -2,7 +2,7 @@
 
 [![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187/-/commits/main)
 
-## Запуск Dev-режима
+## Запуск сервера в Dev-режиме
 
 ### Linux/Unix
 
@@ -31,6 +31,7 @@ cd lyceum
 echo "DEBUG=true" >> .env
 echo "SECRET_KEY=your_secret_key" >> .env
 echo "ALLOWED_HOSTS=example.com,yourdomain.com" >> .env
+echo "ALLOW_REVERSE=false" >> .env
 ```
 
 6. Запустить сервер:
@@ -64,6 +65,7 @@ cd lyceum
 echo DEBUG=true >> .env
 echo SECRET_KEY=your_secret_key >> .env
 echo ALLOWED_HOSTS=example.com,yourdomain.com >> .env
+echo ALLOW_REVERSE=false >> .env
 ```
 
 6. Запустить сервер:
