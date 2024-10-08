@@ -18,7 +18,6 @@ DEBUG = env.bool('DJANGO_DEBUG', env.bool('DEBUG', default=False))
 INSTALLED_APPS = [
     'about.apps.AboutConfig',
     'catalog.apps.CatalogConfig',
-    'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,12 +35,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
+if DEBUG:
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]
+    INSTALLED_APPS += 'debug_toolbar'
+    MIDDLEWARE += 'debug_toolbar.middleware.DebugToolbarMiddleware'
 
 ROOT_URLCONF = 'lyceum.urls'
 
