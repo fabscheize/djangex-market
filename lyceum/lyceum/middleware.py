@@ -10,15 +10,14 @@ def reverse(m: re.Match):
 class ReverseMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
+        self.count = 0
 
     def __call__(self, request):
         response = self.get_response(request)
-        count = request.session.get('reverse_count', 0)
-        count += 1
-        request.session['reverse_count'] = count
+        self.count += 1
 
-        if count == 10:
-            request.session['reverse_count'] = 0
+        if self.count == 10:
+            self.count = 0
             if settings.ALLOW_REVERSE:
                 content = response.content.decode('utf-8')
                 reversed_content = re.sub(r'[А-Яа-яёЁ]+', reverse, content)
