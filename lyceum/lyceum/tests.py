@@ -15,7 +15,7 @@ class ReverseMiddlewareTest(TestCase):
         self.assertIn('Я кинйач'.encode('utf-8'), response.content)
 
     @override_settings(ALLOW_REVERSE=False)
-    def test_reverse_middleware_oаа(self):
+    def test_reverse_middleware_off(self):
         for _ in range(10):
             response = self.client.get('/coffee/')
             self.assertIn('Я чайник'.encode('utf-8'), response.content)
