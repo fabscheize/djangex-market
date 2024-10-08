@@ -1,5 +1,6 @@
-from django.test import TestCase, Client
 from random import randint
+
+from django.test import Client, TestCase
 
 
 class CatalogHttpResponseTest(TestCase):
