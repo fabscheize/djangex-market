@@ -3,8 +3,33 @@ import re
 from django.conf import settings
 
 
-def reverse(m: re.Match):
-    return m.group(0)[::-1]
+def reverse_russian_words(string):
+    delimiters = [
+        ' ',
+        '.',
+        ',',
+        '!',
+        '?',
+        '(',
+        ')',
+        ';',
+        ':',
+        '"',
+        '-',
+        "'",
+        '<',
+        '>',
+        '/',
+    ]
+    regex_pattern = '|'.join(map(re.escape, delimiters))
+    all_words = re.split(regex_pattern, string)
+    all_words = [word for word in all_words if word != '']
+
+    for word in all_words:
+        if re.fullmatch(r'[А-Яа-яёЁ]+', word) is not None:
+            string = string.replace(word, word[::-1])
+
+    return string
 
 
 class ReverseMiddleware:
@@ -21,7 +46,7 @@ class ReverseMiddleware:
             if ReverseMiddleware.count == 10:
                 ReverseMiddleware.count = 0
                 content = response.content.decode('utf-8')
-                reversed_content = re.sub(r'[А-Яа-яёЁ]+', reverse, content)
+                reversed_content = reverse_russian_words(content)
                 response.content = reversed_content.encode('utf-8')
 
         return response

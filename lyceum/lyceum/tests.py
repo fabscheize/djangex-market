@@ -1,8 +1,11 @@
-from django.test import Client, override_settings, TestCase
+from django.http import HttpResponse
+from django.test import Client, override_settings, RequestFactory, TestCase
+from lyceum.middleware import ReverseMiddleware
 from parametrize import parametrize
 
 
 class ReverseMiddlewareTest(TestCase):
+
     @parametrize(
         'allow_reverse, expected_normal, expected_reversed',
         [
@@ -23,3 +26,25 @@ class ReverseMiddlewareTest(TestCase):
 
         self.assertEqual(expected_normal, responses['Я чайник'])
         self.assertEqual(expected_reversed, responses['Я кинйач'])
+
+    @parametrize(
+        'initial_content, expected_content',
+        [
+            ('дддFFFддд', 'дддFFFддд'),
+            ('Данила, привет!', 'алинаД, тевирп!'),
+            ('вооо@@@ууу', 'вооо@@@ууу'),
+            ('Тест-реверса', 'тсеТ-асревер'),
+            ('0чень "интересный",пример', '0чень "йынсеретни",ремирп'),
+        ],
+    )
+    def test_middleware_reverses_content_on_tenth_request(
+        self, initial_content, expected_content
+    ):
+        factory = RequestFactory()
+        middleware = ReverseMiddleware(
+            lambda request: HttpResponse(initial_content)
+        )
+        ReverseMiddleware.count = 9
+        request = factory.get('/')
+        response = middleware(request)
+        self.assertIn(expected_content, response.content.decode('utf-8'))
