@@ -1,3 +1,5 @@
+from importlib import import_module
+
 from django.contrib import admin
 from django.urls import include, path
 from lyceum import settings
@@ -11,6 +13,5 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    from debug_toolbar.toolbar import debug_toolbar_urls
-
-    urlpatterns += debug_toolbar_urls()
+    debug_toolbar = import_module('debug_toolbar.toolbar')
+    urlpatterns += debug_toolbar.debug_toolbar_urls()
