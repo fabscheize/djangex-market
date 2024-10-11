@@ -13,18 +13,18 @@ class CatalogHttpResponseTest(TestCase):
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
     def test_item_from_catalog_status_code(self):
-        id = randint(0, 100)
-        response = self.client.get(f'/catalog/{id}/')
+        pk = randint(0, 100)
+        response = self.client.get(f'/catalog/{pk}/')
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
     def test_re_item_from_catalog_status_code(self):
-        id = randint(1, 100)
-        response = self.client.get(f'/catalog/re/{id}/')
+        pk = randint(1, 100)
+        response = self.client.get(f'/catalog/re/{pk}/')
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertIn(f'{id}'.encode('utf-8'), response.content)
+        self.assertIn(f'{pk}'.encode('utf-8'), response.content)
 
-        id = -1
-        response = self.client.get(f'/catalog/re/{id}/')
+        pk = -1
+        response = self.client.get(f'/catalog/re/{pk}/')
         self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
 
         response = self.client.get('/catalog/re/')
@@ -34,13 +34,13 @@ class CatalogHttpResponseTest(TestCase):
         self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
 
     def test_converter_item_from_catalog_status_code(self):
-        id = randint(1, 100)
-        response = self.client.get(f'/catalog/converter/{id}/')
+        pk = randint(1, 100)
+        response = self.client.get(f'/catalog/converter/{pk}/')
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertIn(f'{id}'.encode('utf-8'), response.content)
+        self.assertIn(f'{pk}'.encode('utf-8'), response.content)
 
-        id = -1
-        response = self.client.get(f'/catalog/converter/{id}/')
+        pk = -1
+        response = self.client.get(f'/catalog/converter/{pk}/')
         self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
 
         response = self.client.get('/catalog/converter/')
