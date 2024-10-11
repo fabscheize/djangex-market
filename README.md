@@ -2,73 +2,93 @@
 
 [![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187/-/commits/main)
 
-## Запуск сервера в Dev-режиме
+## Содержание
+- [Зависимости](#зависимости)
+- [Установка](#установка)
+- [Запуск сервера](#запуск-сервера)
+- [Локальная разработка](#локальная-разработка)
+- [Тестирование](#тестирование)
 
-### Linux/Unix
+## Зависимости
 
-1. Создать виртуальное окружение:
+- Python 3.8 или выше
+
+## Установка
+
+1. Клонирование репозитория:
+```bash
+git clone https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187
+```
+2. Создание виртуального окружения:
+
+- Linux/MacOS
 ```bash
 python3 -m venv venv
 ```
-
-2. Активировать виртуальное окружение:
-```bash
-source venv/bin/activate
-```
-
-3. Установить необходимые зависимости:
-```bash
-pip install -r requirements/dev.txt
-```
-
-4. Перейти в папку проекта:
-```bash
-cd lyceum
-```
-
-5. Сохранить переменные окружения в файл ```.env```:
-```bash
-echo "DEBUG=true" >> .env
-echo "SECRET_KEY=your_secret_key" >> .env
-echo "ALLOWED_HOSTS=example.com,yourdomain.com" >> .env
-echo "ALLOW_REVERSE=false" >> .env
-```
-
-6. Запустить сервер:
-```bash
-python manage.py runserver
-```
-
-### Windows
-1. Создать виртуальное окружение:
+- Windows
 ```bash
 python -m venv venv
 ```
 
-2. Активировать виртуальное окружение:
+3. Активация виртуального окружения:
+
+- Linux/MacOS
+```bash
+source venv/bin/activate
+```
+- Windows
 ```bash
 venv\Scripts\activate.bat
 ```
 
-3. Установить необходимые зависимости:
-```bash
-pip install -r requirements/dev.txt
-```
-
-4. Перейти в папку проекта:
+4. Переход в директорию проекта:
 ```bash
 cd lyceum
 ```
 
-5. Сохранить переменные окружения в файл ```.env```:
+## Запуск сервера
+
+1. Установка зависимостей:
 ```bash
-echo DEBUG=true >> .env
-echo SECRET_KEY=your_secret_key >> .env
-echo ALLOWED_HOSTS=example.com,yourdomain.com >> .env
-echo ALLOW_REVERSE=false >> .env
+pip install -r requirements/prod.txt
 ```
 
-6. Запустить сервер:
+2. Запуск сервера:
 ```bash
 python manage.py runserver
+```
+
+## Локальная разработка
+
+1. Установка зависимостей для разработки:
+```bash
+pip install -r requirements/dev.txt
+```
+
+2. Редактирование (при необходимости) переменных окружения в файле ```.env.example``` и копирование их в файл ```.env```:
+
+- Linux/MacOS
+```bash
+cp .env.example .env
+```
+- Windows
+```bash
+copy .env.example .env
+```
+
+3. Запуск сервера:
+```bash
+python manage.py runserver
+```
+
+## Тестирование
+
+1. Установка зависимостей для тестирования:
+```bash
+pip install -r requirements/test.txt
+```
+
+7. Запуск тестов:
+```bash
+python manage.py test
 ```
