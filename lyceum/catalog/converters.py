@@ -5,4 +5,4 @@ class PositiveIntegerConverter:
         return int(value)
 
     def to_url(self, value):
-        return '%d' % value
+        return str(value)
