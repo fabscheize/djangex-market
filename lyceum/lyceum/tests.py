@@ -3,21 +3,23 @@ from parametrize import parametrize
 
 
 class ReverseMiddlewareTest(TestCase):
-    def setUp(self):
-        self.client = Client()
-
     @parametrize(
-        'allow_reverse, expected_content',
+        'allow_reverse, expected_normal, expected_reversed',
         [
-            (True, 'Я кинйач'),
-            (False, 'Я чайник'),
+            (True, 9, 1),
+            (False, 10, 0),
         ],
     )
-    def test_reverse_middleware(self, allow_reverse, expected_content):
-        phrase = 'Я чайник'
+    def test_reverse_middleware(
+        self, allow_reverse, expected_normal, expected_reversed
+    ):
+        responses = {'Я чайник': 0, 'Я кинйач': 0}
+
         with override_settings(ALLOW_REVERSE=allow_reverse):
-            for i in range(1, 11):
-                if i == 10:
-                    phrase = expected_content
-                response = self.client.get('/coffee/')
-                self.assertIn(phrase.encode('utf-8'), response.content)
+            for _ in range(10):
+                response = Client().get('/coffee/')
+                key = response.content.decode('utf-8').strip('</body>')
+                responses[key] += 1
+
+        self.assertEqual(expected_normal, responses['Я чайник'])
+        self.assertEqual(expected_reversed, responses['Я кинйач'])
