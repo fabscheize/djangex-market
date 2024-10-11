@@ -1,4 +1,4 @@
--r prod.txt
+-r test.txt
 black==24.8.0
 click==8.1.7
 django-debug-toolbar==4.4.6

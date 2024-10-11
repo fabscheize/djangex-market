@@ -6,7 +6,7 @@ flake8:
     stage: linting
     image: registry.gitlab.com/pipeline-components/flake8:latest
     script:
-        - pip install -r requirements/test.txt
+        - pip install requirements/test.txt
         - flake8 --verbose .
 
 black:
@@ -21,10 +21,7 @@ http_response:
     cache:
         paths:
             - .cache/pip
-    before_script:
-        - python3 -m venv venv
-        - source venv/bin/activate
-        - pip install -r requirements/prod.txt
     script:
+        - pip install -r requirements/test.txt
         - cd lyceum
         - python manage.py test
