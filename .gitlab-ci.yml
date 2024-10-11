@@ -17,7 +17,7 @@ black:
 
 http_response:
     stage: test
-    image: registry.gitlab.com/python-devs/ci-images:active
+    image: python:3-slim
     cache:
         paths:
             - .cache/pip
