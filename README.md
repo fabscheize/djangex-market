@@ -41,19 +41,19 @@ source venv/bin/activate
 venv\Scripts\activate.bat
 ```
 
-4. Переход в директорию проекта:
-```bash
-cd lyceum
-```
-
-## Запуск сервера
+## Запуск
 
 1. Установка зависимостей:
 ```bash
 pip install -r requirements/prod.txt
 ```
 
-2. Запуск сервера:
+2. Переход в директорию проекта:
+```bash
+cd lyceum
+```
+
+3. Запуск сервера:
 ```bash
 python manage.py runserver
 ```
@@ -76,7 +76,12 @@ cp .env.example .env
 copy .env.example .env
 ```
 
-3. Запуск сервера:
+3. Переход в директорию проекта:
+```bash
+cd lyceum
+```
+
+4. Запуск сервера:
 ```bash
 python manage.py runserver
 ```
@@ -88,7 +93,12 @@ python manage.py runserver
 pip install -r requirements/test.txt
 ```
 
-7. Запуск тестов:
+2. Переход в директорию проекта:
+```bash
+cd lyceum
+```
+
+3. Запуск тестов:
 ```bash
 python manage.py test
 ```
