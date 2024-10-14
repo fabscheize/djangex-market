@@ -11,13 +11,13 @@
 
 ## Зависимости
 
-- Python 3.8 или выше
+- Python 3.9 или выше
 
 ## Установка
 
 1. Клонирование репозитория:
 ```bash
-git clone https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187
+git clone https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187 && cd 286651-ya.vkarsten-course-1187
 ```
 2. Создание виртуального окружения:
 
@@ -43,6 +43,8 @@ venv\Scripts\activate.bat
 
 ## Запуск
 
+Необходимо выполнить команды из корневой директории проекта:
+
 1. Установка зависимостей:
 ```bash
 pip install -r requirements/prod.txt
@@ -59,6 +61,8 @@ python manage.py runserver
 ```
 
 ## Локальная разработка
+
+Необходимо выполнить команды из корневой директории проекта:
 
 1. Установка зависимостей для разработки:
 ```bash
@@ -86,6 +90,8 @@ python manage.py runserver
 ```
 
 ## Тестирование
+
+Необходимо выполнить команды из корневой директории проекта:
 
 1. Установка зависимостей для тестирования:
 ```bash
