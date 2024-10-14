@@ -3,33 +3,20 @@ import re
 from django.conf import settings
 
 
-def reverse_russian_words(string):
-    delimiters = [
-        ' ',
-        '.',
-        ',',
-        '!',
-        '?',
-        '(',
-        ')',
-        ';',
-        ':',
-        '"',
-        '-',
-        "'",
-        '<',
-        '>',
-        '/',
+WORDS_REGEX = re.compile(r'\w+|\W+')
+RUSSIAN_REGEX = re.compile(r'^[а-яА-яёЁ]+$')
+
+
+def reverse_russian_words(string) -> str:
+    words = re.findall(WORDS_REGEX, string)
+
+    transformed_words = [
+        word[::-1] if RUSSIAN_REGEX.search(word) else word for word in words
     ]
-    regex_pattern = '|'.join(map(re.escape, delimiters))
-    all_words = re.split(regex_pattern, string)
-    all_words = [word for word in all_words if word != '']
 
-    for word in all_words:
-        if re.fullmatch(r'[А-Яа-яёЁ]+', word) is not None:
-            string = string.replace(word, word[::-1])
+    transformed_string = ''.join(transformed_words)
 
-    return string
+    return transformed_string
 
 
 class ReverseMiddleware:
@@ -38,15 +25,22 @@ class ReverseMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
 
+    @classmethod
+    def is_need_to_reverse(cls) -> bool:
+        if not settings.ALLOW_REVERSE:
+            return False
+
+        cls.count = (cls.count + 1) % 10
+        if cls.count % 10 != 0:
+            return False
+        cls.count = 0
+        return True
+
     def __call__(self, request):
         response = self.get_response(request)
-        if settings.ALLOW_REVERSE:
-            ReverseMiddleware.count += 1
 
-            if ReverseMiddleware.count == 10:
-                ReverseMiddleware.count = 0
-                content = response.content.decode('utf-8')
-                reversed_content = reverse_russian_words(content)
-                response.content = reversed_content.encode('utf-8')
+        if self.is_need_to_reverse():
+            content = response.content.decode('utf-8')
+            response.content = reverse_russian_words(content).encode('utf-8')
 
         return response
