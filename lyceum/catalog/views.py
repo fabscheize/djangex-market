@@ -6,12 +6,4 @@ def item_list(request):
 
 
 def item_detail(request, pk):
-    return HttpResponse('<body>Подробно элемент</body>')
-
-
-def re_item_detail(request, pk):
-    return HttpResponse(f'<body>{pk}</body>')
-
-
-def converter_item_detail(request, pk):
     return HttpResponse(f'<body>{pk}</body>')

@@ -13,7 +13,7 @@ class CatalogHttpResponseTest(TestCase):
         'path, pk, expected_content, status',
         [
             ('', '', 'Список элементов', HTTPStatus.OK),
-            ('', randint(0, 100), 'Подробно элемент', HTTPStatus.OK),
+            ('', *([randint(1, 100)] * 2), HTTPStatus.OK),
             ('re/', *([randint(1, 100)] * 2), HTTPStatus.OK),
             ('re/', -1, None, HTTPStatus.NOT_FOUND),
             ('re/', '', None, HTTPStatus.NOT_FOUND),
