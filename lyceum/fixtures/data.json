@@ -1,0 +1,139 @@
+[
+{
+  "model": "catalog.category",
+  "pk": 1,
+  "fields": {
+    "name": "Категория 1",
+    "is_published": true,
+    "slug": "category_1",
+    "weight": 200
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 2,
+  "fields": {
+    "name": "Категория 2",
+    "is_published": false,
+    "slug": "category_2",
+    "weight": 100
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 1,
+  "fields": {
+    "name": "Тег 1",
+    "is_published": true,
+    "slug": "tag_1"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 2,
+  "fields": {
+    "name": "Тег 2",
+    "is_published": true,
+    "slug": "tag_2"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 3,
+  "fields": {
+    "name": "Тег 3",
+    "is_published": true,
+    "slug": "tag_3"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 4,
+  "fields": {
+    "name": "Тег 4",
+    "is_published": true,
+    "slug": "tag_4"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 5,
+  "fields": {
+    "name": "Тег 5",
+    "is_published": true,
+    "slug": "tag_5"
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 1,
+  "fields": {
+    "name": "Товар 1",
+    "is_published": true,
+    "categories": 1,
+    "text": "Превосходно покупают",
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 2,
+  "fields": {
+    "name": "Товар 2",
+    "is_published": true,
+    "categories": 2,
+    "text": "Роскошно иметь такой товар",
+    "tags": [
+      1,
+      5
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 3,
+  "fields": {
+    "name": "Товар 3",
+    "is_published": true,
+    "categories": 1,
+    "text": "Тут в тексте и превосходно, и роскошно",
+    "tags": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 4,
+  "fields": {
+    "name": "Товар 4",
+    "is_published": true,
+    "categories": 1,
+    "text": "Было бы роскошно сдать эту домашку",
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 5,
+  "fields": {
+    "name": "Товар 5",
+    "is_published": true,
+    "categories": 2,
+    "text": "Я не устану превосходно заполнять описание товаров",
+    "tags": [
+      4,
+      5
+    ]
+  }
+}
+]
