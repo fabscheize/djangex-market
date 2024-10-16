@@ -1,5 +1,8 @@
 [flake8]
-exclude = venv/*, __pycache__/*, .git/*
+exclude =
+    venv/*
+    __pycache__/*
+    .git/*
 require-plugins =
     pep8-naming
     flake8-import-order
@@ -10,3 +13,6 @@ require-plugins =
 application-import-names = about, catalog, homepage
 import-order-style = google
 inline-quotes = single
+per-file-ignores =
+    */migrations/*:E501
+    models.py:A003
