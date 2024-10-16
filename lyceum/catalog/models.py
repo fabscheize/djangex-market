@@ -1,9 +1,10 @@
+import re
+
 from core.models import AbstractModel
 import django.core.exceptions
 import django.core.validators
 import django.db
 import django.utils.deconstruct
-import re
 
 
 @django.utils.deconstruct.deconstructible

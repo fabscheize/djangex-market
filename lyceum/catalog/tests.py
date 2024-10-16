@@ -1,8 +1,8 @@
 from http import HTTPStatus
 from random import randint
 
-from django.test import Client, TestCase
 from django.core.exceptions import ValidationError
+from django.test import Client, TestCase
 from parametrize import parametrize
 
 from catalog.models import Category, Item, Tag
@@ -145,4 +145,3 @@ class ItemModelTest(TestCase):
         )
         item.full_clean()
         item.save()
-        # item.tags.set(self.tag.objects.all()[1])
