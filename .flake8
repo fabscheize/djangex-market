@@ -3,6 +3,7 @@ exclude =
     venv/*
     __pycache__/*
     .git/*
+    */migrations/
 require-plugins =
     pep8-naming
     flake8-import-order
@@ -14,5 +15,4 @@ application-import-names = about, catalog, homepage
 import-order-style = google
 inline-quotes = single
 per-file-ignores =
-    */migrations/*:E501
     models.py:A003
