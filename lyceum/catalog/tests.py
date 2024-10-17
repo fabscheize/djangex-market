@@ -144,7 +144,7 @@ class ItemModelTest(TestCase):
         item = Item(
             name=name,
             text=text,
-            categories=self.category,
+            category=self.category,
         )
         item.full_clean()
         item.save()

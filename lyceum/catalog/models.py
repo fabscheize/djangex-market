@@ -74,7 +74,7 @@ class Tag(AbstractModel):
 
 class Item(AbstractModel):
 
-    categories = django.db.models.ForeignKey(
+    category = django.db.models.ForeignKey(
         Category,
         on_delete=django.db.models.CASCADE,
         verbose_name='категория',
