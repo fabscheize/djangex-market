@@ -30,7 +30,7 @@ class ValidateContainsWords(object):
 
 class Category(AbstractModel):
     slug = django.db.models.CharField(
-        'Слаг',
+        verbose_name='слаг',
         max_length=200,
         validators=[
             django.core.validators.validate_slug,
@@ -41,7 +41,7 @@ class Category(AbstractModel):
         ),
     )
     weight = django.db.models.IntegerField(
-        verbose_name='Вес',
+        verbose_name='вес',
         default=100,
         validators=[
             django.core.validators.MinValueValidator(1),
@@ -50,13 +50,13 @@ class Category(AbstractModel):
     )
 
     class Meta:
-        verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'
+        verbose_name = 'категория'
+        verbose_name_plural = 'категории'
 
 
 class Tag(AbstractModel):
     slug = django.db.models.CharField(
-        'Слаг',
+        verbose_name='слаг',
         max_length=200,
         validators=[
             django.core.validators.validate_slug,
@@ -68,8 +68,8 @@ class Tag(AbstractModel):
     )
 
     class Meta:
-        verbose_name = 'Тег'
-        verbose_name_plural = 'Теги'
+        verbose_name = 'тег'
+        verbose_name_plural = 'теги'
 
 
 class Item(AbstractModel):
@@ -77,16 +77,16 @@ class Item(AbstractModel):
     categories = django.db.models.ForeignKey(
         Category,
         on_delete=django.db.models.CASCADE,
-        verbose_name='Категория',
+        verbose_name='категория',
     )
 
     tags = django.db.models.ManyToManyField(
         Tag,
-        verbose_name='Теги',
+        verbose_name='теги',
     )
 
     text = django.db.models.TextField(
-        'Текст',
+        verbose_name='текст',
         help_text=(
             'В описании обязательно должно быть слово '
             '"превосходно" или "роскошно"'
@@ -97,5 +97,5 @@ class Item(AbstractModel):
     )
 
     class Meta:
-        verbose_name = 'Товар'
-        verbose_name_plural = 'Товары'
+        verbose_name = 'товар'
+        verbose_name_plural = 'товары'
