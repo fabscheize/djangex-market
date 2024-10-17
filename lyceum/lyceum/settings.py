@@ -11,7 +11,7 @@ SECRET_KEY = env.str(
     'DJANGO_SECRET_KEY',
     env.str(
         'SECRET_KEY',
-        default='default_secret_key',
+        default='XXXXXX',
     ),
 )
 
