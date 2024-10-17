@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.test import Client, override_settings, RequestFactory, TestCase
-from lyceum.middleware import ReverseMiddleware
 from parametrize import parametrize
+
+from lyceum.middleware import ReverseMiddleware
 
 
 class ReverseMiddlewareTest(TestCase):
@@ -14,7 +15,10 @@ class ReverseMiddlewareTest(TestCase):
         ],
     )
     def test_reverse_middleware(
-        self, allow_reverse, expected_normal, expected_reversed
+        self,
+        allow_reverse,
+        expected_normal,
+        expected_reversed,
     ):
         responses = {'Я чайник': 0, 'Я кинйач': 0}
 
@@ -40,11 +44,13 @@ class ReverseMiddlewareTest(TestCase):
         ],
     )
     def test_middleware_reverses_content_on_tenth_request(
-        self, initial_content, expected_content
+        self,
+        initial_content,
+        expected_content,
     ):
         factory = RequestFactory()
         middleware = ReverseMiddleware(
-            lambda request: HttpResponse(initial_content)
+            lambda request: HttpResponse(initial_content),
         )
         ReverseMiddleware.count = 9
         request = factory.get('/')

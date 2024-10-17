@@ -33,7 +33,8 @@ class CatalogHttpResponseTest(TestCase):
         self.assertEqual(response.status_code, status)
         if status == HTTPStatus.OK:
             self.assertIn(
-                str(expected_content).encode('utf-8'), response.content
+                str(expected_content).encode('utf-8'),
+                response.content,
             )
 
 
@@ -65,7 +66,8 @@ class CategoryModelTest(TestCase):
             self.create_and_save_category(name, slug, weight)
 
         self.assertEqual(
-            Category.objects.count(), element_count + created_elements
+            Category.objects.count(),
+            element_count + created_elements,
         )
 
     def create_and_save_category(self, name, slug, weight):
@@ -134,7 +136,8 @@ class ItemModelTest(TestCase):
             self.create_and_save_item(name, text)
 
         self.assertEqual(
-            Item.objects.count(), element_count + created_elements
+            Item.objects.count(),
+            element_count + created_elements,
         )
 
     def create_and_save_item(self, name, text):

@@ -7,16 +7,24 @@ env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env.str('DJANGO_SECRET_KEY', env.str('SECRET_KEY', default='XXX'))
+SECRET_KEY = env.str(
+    'DJANGO_SECRET_KEY',
+    env.str(
+        'SECRET_KEY',
+        default='default_secret_key',
+    ),
+)
 
 ALLOWED_HOSTS = env.list(
-    'DJANGO_ALLOWED_HOSTS', env.list('ALLOWED_HOSTS', default=['*'])
+    'DJANGO_ALLOWED_HOSTS',
+    env.list('ALLOWED_HOSTS', default=['*']),
 )
 
 DEBUG = env.bool('DJANGO_DEBUG', env.bool('DEBUG', default=False))
 
 raw_value = env.str(
-    'DJANGO_ALLOW_REVERSE', env.str('ALLOW_REVERSE', default='')
+    'DJANGO_ALLOW_REVERSE',
+    env.str('ALLOW_REVERSE', default=''),
 )
 ALLOW_REVERSE = raw_value.lower() in ('', 'true', 'yes', '1', 'y')
 
@@ -74,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
 }
 
 AUTH_PASSWORD_VALIDATORS = [
