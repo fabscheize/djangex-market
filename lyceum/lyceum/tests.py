@@ -25,7 +25,7 @@ class ReverseMiddlewareTest(TestCase):
         with override_settings(ALLOW_REVERSE=allow_reverse):
             for _ in range(10):
                 response = Client().get('/coffee/')
-                key = response.content.decode('utf-8').strip('</body>')
+                key = response.content.decode('utf-8')
                 responses[key] += 1
 
         self.assertEqual(expected_normal, responses['Я чайник'])
