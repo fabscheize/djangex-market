@@ -6,12 +6,14 @@ exclude =
     */migrations/
 require-plugins =
     pep8-naming
+    flake8-commas
+    flake8-fixme
     flake8-import-order
     flake8-quotes
     flake8-bugbear
     flake8-builtins
     flake8-eradicate
-application-import-names = about, catalog, homepage
+application-import-names = lyceum, about, catalog, homepage, core
 import-order-style = google
 inline-quotes = single
 per-file-ignores =
