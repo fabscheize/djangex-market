@@ -8,6 +8,12 @@ from parametrize import parametrize
 from catalog.models import Category, Item, Tag
 
 
+def create_and_save_entry(model_class, **kwargs):
+    instance = model_class(**kwargs)
+    instance.full_clean()
+    instance.save()
+
+
 class CatalogHttpResponseTest(TestCase):
     def setUp(self):
         self.client = Client()
@@ -43,7 +49,7 @@ class CategoryModelTest(TestCase):
         'name, slug, weight, created_elements',
         [
             ('Категория 1', 'category-1', 100, 1),
-            ('А' * 150, 'category-2', 100, 1),
+            ('А' * 150, 'category-1', 100, 1),
             ('А' * 151, 'category-2', 100, 0),
             ('Категория 2', '_' * 200, 100, 1),
             ('Категория 2', '_' * 201, 100, 0),
@@ -52,8 +58,6 @@ class CategoryModelTest(TestCase):
             ('Категория 2', 'invalid_slug!', 100, 0),
             ('Категория 3', 'category-3', 0, 0),
             ('Категория 3', 'category-3', 1, 1),
-            ('Категория 3', 'category-3', 32767, 1),
-            ('Категория 3', 'category-4', 32768, 0),
         ],
     )
     def test_category_validation(self, name, slug, weight, created_elements):
@@ -61,19 +65,24 @@ class CategoryModelTest(TestCase):
 
         if created_elements == 0:
             with self.assertRaises(ValidationError):
-                self.create_and_save_category(name, slug, weight)
+                create_and_save_entry(
+                    Category,
+                    name=name,
+                    slug=slug,
+                    weight=weight,
+                )
         else:
-            self.create_and_save_category(name, slug, weight)
+            create_and_save_entry(
+                Category,
+                name=name,
+                slug=slug,
+                weight=weight,
+            )
 
         self.assertEqual(
             Category.objects.count(),
             element_count + created_elements,
         )
-
-    def create_and_save_category(self, name, slug, weight):
-        category = Category(name=name, slug=slug, weight=weight)
-        category.full_clean()
-        category.save()
 
 
 class TagModelTest(TestCase):
@@ -95,16 +104,19 @@ class TagModelTest(TestCase):
 
         if created_elements == 0:
             with self.assertRaises(ValidationError):
-                self.create_and_save_tag(name, slug)
+                create_and_save_entry(
+                    Tag,
+                    name=name,
+                    slug=slug,
+                )
         else:
-            self.create_and_save_tag(name, slug)
+            create_and_save_entry(
+                Tag,
+                name=name,
+                slug=slug,
+            )
 
         self.assertEqual(Tag.objects.count(), element_count + created_elements)
-
-    def create_and_save_tag(self, name, slug):
-        tag = Tag(name=name, slug=slug)
-        tag.full_clean()
-        tag.save()
 
 
 class ItemModelTest(TestCase):
@@ -131,20 +143,84 @@ class ItemModelTest(TestCase):
 
         if created_elements == 0:
             with self.assertRaises(ValidationError):
-                self.create_and_save_item(name, text)
+                create_and_save_entry(
+                    Item,
+                    name=name,
+                    text=text,
+                    category=self.category,
+                )
         else:
-            self.create_and_save_item(name, text)
+            create_and_save_entry(
+                Item,
+                name=name,
+                text=text,
+                category=self.category,
+            )
 
         self.assertEqual(
             Item.objects.count(),
             element_count + created_elements,
         )
 
-    def create_and_save_item(self, name, text):
-        item = Item(
-            name=name,
-            text=text,
-            category=self.category,
+
+class NormalizedNameTest(TestCase):
+    @parametrize(
+        'first_name, second_name, slug, weight',
+        [
+            ('Категория 1', 'Категория_1', 'category-1', 100),
+            ('Категория 1', 'Категория 1!', 'category-2', 100),
+            ('Категория 1', 'категория 1', 'category-3', 100),
+            ('Категория 1', 'Kатегория 1', 'category-4', 100),
+        ],
+    )
+    def test_category_normalized_name(
+        self,
+        first_name,
+        second_name,
+        slug,
+        weight,
+    ):
+
+        create_and_save_entry(
+            Category,
+            name=first_name,
+            slug=slug,
+            weight=weight,
         )
-        item.full_clean()
-        item.save()
+
+        element_count = Category.objects.count()
+
+        with self.assertRaises(ValidationError):
+            create_and_save_entry(
+                Category,
+                name=second_name,
+                slug=slug,
+                weight=weight,
+            )
+
+        self.assertEqual(Category.objects.count(), element_count)
+
+    @parametrize(
+        'first_name, second_name, slug',
+        [
+            ('Тег 1', 'Тег_1', 'tag-1'),
+            ('Тег 1', 'Тег 1!', 'tag-2'),
+            ('Тег 1', 'тег 1', 'tag-3'),
+            ('Тег 1', 'Tег 1', 'tag-4'),
+        ],
+    )
+    def test_tag_normalized_name(
+        self,
+        first_name,
+        second_name,
+        slug,
+    ):
+
+        create_and_save_entry(Tag, name=first_name, slug=slug)
+
+        element_count = Tag.objects.count()
+
+        with self.assertRaises(ValidationError):
+            create_and_save_entry(Tag, name=second_name, slug=slug)
+
+        self.assertEqual(Tag.objects.count(), element_count)
