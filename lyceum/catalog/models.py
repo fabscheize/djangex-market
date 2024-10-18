@@ -44,7 +44,10 @@ class Category(AbstractModel):
 
     def clean(self):
         normalized = normalize_name(self.name)
-        if Category.objects.filter(normalized_name=normalized).exists():
+        if (
+            not self.pk
+            and Category.objects.filter(normalized_name=normalized).exists()
+        ):
             raise exceptions.ValidationError(
                 {'name': 'Категория с похожим именем уже существует.'},
             )
@@ -79,7 +82,10 @@ class Tag(AbstractModel):
 
     def clean(self):
         normalized = normalize_name(self.name)
-        if Tag.objects.filter(normalized_name=normalized).exists():
+        if (
+            not self.pk
+            and Tag.objects.filter(normalized_name=normalized).exists()
+        ):
             raise exceptions.ValidationError(
                 {'name': 'Тег с похожим именем уже существует.'},
             )
