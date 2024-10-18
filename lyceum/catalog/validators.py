@@ -1,9 +1,10 @@
 import re
 
-import django.utils.deconstruct
+from django.core import exceptions
+from django.utils import deconstruct
 
 
-@django.utils.deconstruct.deconstructible
+@deconstruct.deconstructible
 class ValidateContainsWords(object):
     def __init__(self, *words):
         self.words = words
@@ -14,7 +15,7 @@ class ValidateContainsWords(object):
 
     def __call__(self, text):
         if not self.pattern.search(text):
-            raise django.core.exceptions.ValidationError(
+            raise exceptions.ValidationError(
                 (
                     'Убедитесь, что в тесте есть одно из следующих слов: '
                     f'{", ".join(self.words)}'
