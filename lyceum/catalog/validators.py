@@ -17,7 +17,7 @@ class ValidateContainsWords(object):
         if not self.pattern.search(text):
             raise exceptions.ValidationError(
                 (
-                    'Убедитесь, что в тесте есть одно из следующих слов: '
+                    'Убедитесь, что в тексте есть одно из следующих слов: '
                     f'{", ".join(self.words)}'
                 ),
                 params={'text': text},
