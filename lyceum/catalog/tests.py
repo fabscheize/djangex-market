@@ -165,27 +165,25 @@ class ItemModelTest(TestCase):
 
 class NormalizedNameTest(TestCase):
     @parametrize(
-        'first_name, second_name, slug, weight',
+        'first_name, second_name',
         [
-            ('Категория 1', 'Категория_1', 'category-1', 100),
-            ('Категория 1', 'Категория 1!', 'category-2', 100),
-            ('Категория 1', 'категория 1', 'category-3', 100),
-            ('Категория 1', 'Kатегория 1', 'category-4', 100),
+            ('Категория 1', 'Категория_1'),
+            ('Категория 1', 'Категория 1!'),
+            ('Категория 1', 'категория 1'),
+            ('Категория 1', 'Kатегория 1'),
         ],
     )
     def test_category_normalized_name(
         self,
         first_name,
         second_name,
-        slug,
-        weight,
     ):
 
         create_and_save_entry(
             Category,
             name=first_name,
-            slug=slug,
-            weight=weight,
+            slug='category-1',
+            weight=100,
         )
 
         element_count = Category.objects.count()
@@ -194,33 +192,32 @@ class NormalizedNameTest(TestCase):
             create_and_save_entry(
                 Category,
                 name=second_name,
-                slug=slug,
-                weight=weight,
+                slug='category-2',
+                weight=100,
             )
 
         self.assertEqual(Category.objects.count(), element_count)
 
     @parametrize(
-        'first_name, second_name, slug',
+        'first_name, second_name',
         [
-            ('Тег 1', 'Тег_1', 'tag-1'),
-            ('Тег 1', 'Тег 1!', 'tag-2'),
-            ('Тег 1', 'тег 1', 'tag-3'),
-            ('Тег 1', 'Tег 1', 'tag-4'),
+            ('Тег 1', 'Тег_1'),
+            ('Тег 1', 'Тег 1!'),
+            ('Тег 1', 'тег 1'),
+            ('Тег 1', 'Tег 1'),
         ],
     )
     def test_tag_normalized_name(
         self,
         first_name,
         second_name,
-        slug,
     ):
 
-        create_and_save_entry(Tag, name=first_name, slug=slug)
+        create_and_save_entry(Tag, name=first_name, slug='tag-1')
 
         element_count = Tag.objects.count()
 
         with self.assertRaises(ValidationError):
-            create_and_save_entry(Tag, name=second_name, slug=slug)
+            create_and_save_entry(Tag, name=second_name, slug='tag-2')
 
         self.assertEqual(Tag.objects.count(), element_count)
