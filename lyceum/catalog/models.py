@@ -2,16 +2,18 @@ import re
 
 from django.core import exceptions, validators
 from django.db import models
+from transliterate import translit
 
 from catalog.validators import ValidateContainsWords
 from core.models import AbstractModel
+
 
 PUNCTUATION_REGEX = re.compile(r'[\W_]')
 
 
 def normalize_name(name):
     name = re.sub(PUNCTUATION_REGEX, '', name).lower()
-    name = name.translate(str.maketrans('авекмнорстух', 'abekmhopctyx'))
+    name = translit(name, 'ru', reversed=True)
     return name
 
 
