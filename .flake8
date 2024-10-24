@@ -1,9 +1,10 @@
 [flake8]
 exclude =
     venv/*
+    *.venv/*
     __pycache__/*
     .git/*
-    */migrations/
+    */migrations/*
 require-plugins =
     pep8-naming
     flake8-commas
