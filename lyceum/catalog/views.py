@@ -23,7 +23,7 @@ def item_list(request):
 
 
 def item_detail(request, pk):
-    if pk > 5:
+    if int(pk) > 5:
         return HttpResponse(f'<body>{pk}</body>')
 
     template = 'catalog/item.html'
