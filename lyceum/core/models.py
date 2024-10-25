@@ -1,6 +1,8 @@
 import django.core.validators
 import django.db.models
 
+__all__ = []
+
 
 class AbstractModel(django.db.models.Model):
     id = django.db.models.BigAutoField(

@@ -9,6 +9,8 @@ from transliterate import translit
 from catalog.validators import ValidateContainsWords
 from core.models import AbstractModel
 
+__all__ = []
+
 PUNCTUATION_REGEX = re.compile(r'[\W_]')
 
 

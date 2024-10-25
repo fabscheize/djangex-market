@@ -2,6 +2,8 @@ from django.contrib import admin
 
 from catalog import models
 
+__all__ = []
+
 
 class ItemImageInline(admin.TabularInline):
     model = models.ItemImage

@@ -2,6 +2,8 @@
 import os
 import sys
 
+__all__ = []
+
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'lyceum.settings')

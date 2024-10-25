@@ -5,6 +5,8 @@ from django.shortcuts import render
 
 from lyceum import settings
 
+__all__ = []
+
 ITEMS_FILE_PATH = settings.BASE_DIR / 'static_dev/files/items.json'
 
 

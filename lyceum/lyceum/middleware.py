@@ -2,6 +2,8 @@ import re
 
 from django.conf import settings
 
+__all__ = []
+
 
 WORDS_REGEX = re.compile(r'\w+|\W+')
 RUSSIAN_REGEX = re.compile(r'^[а-яА-яёЁ]+$')

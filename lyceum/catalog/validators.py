@@ -3,6 +3,8 @@ import re
 from django.core import exceptions
 from django.utils import deconstruct
 
+__all__ = []
+
 
 @deconstruct.deconstructible
 class ValidateContainsWords(object):

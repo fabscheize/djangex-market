@@ -8,6 +8,8 @@ from parametrize import parametrize
 
 from catalog.models import Category, Item, Tag
 
+__all__ = []
+
 
 def create_and_save_entry(model_class, **kwargs):
     instance = model_class(**kwargs)

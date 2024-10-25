@@ -5,6 +5,8 @@ from parametrize import parametrize
 
 from lyceum.middleware import ReverseMiddleware
 
+__all__ = []
+
 
 class ReverseMiddlewareTest(TestCase):
 
