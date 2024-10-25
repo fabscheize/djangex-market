@@ -20,6 +20,7 @@
 ```bash
 git clone https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187 && cd 286651-ya.vkarsten-course-1187
 ```
+
 2. Создание виртуального окружения:
 
 - Linux/MacOS
@@ -56,7 +57,12 @@ pip install -r requirements/prod.txt
 cd lyceum
 ```
 
-3. Запуск сервера:
+3. Примемение миграций:
+```bash
+python manage.py migrate
+```
+
+4. Запуск сервера:
 ```bash
 python manage.py runserver
 ```
@@ -85,10 +91,31 @@ cp .env.example .env
 copy .env.example .env
 ```
 
-4. Запуск сервера:
+4. Для запуска можно использовать демонстрационную БД – для это необходимо скопировать ее из файла:
+
+- Linux/MacOS
+```bash
+cp demo_db.sqllite3 db.sqllite3
+```
+- Windows
+```bash
+copy demo_db.sqllite3 db.sqllite3
+```
+
+5. Примемение миграций:
+```bash
+python manage.py migrate
+```
+
+6. Запуск сервера:
 ```bash
 python manage.py runserver
 ```
+
+Для админки:
+
+- логин ```admin```
+- пароль ```admin```
 
 ## Тестирование
 
