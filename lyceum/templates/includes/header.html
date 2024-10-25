@@ -1,0 +1,35 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url "homepage:home" %}">
+      <img src="{% static 'img/logo.png' %}" alt="Джангекс маркет" width="300" height="36">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Джангекс маркет">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {% with request.resolver_match.view_name as view_name %}
+        <li class="nav-item">
+           {% if view_name == 'homepage:home' %} <a class="nav-link active disabled" aria-disabled="true" href="#"> {% else %} <a class="nav-link" href="{% url 'homepage:home' %}"> {% endif %}
+            Главная
+          </a>
+        </li>
+        <li class="nav-item">
+           {% if view_name == 'catalog:list' %} <a class="nav-link active disabled" aria-disabled="true" href="#"> {% else %} <a class="nav-link" href="{% url 'catalog:list' %}"> {% endif %}
+            Каталог
+          </a>
+        </li>
+        <li class="nav-item">
+           {% if view_name == 'about:about' %} <a class="nav-link active disabled" aria-disabled="true" href="#"> {% else %} <a class="nav-link" href="{% url 'about:about' %}"> {% endif %}
+            О проекте
+          </a>
+        </li>
+        {% endwith %}
+      </ul>
+    </div>
+  </div>
+</nav>

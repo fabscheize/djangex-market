@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+  <div class="container">
+
+    <h1>{{ item.name }}</h1>
+    <img src="{{ item.image_url }}" alt="{{ item.name }}">
+
+    <p>Категория: {{ item.category }}</p>
+    <p>Теги: {{ item.tags }}</p>
+    <p>Описание:</p>
+    <p>{{ item.text }}</p>
+    <button>Добавить в корзину</button>
+
+  </div>
+{% endblock content %}

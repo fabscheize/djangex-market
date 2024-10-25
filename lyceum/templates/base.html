@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}" />
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
+    <meta name="apple-mobile-web-app-title" content="Джангекс" />
+    {% comment %} <link rel="manifest" href="{% static 'img/site.webmanifest' %}" /> {% endcomment %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/custom.css' %}"> {% endcomment %}
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    {% include "includes/header.html" %}
+    <main class="flex-grow-1">
+      {% block content %}Контента не будет, он принял ислам{% endblock  %}
+
+      {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> {% endcomment %}
+      <script src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
+    </main>
+    {% include "includes/footer.html" %}
+  </body>
+</html>
