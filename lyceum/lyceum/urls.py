@@ -23,5 +23,6 @@ if settings.DEBUG:
     debug_toolbar = import_module('debug_toolbar.toolbar')
     urlpatterns += debug_toolbar.debug_toolbar_urls()
     urlpatterns += static(
-        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT,
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT,
     )

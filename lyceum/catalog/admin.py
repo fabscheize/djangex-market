@@ -1,7 +1,6 @@
-from catalog import models
 from django.contrib import admin
-from django.utils.safestring import mark_safe
-from sorl.thumbnail import get_thumbnail
+
+from catalog import models
 
 
 class ItemImageInline(admin.TabularInline):
@@ -23,7 +22,6 @@ class ItemAdmin(admin.ModelAdmin):
     filter_horizontal = (models.Item.tags.field.name,)
     inlines = [ItemImageInline]
     readonly_fields = (models.Item.get_main_image,)
-
 
 
 @admin.register(models.Tag)

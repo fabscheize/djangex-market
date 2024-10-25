@@ -1,12 +1,13 @@
 import re
 
-from catalog.validators import ValidateContainsWords
-from core.models import AbstractModel
 from django.core import exceptions, validators
 from django.db import models
 from django.utils.safestring import mark_safe
-from sorl.thumbnail import ImageField, get_thumbnail
+from sorl.thumbnail import get_thumbnail, ImageField
 from transliterate import translit
+
+from catalog.validators import ValidateContainsWords
+from core.models import AbstractModel
 
 PUNCTUATION_REGEX = re.compile(r'[\W_]')
 
