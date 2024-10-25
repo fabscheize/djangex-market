@@ -1,7 +1,9 @@
 from importlib import import_module
 
 from django.contrib import admin
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include, path
+from django.views.generic.base import RedirectView
 
 from lyceum import settings
 
@@ -10,6 +12,10 @@ urlpatterns = [
     path('about/', include('about.urls')),
     path('catalog/', include('catalog.urls')),
     path('admin/', admin.site.urls),
+    path(
+        'favicon.ico/',
+        RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico')),
+    ),
 ]
 
 if settings.DEBUG:
