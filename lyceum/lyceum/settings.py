@@ -31,13 +31,17 @@ ALLOW_REVERSE = raw_value.lower() in ('', 'true', 'yes', '1', 'y')
 INSTALLED_APPS = [
     'about.apps.AboutConfig',
     'catalog.apps.CatalogConfig',
+    'homepage.apps.HomepageConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sessions',
     'django.contrib.staticfiles',
-    'homepage.apps.HomepageConfig',
+
+    'django_cleanup.apps.CleanupConfig',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [

@@ -1,12 +1,12 @@
 import re
 
-from django.core import exceptions, validators
-from django.db import models
-from transliterate import translit
-
 from catalog.validators import ValidateContainsWords
 from core.models import AbstractModel
-
+from django.core import exceptions, validators
+from django.db import models
+from django.utils.safestring import mark_safe
+from sorl.thumbnail import ImageField, get_thumbnail
+from transliterate import translit
 
 PUNCTUATION_REGEX = re.compile(r'[\W_]')
 
@@ -15,6 +15,18 @@ def normalize_name(name):
     name = re.sub(PUNCTUATION_REGEX, '', name).lower()
     name = translit(name, 'ru', reversed=True)
     return name
+
+
+def thumb_image(image):
+    thumb = get_thumbnail(
+        image,
+        '300x300',
+        crop='center',
+        quality=75,
+    )
+    return mark_safe(
+        f'<img src="{thumb.url}" width="300" height="300" />',
+    )
 
 
 class Category(AbstractModel):
@@ -125,6 +137,44 @@ class Item(AbstractModel):
         ],
     )
 
+    main_image = ImageField(
+        upload_to='items/main_images/',
+        verbose_name='главное изображение',
+        null=True,
+        blank=True,
+    )
+
+    def get_main_image(self):
+        if self.main_image:
+            return thumb_image(self.main_image)
+        return 'Нет изображения'
+
+    get_main_image.short_description = 'превью'
+
     class Meta:
         verbose_name = 'товар'
         verbose_name_plural = 'товары'
+
+
+class ItemImage(models.Model):
+    item = models.ForeignKey(
+        Item,
+        on_delete=models.CASCADE,
+        verbose_name='товар',
+    )
+
+    image = ImageField(
+        upload_to='items/images/',
+        verbose_name='изображение',
+    )
+
+    def get_image(self):
+        if self.image:
+            return thumb_image(self.image)
+        return 'Нет изображения'
+
+    get_image.short_description = 'превью'
+
+    class Meta:
+        verbose_name = 'изображение'
+        verbose_name_plural = 'изображения'

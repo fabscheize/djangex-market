@@ -1,5 +1,6 @@
 from importlib import import_module
 
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include, path
@@ -21,3 +22,6 @@ urlpatterns = [
 if settings.DEBUG:
     debug_toolbar = import_module('debug_toolbar.toolbar')
     urlpatterns += debug_toolbar.debug_toolbar_urls()
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT,
+    )
