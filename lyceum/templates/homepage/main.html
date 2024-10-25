@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
-  <h1>Главная страница</h1>
+<div class="container my-3">
+  <h1>Главная</h1>
+</div>
+<div class="container my-3">
+  <img src="{% static 'img/cat.jpeg' %}" class="img-fluid rounded mx-auto d-block" alt="cat">
+</div>
+{% include "includes/item_cards.html" %}
 {% endblock content %}

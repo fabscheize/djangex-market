@@ -1,16 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
-  <div class="container">
+  <div class="container my-3">
 
     <h1>{{ item.name }}</h1>
     <img src="{{ item.image_url }}" alt="{{ item.name }}">
-
     <p>Категория: {{ item.category }}</p>
     <p>Теги: {{ item.tags }}</p>
-    <p>Описание:</p>
-    <p>{{ item.text }}</p>
-    <button>Добавить в корзину</button>
+    <p>Описание: {{ item.text }}</p>
+    <p>
+      <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#disclaimer" aria-expanded="false" aria-controls="disclaimer">
+        Почему так скудно?
+      </button>
+    </p>
+    <div class="collapse" id="disclaimer">
+      <div class="card card-body">
+        Дедлайн горит, а сделать что-то надо. Потом сделаю красивее обещаю.
+      </div>
+    </div>
 
   </div>
 {% endblock content %}
