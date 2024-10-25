@@ -1,6 +1,6 @@
 import json
 
-from django.http import Http404, HttpResponse
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from lyceum import settings
@@ -23,15 +23,12 @@ def item_list(request):
 
 
 def item_detail(request, pk):
-    if int(pk) > 5:
-        return HttpResponse(f'<body>{pk}</body>')
-
     template = 'catalog/item.html'
     items = load_items()
     item = next((item for item in items if item['pk'] == int(pk)), None)
 
     if item is None:
-        raise Http404('Товар не найден')
+        return HttpResponse(f'<body>{pk}</body>')
 
     context = {'item': item}
     return render(request, template, context)
