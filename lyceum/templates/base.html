@@ -5,17 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="{% static 'favicon/favicon.ico' %}" />
+    <link rel="icon" type="image" href="{% static 'favicon/favicon.ico' %}" />
     <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}" />
 
-    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
   </head>
   <body class="d-flex flex-column min-vh-100">
     {% include "includes/header.html" %}
     <main class="flex-grow-1">
       {% block content %}Контента не будет, он принял ислам{% endblock  %}
-      <script src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
+      <script src="{% static 'js/bootstrap.js' %}"></script>
     </main>
     {% include "includes/footer.html" %}
   </body>
