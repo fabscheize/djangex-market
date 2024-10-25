@@ -5,13 +5,6 @@ __all__ = []
 
 
 class AbstractModel(django.db.models.Model):
-    id = django.db.models.BigAutoField(
-        verbose_name='id',
-        primary_key=True,
-        validators=[
-            django.core.validators.MinValueValidator(1),
-        ],
-    )
     name = django.db.models.CharField(
         verbose_name='название',
         help_text='Максимум 150 символов',

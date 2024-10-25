@@ -3,7 +3,7 @@ import re
 from django.core import exceptions, validators
 from django.db import models
 from django.utils.safestring import mark_safe
-from sorl.thumbnail import get_thumbnail, ImageField
+from sorl.thumbnail import get_thumbnail
 from transliterate import translit
 
 from catalog.validators import ValidateContainsWords
@@ -140,16 +140,9 @@ class Item(AbstractModel):
         ],
     )
 
-    main_image = ImageField(
-        upload_to='items/main_images/',
-        verbose_name='главное изображение',
-        null=True,
-        blank=True,
-    )
-
     def get_main_image(self):
-        if self.main_image:
-            return thumb_image(self.main_image)
+        if hasattr(self, 'main_image_obj') and self.main_image_obj.image:
+            return thumb_image(self.main_image_obj.image)
         return 'Нет изображения'
 
     get_main_image.short_description = 'превью'
@@ -159,6 +152,32 @@ class Item(AbstractModel):
         verbose_name_plural = 'товары'
 
 
+class MainImage(models.Model):
+    item = models.OneToOneField(
+        Item,
+        on_delete=models.CASCADE,
+        related_name='main_image_obj',
+        verbose_name='товар',
+    )
+
+    image = models.ImageField(
+        upload_to='items/main_images/',
+        verbose_name='главное изображение',
+        null=True,
+        blank=True,
+    )
+
+    def get_image(self):
+        return thumb_image(self.image) if self.image else 'Нет изображения'
+
+    get_image.short_description = 'превью'
+    get_image.allow_tags = True
+
+    class Meta:
+        verbose_name = 'главное изображение'
+        verbose_name_plural = 'главные изображения'
+
+
 class ItemImage(models.Model):
     item = models.ForeignKey(
         Item,
@@ -166,17 +185,18 @@ class ItemImage(models.Model):
         verbose_name='товар',
     )
 
-    image = ImageField(
+    image = models.ImageField(
         upload_to='items/images/',
         verbose_name='изображение',
+        null=True,
+        blank=True,
     )
 
     def get_image(self):
-        if self.image:
-            return thumb_image(self.image)
-        return 'Нет изображения'
+        return thumb_image(self.image) if self.image else 'Нет изображения'
 
     get_image.short_description = 'превью'
+    get_image.allow_tags = True
 
     class Meta:
         verbose_name = 'изображение'
