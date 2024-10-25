@@ -14,8 +14,7 @@ require-plugins =
     flake8-bugbear
     flake8-builtins
     flake8-eradicate
+    flake8-dunder-all
 application-import-names = lyceum, about, catalog, homepage, core
 import-order-style = google
 inline-quotes = single
-per-file-ignores =
-    models.py:A003
