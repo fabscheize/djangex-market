@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.test import Client, override_settings, RequestFactory, TestCase
+from django.urls import reverse
 from parametrize import parametrize
 
 from lyceum.middleware import ReverseMiddleware
@@ -24,7 +25,7 @@ class ReverseMiddlewareTest(TestCase):
 
         with override_settings(ALLOW_REVERSE=allow_reverse):
             for _ in range(10):
-                response = Client().get('/coffee/')
+                response = Client().get(reverse('homepage:coffee'))
                 key = response.content.decode('utf-8')
                 responses[key] += 1
 
@@ -53,6 +54,6 @@ class ReverseMiddlewareTest(TestCase):
             lambda request: HttpResponse(initial_content),
         )
         ReverseMiddleware.count = 9
-        request = factory.get('/')
+        request = factory.get(reverse('homepage:home'))
         response = middleware(request)
         self.assertIn(expected_content, response.content.decode('utf-8'))

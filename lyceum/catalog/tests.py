@@ -3,6 +3,7 @@ from random import randint
 
 from django.core.exceptions import ValidationError
 from django.test import Client, TestCase
+from django.urls import NoReverseMatch, reverse
 from parametrize import parametrize
 
 from catalog.models import Category, Item, Tag
@@ -19,28 +20,36 @@ class CatalogHttpResponseTest(TestCase):
         self.client = Client()
 
     @parametrize(
-        'path, pk, expected_content, status',
+        'path, pk, expected_content',
         [
-            ('', '', 'Список элементов', HTTPStatus.OK),
-            ('', *([randint(1, 100)] * 2), HTTPStatus.OK),
-            ('re/', *([randint(1, 100)] * 2), HTTPStatus.OK),
-            ('re/', -1, None, HTTPStatus.NOT_FOUND),
-            ('re/', '', None, HTTPStatus.NOT_FOUND),
-            ('re/', 'qwerty', None, HTTPStatus.NOT_FOUND),
-            ('converter/', *([randint(1, 100)] * 2), HTTPStatus.OK),
-            ('converter/', -1, None, HTTPStatus.NOT_FOUND),
-            ('converter/', '', None, HTTPStatus.NOT_FOUND),
-            ('converter/', 'qwerty', None, HTTPStatus.NOT_FOUND),
+            ('item', *([randint(1, 5)] * 2)),
+            ('re_item', *([randint(1, 5)] * 2)),
+            ('c_item', *([randint(1, 5)] * 2)),
         ],
     )
-    def test_catalog_response(self, path, pk, expected_content, status):
-        end = '' if pk == '' else '/'
-        response = self.client.get('/catalog/' + path + str(pk) + end)
-        self.assertEqual(response.status_code, status)
-        if status == HTTPStatus.OK:
-            self.assertIn(
-                str(expected_content).encode('utf-8'),
-                response.content,
+    def test_catalog_response_positive(self, path, pk, expected_content):
+        response = self.client.get(reverse('catalog:' + path, args=[str(pk)]))
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertIn(
+            str(expected_content).encode('utf-8'),
+            response.content,
+        )
+
+    @parametrize(
+        'path, pk',
+        [
+            ('re_item', -1),
+            ('re_item', ''),
+            ('re_item', 'qwerty'),
+            ('c_item', -1),
+            ('c_item', ''),
+            ('c_item', 'qwerty'),
+        ],
+    )
+    def test_catalog_response_negative(self, path, pk):
+        with self.assertRaises(NoReverseMatch):
+            self.client.get(
+                reverse('catalog:' + path, args=[str(pk)]),
             )
 
 
@@ -220,4 +229,5 @@ class NormalizedNameTest(TestCase):
         with self.assertRaises(ValidationError):
             create_and_save_entry(Tag, name=second_name, slug='tag-2')
 
+        self.assertEqual(Tag.objects.count(), element_count)
         self.assertEqual(Tag.objects.count(), element_count)
