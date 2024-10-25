@@ -79,6 +79,7 @@
     "is_published": true,
     "category": 1,
     "text": "Превосходно покупают",
+    "main_image": "",
     "tags": [
       2,
       3
@@ -93,6 +94,7 @@
     "is_published": true,
     "category": 2,
     "text": "Роскошно иметь такой товар",
+    "main_image": "",
     "tags": [
       1,
       5
@@ -107,6 +109,7 @@
     "is_published": true,
     "category": 1,
     "text": "Тут в тексте и превосходно, и роскошно",
+    "main_image": "",
     "tags": [
       1,
       2,
@@ -124,6 +127,7 @@
     "is_published": true,
     "category": 1,
     "text": "Было бы роскошно сдать эту домашку",
+    "main_image": "",
     "tags": [
       2
     ]
@@ -137,6 +141,7 @@
     "is_published": true,
     "category": 2,
     "text": "Я не устану превосходно заполнять описание товаров",
+    "main_image": "",
     "tags": [
       4,
       5
