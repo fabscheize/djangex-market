@@ -33,12 +33,9 @@ def thumb_image(image):
 
 
 class Category(AbstractModel):
-    slug = models.CharField(
+    slug = models.SlugField(
         verbose_name='слаг',
         max_length=200,
-        validators=[
-            validators.validate_slug,
-        ],
         unique=True,
         help_text=(
             'Только латинские буквы, цифры, знаки подчеркивания или дефиса'
@@ -79,12 +76,9 @@ class Category(AbstractModel):
 
 
 class Tag(AbstractModel):
-    slug = models.CharField(
+    slug = models.SlugField(
         verbose_name='слаг',
         max_length=200,
-        validators=[
-            validators.validate_slug,
-        ],
         unique=True,
         help_text=(
             'Только латинские буквы, цифры, знаки подчеркивания или дефиса'
@@ -117,7 +111,6 @@ class Tag(AbstractModel):
 
 
 class Item(AbstractModel):
-
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
