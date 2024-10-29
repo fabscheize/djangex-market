@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'django_cleanup.apps.CleanupConfig',
+    'django_ckeditor_5',
     'sorl.thumbnail',
 ]
 
@@ -62,10 +63,12 @@ if DEBUG:
 
 ROOT_URLCONF = 'lyceum.urls'
 
+TEMPLATES_DIRS = [BASE_DIR / 'templates']
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': TEMPLATES_DIRS,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,8 +128,41 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static_dev',
 ]
 
+STATIC_ROOT = 'static'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
+
+CKEDITOR_5_CUSTOM_CSS = 'css/custom_ckeditor.css'
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'language': LANGUAGE_CODE,
+        'toolbar': {
+            'items': [
+                'bold',
+                'italic',
+                'underline',
+                '|',
+                'numberedList',
+                'bulletedList',
+                '|',
+                'outdent',
+                'indent',
+                '|',
+                'alignment',
+                '|',
+                'link',
+                'unlink',
+                '|',
+                'removeFormat',
+                'sourceEditing',
+            ],
+        },
+        'height': '300px',
+        'width': '800px',
+    },
+}

@@ -2,6 +2,7 @@ import re
 
 from django.core import exceptions, validators
 from django.db import models
+from django_ckeditor_5.fields import CKEditor5Field
 from transliterate import translit
 
 from catalog.validators import ValidateContainsWords
@@ -115,7 +116,7 @@ class Item(BaseSaleModel):
         verbose_name='теги',
     )
 
-    text = models.TextField(
+    text = CKEditor5Field(
         verbose_name='текст',
         help_text=(
             'В описании обязательно должно быть слово '

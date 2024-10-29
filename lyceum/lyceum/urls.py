@@ -17,6 +17,7 @@ urlpatterns = [
         'favicon.ico/',
         RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico')),
     ),
+    path('ckeditor5/', include('django_ckeditor_5.urls')),
 ]
 
 if settings.DEBUG:
