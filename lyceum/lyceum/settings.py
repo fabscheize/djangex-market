@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'django_cleanup.apps.CleanupConfig',
-    'django_ckeditor_5',
     'sorl.thumbnail',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -135,34 +135,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
-
-CKEDITOR_5_CUSTOM_CSS = 'css/custom_ckeditor.css'
-
-CKEDITOR_5_CONFIGS = {
-    'default': {
-        'language': LANGUAGE_CODE,
-        'toolbar': {
-            'items': [
-                'bold',
-                'italic',
-                'underline',
-                '|',
-                'numberedList',
-                'bulletedList',
-                '|',
-                'outdent',
-                'indent',
-                '|',
-                'alignment',
-                '|',
-                'link',
-                'unlink',
-                '|',
-                'removeFormat',
-                'sourceEditing',
-            ],
-        },
-        'height': '300px',
-        'width': '800px',
-    },
-}

@@ -2,7 +2,7 @@ import re
 
 from django.core import exceptions, validators
 from django.db import models
-from django_ckeditor_5.fields import CKEditor5Field
+from tinymce import models as tinymce_models
 from transliterate import translit
 
 from catalog.validators import ValidateContainsWords
@@ -111,7 +111,7 @@ class Item(BaseSaleModel):
         verbose_name='теги',
     )
 
-    text = CKEditor5Field(
+    text = tinymce_models.HTMLField(
         verbose_name='текст',
         help_text=(
             'В описании обязательно должно быть слово '
