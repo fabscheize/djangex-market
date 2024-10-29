@@ -100,11 +100,6 @@ class Tag(BaseSaleModel):
 
 
 class Item(BaseSaleModel):
-    # is_on_main = models.BooleanField(
-    #     verbose_name='на главной',
-    #     default=False,
-    # )
-
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
