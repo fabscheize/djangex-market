@@ -2,12 +2,10 @@ import re
 
 from django.core import exceptions, validators
 from django.db import models
-from django.utils.safestring import mark_safe
-from sorl.thumbnail import get_thumbnail
 from transliterate import translit
 
 from catalog.validators import ValidateContainsWords
-from core.models import AbstractModel
+from core.models import BaseImageModel, BaseSaleModel
 
 __all__ = []
 
@@ -20,19 +18,7 @@ def normalize_name(name):
     return name
 
 
-def thumb_image(image):
-    thumb = get_thumbnail(
-        image,
-        '300x300',
-        crop='center',
-        quality=75,
-    )
-    return mark_safe(
-        f'<img src="{thumb.url}" width="300" height="300" />',
-    )
-
-
-class Category(AbstractModel):
+class Category(BaseSaleModel):
     slug = models.SlugField(
         verbose_name='слаг',
         max_length=200,
@@ -49,6 +35,7 @@ class Category(AbstractModel):
             validators.MaxValueValidator(32767),
         ],
     )
+
     normalized_name = models.CharField(
         verbose_name='нормализованное имя',
         max_length=150,
@@ -75,7 +62,7 @@ class Category(AbstractModel):
         verbose_name_plural = 'категории'
 
 
-class Tag(AbstractModel):
+class Tag(BaseSaleModel):
     slug = models.SlugField(
         verbose_name='слаг',
         max_length=200,
@@ -84,6 +71,7 @@ class Tag(AbstractModel):
             'Только латинские буквы, цифры, знаки подчеркивания или дефиса'
         ),
     )
+
     normalized_name = models.CharField(
         verbose_name='нормализованное имя',
         max_length=150,
@@ -110,7 +98,12 @@ class Tag(AbstractModel):
         verbose_name_plural = 'теги'
 
 
-class Item(AbstractModel):
+class Item(BaseSaleModel):
+    # is_on_main = models.BooleanField(
+    #     verbose_name='на главной',
+    #     default=False,
+    # )
+
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
@@ -134,62 +127,43 @@ class Item(AbstractModel):
     )
 
     def get_main_image(self):
-        if hasattr(self, 'main_image_obj') and self.main_image_obj.image:
-            return thumb_image(self.main_image_obj.image)
+        if hasattr(self, 'main_image'):
+            return self.main_image.get_image_50x50
         return 'Нет изображения'
 
     get_main_image.short_description = 'превью'
+    get_main_image.allow_tags = True
 
     class Meta:
         verbose_name = 'товар'
         verbose_name_plural = 'товары'
 
 
-class MainImage(models.Model):
+class ItemMainImage(BaseImageModel):
     item = models.OneToOneField(
         Item,
         on_delete=models.CASCADE,
-        related_name='main_image_obj',
+        related_name='main_image',
         verbose_name='товар',
     )
 
-    image = models.ImageField(
-        upload_to='items/main_images/',
-        verbose_name='главное изображение',
-        null=True,
-        blank=True,
-    )
-
-    def get_image(self):
-        return thumb_image(self.image) if self.image else 'Нет изображения'
-
-    get_image.short_description = 'превью'
-    get_image.allow_tags = True
+    def __str__(self):
+        return self.item.name
 
     class Meta:
         verbose_name = 'главное изображение'
         verbose_name_plural = 'главные изображения'
 
 
-class ItemImage(models.Model):
+class ItemImageGallery(BaseImageModel):
     item = models.ForeignKey(
         Item,
         on_delete=models.CASCADE,
         verbose_name='товар',
     )
 
-    image = models.ImageField(
-        upload_to='items/images/',
-        verbose_name='изображение',
-        null=True,
-        blank=True,
-    )
-
-    def get_image(self):
-        return thumb_image(self.image) if self.image else 'Нет изображения'
-
-    get_image.short_description = 'превью'
-    get_image.allow_tags = True
+    def __str__(self):
+        return f'{self.item.name} - {self.id}'
 
     class Meta:
         verbose_name = 'изображение'

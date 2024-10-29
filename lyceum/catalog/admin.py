@@ -6,17 +6,17 @@ __all__ = []
 
 
 class MainImageInline(admin.StackedInline):
-    model = models.MainImage
+    model = models.ItemMainImage
     extra = 0
-    readonly_fields = (models.MainImage.get_image,)
-    fields = ('image', models.MainImage.get_image)
+    readonly_fields = (models.ItemMainImage.get_image_300x300,)
+    fields = ('image', models.ItemMainImage.get_image_300x300)
 
 
 class ItemImageInline(admin.TabularInline):
-    model = models.ItemImage
+    model = models.ItemImageGallery
     extra = 0
-    readonly_fields = (models.ItemImage.get_image,)
-    fields = (models.ItemImage.get_image, 'image')
+    readonly_fields = (models.ItemImageGallery.get_image_300x300,)
+    fields = (models.ItemImageGallery.get_image_300x300, 'image')
 
 
 @admin.register(models.Item)
