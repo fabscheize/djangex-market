@@ -1,6 +1,20 @@
+{% load i18n %}
+
 <footer class="bg-body-tertiary text-center mt-auto">
   <div class="text p-3">
-    © 2024,
-    <a class="text-body" href="https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187">Vlad Karsten</a>
+    © <span id="year">{% now "Y" %}</span>,
+    {% translate "Djangex Market LCC" %}
   </div>
+
+  <script>
+    var dateStr = "{% now "Y-m-d" %}T{% now "H:i:s" %}Z";
+    var serverDate = Date.parse(dateStr);
+    var clientDate = Date.now();
+    var diffTime = Math.abs(serverDate - clientDate);
+    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    var date = new Date(diffDays < 1 ? clientDate : serverDate);
+
+    $("#year").text(date.getFullYear());
+  </script>
 </footer>

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <header>
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -7,30 +8,44 @@
         <img src="{% static 'img/logo.png' %}" alt="Джангекс маркет" width="300" height="36">
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Джангекс маркет">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Джангекс маркет">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           {% with request.resolver_match.view_name as view_name %}
           <li class="nav-item">
             {% if view_name == 'homepage:home' %} <a class="nav-link active disabled" aria-disabled="true" href="#"> {% else %} <a class="nav-link" href="{% url 'homepage:home' %}"> {% endif %}
-              Главная
+              {% translate "Homepage" %}
             </a>
           </li>
           <li class="nav-item">
             {% if view_name == 'catalog:list' %} <a class="nav-link active disabled" aria-disabled="true" href="#"> {% else %} <a class="nav-link" href="{% url 'catalog:list' %}"> {% endif %}
-              Список товаров
+              {% translate "Item list" %}
             </a>
           </li>
           <li class="nav-item">
             {% if view_name == 'about:about' %} <a class="nav-link active disabled" aria-disabled="true" href="#"> {% else %} <a class="nav-link" href="{% url 'about:about' %}"> {% endif %}
-              О проекте
+              {% translate "About" %}
             </a>
           </li>
           {% endwith %}
         </ul>
+
+        <form action="{% url 'set_language' %}" method="post" class="ms-lg-2">{% csrf_token %}
+          <input name="next" type="hidden" value="{{ redirect_to }}">
+          <select name="language" class="form-select w-auto" onchange="this.form.submit()">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+              {{ language.name_local }}
+            </option>
+            {% endfor %}
+          </select>
+        </form>
       </div>
     </div>
   </nav>

@@ -9,15 +9,16 @@ from django.views.generic.base import RedirectView
 from lyceum import settings
 
 urlpatterns = [
-    path('', include('homepage.urls')),
-    path('about/', include('about.urls')),
-    path('catalog/', include('catalog.urls')),
     path('admin/', admin.site.urls),
     path(
         'favicon.ico/',
         RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico')),
     ),
+    path('', include('homepage.urls')),
+    path('about/', include('about.urls')),
+    path('catalog/', include('catalog.urls')),
     path('tinymce/', include('tinymce.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
 
 if settings.DEBUG:

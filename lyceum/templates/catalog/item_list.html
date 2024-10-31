@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}
-Список товаров
+{% translate "Item list" %}
 {% endblock %}
 {% block content %}
-<div class="container my-3"><h1>Список товаров</h1></div>
+<div class="container my-3"><h1>{% translate "Item list" %}</h1></div>
 {% include "includes/item_card.html" %}
 {% endblock content %}

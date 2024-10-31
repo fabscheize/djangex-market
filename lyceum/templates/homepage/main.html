@@ -1,17 +1,18 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}
-Главная – Джангекс Маркет
+{% translate "Homepage – Djangex Market" %}
 {% endblock %}
 {% block content %}
 {% load static %}
 <div class="container my-3">
-  <h1>Главная</h1>
+  <h1>{% translate "Homepage" %}</h1>
 </div>
 
 <div class="container my-3">
   <figure class="figure">
     <img src="{% static 'img/cat.jpeg' %}" class="figure-img img-fluid rounded d-block" alt="cat">
-    <figcaption class="figure-caption">Наш главный разработчик</figcaption>
+    <figcaption class="figure-caption">{% translate "Our chef developer" %}</figcaption>
   </figure>
 </div>
 {% include "includes/item_card.html" %}

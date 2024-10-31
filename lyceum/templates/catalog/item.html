@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 {% block title %}
 {{ item.name }}
 {% endblock %}
@@ -28,11 +29,11 @@
 
         <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Назад</span>
+          <span class="visually-hidden">{% translate "Prev" %}</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Вперед</span>
+          <span class="visually-hidden">{% translate "Next" %}</span>
         </button>
       </div>
     </div>
@@ -40,7 +41,7 @@
     <div class="col-md-5">
       <h2 class="fw-bold">{{ item.name }}</h2>
       <p>{{ item.text }}</p>
-      <p><small class="text-muted">Категория: {{ item.category }}</small></p>
+      <p><small class="text-muted">{% translate "Category:" %} {{ item.category }}</small></p>
       <div class="mb-3">
         {% for tag in item.tags %}
           <span class="badge bg-secondary">{{ tag }}</span>
