@@ -6,15 +6,16 @@ exclude =
     .git/*
     */migrations/*
 require-plugins =
-    pep8-naming
+    flake8-bugbear
+    flake8-builtins
     flake8-commas
+    flake8-comprehensions
+    flake8-dunder-all
+    flake8-eradicate
     flake8-fixme
     flake8-import-order
     flake8-quotes
-    flake8-bugbear
-    flake8-builtins
-    flake8-eradicate
-    flake8-dunder-all
+    pep8-naming
 application-import-names = lyceum, about, catalog, homepage, core
 import-order-style = google
 inline-quotes = single
