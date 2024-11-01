@@ -19,6 +19,27 @@ def normalize_name(name):
     return name
 
 
+class ItemManager(models.Manager):
+    def published(self):
+        return (
+            self.get_queryset()
+            .filter(is_published=True)
+            .select_related('main_image')
+            .prefetch_related('image_gallery')
+            .only('name', 'text', 'category_id', 'category__name')
+            .order_by('category__name', 'name')
+        )
+
+    def on_main(self):
+        return (
+            self.get_queryset()
+            .filter(is_published=True, is_on_main=True)
+            .select_related('main_image')
+            .only('name', 'text', 'category_id', 'category__name')
+            .order_by('name', 'id')
+        )
+
+
 class Category(BaseSaleModel):
     slug = models.SlugField(
         verbose_name='слаг',
@@ -100,6 +121,13 @@ class Tag(BaseSaleModel):
 
 
 class Item(BaseSaleModel):
+    objects = ItemManager()
+
+    is_on_main = models.BooleanField(
+        verbose_name='на главной',
+        default=False,
+    )
+
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
@@ -155,6 +183,7 @@ class ItemImageGallery(BaseImageModel):
     item = models.ForeignKey(
         Item,
         on_delete=models.CASCADE,
+        related_name='image_gallery',
         verbose_name='товар',
     )
 

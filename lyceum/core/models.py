@@ -1,5 +1,6 @@
 import uuid
 
+import django.core.files.base
 import django.core.validators
 import django.db.models
 import django.utils.safestring
@@ -26,7 +27,7 @@ class BaseSaleModel(django.db.models.Model):
     )
 
     def __str__(self):
-        return self.name if len(self.name) <= 15 else self.name[:12] + '...'
+        return self.name if len(self.name) <= 21 else self.name[:18] + '...'
 
     class Meta:
         abstract = True

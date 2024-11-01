@@ -1,34 +1,25 @@
-import json
+from django.shortcuts import get_object_or_404, render
 
-from django.http import HttpResponse
-from django.shortcuts import render
-
-from lyceum import settings
+import catalog.models
 
 __all__ = []
-
-ITEMS_FILE_PATH = settings.BASE_DIR / 'static_dev/files/items.json'
-
-
-def load_items():
-    with open(ITEMS_FILE_PATH, 'r', encoding='utf-8') as file:
-        return json.load(file)
 
 
 def item_list(request):
     template = 'catalog/item_list.html'
-    items = load_items()
+    items = catalog.models.Item.objects.published()
     context = {'items': items}
     return render(request, template, context)
 
 
 def item_detail(request, pk):
     template = 'catalog/item.html'
-    items = load_items()
-    item = next((item for item in items if item['pk'] == int(pk)), None)
-
-    if item is None:
-        return HttpResponse(f'<body>{pk}</body>')
+    item = get_object_or_404(
+        catalog.models.Item.objects
+        .select_related('main_image')
+        .prefetch_related('image_gallery'),
+        pk=pk,
+    )
 
     context = {'item': item}
     return render(request, template, context)

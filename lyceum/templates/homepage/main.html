@@ -9,11 +9,12 @@
   <h1>{% translate "Homepage" %}</h1>
 </div>
 
-<div class="container my-3">
-  <figure class="figure">
+{% include "includes/item_card.html" %}
+
+<div class="container my-4 d-flex justify-content-center">
+  <figure class="figure text-center">
     <img src="{% static 'img/cat.jpeg' %}" class="figure-img img-fluid rounded d-block" alt="cat">
     <figcaption class="figure-caption">{% translate "Our chef developer" %}</figcaption>
   </figure>
 </div>
-{% include "includes/item_card.html" %}
 {% endblock content %}

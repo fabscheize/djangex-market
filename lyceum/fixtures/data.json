@@ -3,22 +3,33 @@
   "model": "catalog.category",
   "pk": 1,
   "fields": {
-    "name": "Категория 1",
+    "name": "Транспорт",
     "is_published": true,
-    "slug": "category_1",
+    "slug": "transport",
     "weight": 200,
-    "normalized_name": "kateгopия1"
+    "normalized_name": "transport"
   }
 },
 {
   "model": "catalog.category",
   "pk": 2,
   "fields": {
-    "name": "Категория 2",
+    "name": "Головные уборы",
     "is_published": true,
-    "slug": "category_2",
+    "slug": "hats",
     "weight": 100,
-    "normalized_name": "kateгopия2"
+    "normalized_name": "golovnyeubory"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Модные аксессуары",
+    "is_published": true,
+    "slug": "fashion",
+    "weight": 100,
+    "normalized_name": "modnyeaksessuary"
   }
 },
 {
@@ -75,10 +86,11 @@
   "model": "catalog.item",
   "pk": 1,
   "fields": {
-    "name": "Товар 1",
+    "name": "Кастрюля",
     "is_published": true,
-    "category": 1,
-    "text": "Превосходно покупают",
+    "is_on_main": true,
+    "category": 2,
+    "text": "<p>Превосходно покупают</p>",
     "tags": [
       2,
       3
@@ -89,10 +101,11 @@
   "model": "catalog.item",
   "pk": 2,
   "fields": {
-    "name": "Товар 2",
+    "name": "Арбуз",
     "is_published": true,
+    "is_on_main": false,
     "category": 2,
-    "text": "Роскошно иметь такой товар",
+    "text": "<p><em>Роскошно иметь такой товар</em></p>",
     "tags": [
       1,
       5
@@ -103,10 +116,11 @@
   "model": "catalog.item",
   "pk": 3,
   "fields": {
-    "name": "Товар 3",
+    "name": "Трактор",
     "is_published": true,
+    "is_on_main": true,
     "category": 1,
-    "text": "Тут в тексте и превосходно, и роскошно",
+    "text": "<p>Очень длинное превосходно составленное описание товара, чтобы проверить вывод первых десяти слов в шаблоне</p>",
     "tags": [
       1,
       2,
@@ -120,10 +134,11 @@
   "model": "catalog.item",
   "pk": 4,
   "fields": {
-    "name": "Товар 4",
+    "name": "Язь",
     "is_published": true,
-    "category": 1,
-    "text": "Было бы роскошно сдать эту домашку",
+    "is_on_main": false,
+    "category": 3,
+    "text": "<p><strong>Роскошно пойманный здоровенный язь&nbsp;</strong></p>",
     "tags": [
       2
     ]
@@ -133,14 +148,103 @@
   "model": "catalog.item",
   "pk": 5,
   "fields": {
-    "name": "Товар 5",
-    "is_published": true,
-    "category": 2,
-    "text": "Я не устану превосходно заполнять описание товаров",
+    "name": "Гетры",
+    "is_published": false,
+    "is_on_main": true,
+    "category": 3,
+    "text": "<p>Я не устану превосходно заполнять описание товаров</p>",
     "tags": [
       4,
       5
     ]
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 2,
+  "fields": {
+    "image": "catalog/5/557cfaf0-fd74-4dbf-be47-8c783cfd846a-gaiters-main.jpg",
+    "item": 5
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 3,
+  "fields": {
+    "image": "catalog/4/18f7765c-a45c-4e1a-b67c-e222b32d8dc9-yaz-main.jpg",
+    "item": 4
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 4,
+  "fields": {
+    "image": "catalog/3/adec7278-b2b1-4473-823f-d28351e19c5e-tractor-main.jpg",
+    "item": 3
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 5,
+  "fields": {
+    "image": "catalog/2/5b0ca4d9-df36-4160-b3b3-9c5e56c4f7f3-watermelon-main.jpg",
+    "item": 2
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 6,
+  "fields": {
+    "image": "catalog/1/734315a0-5445-4977-b5a9-e921609bf55a-pot-main.jpg",
+    "item": 1
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 2,
+  "fields": {
+    "image": "catalog/4/b5d8798a-1f7a-4ff7-9925-6ce33b0de0c0-yaz-1.jpg",
+    "item": 4
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 3,
+  "fields": {
+    "image": "catalog/3/218ad8ba-a6d9-4f93-aac5-1389a634d486-tractor-1.jpg",
+    "item": 3
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 4,
+  "fields": {
+    "image": "catalog/2/77ab1376-2dec-4f1d-98cb-4d7b59e05e53-watermelon-1.jpg",
+    "item": 2
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 5,
+  "fields": {
+    "image": "catalog/1/c124f652-830e-4a08-8404-834b0f1f927f-pot-1.jpg",
+    "item": 1
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 6,
+  "fields": {
+    "image": "catalog/1/13b44216-be63-4471-8d62-c5f019da5b7b-pot-2.jpg",
+    "item": 1
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 7,
+  "fields": {
+    "image": "catalog/2/33f8c266-0f37-4ab7-883e-81db91cf64f1-watermelon-2.jpg",
+    "item": 2
   }
 }
 ]

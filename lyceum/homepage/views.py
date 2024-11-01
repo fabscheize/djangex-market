@@ -1,24 +1,16 @@
 from http import HTTPStatus
-import json
 
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from lyceum import settings
+import catalog.models
 
 __all__ = []
-
-ITEMS_FILE_PATH = settings.BASE_DIR / 'static_dev/files/items.json'
-
-
-def load_items():
-    with open(ITEMS_FILE_PATH, 'r', encoding='utf-8') as file:
-        return json.load(file)
 
 
 def home(request):
     template = 'homepage/main.html'
-    items = load_items()
+    items = catalog.models.Item.objects.on_main()
     context = {'items': items}
     return render(request, template, context)
 

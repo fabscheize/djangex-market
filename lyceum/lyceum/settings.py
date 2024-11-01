@@ -32,6 +32,7 @@ ALLOW_REVERSE = raw_value.lower() in ('', 'true', 'yes', '1', 'y')
 INSTALLED_APPS = [
     'about.apps.AboutConfig',
     'catalog.apps.CatalogConfig',
+    'core.apps.CoreConfig',
     'homepage.apps.HomepageConfig',
     'django.contrib.admin',
     'django.contrib.auth',
