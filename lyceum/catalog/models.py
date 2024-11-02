@@ -56,7 +56,7 @@ class ItemManager(models.Manager):
 
     def item_detailed(self):
         gallery_prefetch = models.Prefetch(
-            'image_gallery',
+            'images',
             queryset=ItemImageGallery.objects.only('id', 'item_id', 'image'),
         )
         return self._item_main_fields().prefetch_related(gallery_prefetch)
@@ -153,6 +153,7 @@ class Item(BaseSaleModel):
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
+        related_query_name='items',
         verbose_name='категория',
     )
 
@@ -205,7 +206,7 @@ class ItemImageGallery(BaseImageModel):
     item = models.ForeignKey(
         Item,
         on_delete=models.CASCADE,
-        related_name='image_gallery',
+        related_name='images',
         verbose_name='товар',
     )
 
