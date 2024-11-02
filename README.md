@@ -123,6 +123,20 @@ cp demo_db.sqllite3 db.sqllite3
 copy demo_db.sqllite3 db.sqllite3
 ```
 
+Для отображения картинок товаров нужно скопировать их в папку ```media```, предварительно создав её:
+```bash
+mkdir media
+```
+
+- Linux/MacOS
+```bash
+cp -r static_dev/img/catalog/ media/catalog
+```
+- Windows
+```bash
+copy -r static_dev/img/catalog/ media/catalog
+```
+
 5. Создать суперпользователя для админки:
 ```bash
 python manage.py createsuperuser
@@ -133,17 +147,12 @@ python manage.py createsuperuser
 - логин ```admin```
 - пароль ```admin```
 
-6. Собрать статику:
-```bash
-python manage.py collectstatic
-```
-
-7. Скомпилировать локализацию:
+6. Скомпилировать локализацию:
 ```bash
 django-admin compilemessages
 ```
 
-8. Запустить сервер:
+7. Запустить сервер:
 ```bash
 python manage.py runserver
 ```

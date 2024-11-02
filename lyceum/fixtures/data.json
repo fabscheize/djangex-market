@@ -47,9 +47,9 @@
   "pk": 2,
   "fields": {
     "name": "Тег 2",
-    "is_published": true,
+    "is_published": false,
     "slug": "tag_2",
-    "normalized_name": "teг2"
+    "normalized_name": "teg2"
   }
 },
 {
