@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-01 01:32+0700\n"
+"POT-Creation-Date: 2024-11-02 11:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,60 +17,92 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: lyceum/settings.py:120
+
+#: lyceum/settings.py:121
 msgid "Russian"
 msgstr ""
 
-#: lyceum/settings.py:121
+#: lyceum/settings.py:122
 msgid "English"
 msgstr ""
 
-#: templates/about/about.html:4 templates/about/about.html:8
-#: templates/includes/header.html:30
+#: templates/404.html:7 templates/404.html:12
+msgid "Page not found"
+msgstr ""
+
+#: templates/about/about.html:6
+msgid "About – Djangex Market"
+msgstr ""
+
+#: templates/about/about.html:11 templates/includes/header.html:30
 msgid "About"
 msgstr ""
 
-#: templates/about/about.html:12
+#: templates/about/about.html:15
 msgid "There is nothing to say"
 msgstr ""
 
-#: templates/base.html:15
+#: templates/base.html:17 templates/includes/header.html:8
+#: templates/includes/header.html:11
 msgid "Djangex Market"
 msgstr ""
 
-#: templates/base.html:23
+#: templates/base.html:26
 msgid "Content has sunk into oblivion"
 msgstr ""
 
-#: templates/catalog/item.html:32
+#: templates/catalog/item.html:7
+msgid " – Djangex Market"
+msgstr ""
+
+#: templates/catalog/item.html:24
+msgid "Item main image"
+msgstr ""
+
+#: templates/catalog/item.html:35
 msgid "Prev"
 msgstr ""
 
-#: templates/catalog/item.html:36
+#: templates/catalog/item.html:39
 msgid "Next"
 msgstr ""
 
-#: templates/catalog/item.html:44
+#: templates/catalog/item.html:47
 msgid "Category:"
 msgstr ""
 
-#: templates/catalog/item_list.html:4 templates/catalog/item_list.html:7
-#: templates/includes/header.html:25
+#: templates/catalog/item_list.html:6
+msgid "Item list – Djangex Market"
+msgstr ""
+
+#: templates/catalog/item_list.html:11 templates/includes/header.html:25
 msgid "Item list"
 msgstr ""
 
-#: templates/homepage/main.html:4
+#: templates/catalog/item_list.html:20 templates/homepage/main.html:21
+msgid "Sold out!"
+msgstr ""
+
+#: templates/homepage/coffee.html:7 templates/homepage/coffee.html:12
+msgid "I'm a teapot"
+msgstr ""
+
+#: templates/homepage/main.html:7
 msgid "Homepage – Djangex Market"
 msgstr ""
 
-#: templates/homepage/main.html:9 templates/includes/header.html:20
+#: templates/homepage/main.html:12 templates/includes/header.html:20
 msgid "Homepage"
 msgstr ""
 
-#: templates/homepage/main.html:15
+#: templates/homepage/main.html:30
 msgid "Our chef developer"
 msgstr ""
 
 #: templates/includes/footer.html:6
 msgid "Djangex Market LCC"
+msgstr ""
+
+#: templates/includes/item_card.html:26
+msgid "No tags"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-31 23:09+0700\n"
+"POT-Creation-Date: 2024-11-02 11:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,60 +20,80 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: lyceum/settings.py:120
+#: lyceum/settings.py:121
 msgid "Russian"
 msgstr "Русский"
 
-#: lyceum/settings.py:121
+#: lyceum/settings.py:122
 msgid "English"
 msgstr "Английский"
 
-#: templates/about/about.html:4 templates/about/about.html:8
+#: templates/404.html:7 templates/404.html:12
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+#: templates/about/about.html:6 templates/about/about.html:11
 #: templates/includes/header.html:30
 msgid "About"
 msgstr "О проекте"
 
-#: templates/about/about.html:12
-msgid "There is nothing to say"
-msgstr "Тут нечего сказать"
-
-#: templates/base.html:14
+#: templates/about/about.html:6 templates/base.html:17
+#: templates/catalog/item.html:7 templates/catalog/item_list.html:6
+#: templates/homepage/main.html:7 templates/includes/header.html:8
+#: templates/includes/header.html:11
 msgid "Djangex Market"
 msgstr "Джангекс Маркет"
 
-#: templates/base.html:22
+#: templates/about/about.html:15
+msgid "There is nothing to say"
+msgstr "Тут нечего сказать"
+
+#: templates/base.html:26
 msgid "Content has sunk into oblivion"
 msgstr "Контента не будет, он принял ислам"
 
-#: templates/catalog/item.html:32
+#: templates/catalog/item.html:24
+msgid "Item main image"
+msgstr "Главное изображание товара"
+
+#: templates/catalog/item.html:35
 msgid "Prev"
 msgstr "Назад"
 
-#: templates/catalog/item.html:36
+#: templates/catalog/item.html:39
 msgid "Next"
 msgstr "Вперед"
 
-#: templates/catalog/item.html:44
+#: templates/catalog/item.html:47
 msgid "Category:"
 msgstr "Категория:"
 
-#: templates/catalog/item_list.html:4 templates/catalog/item_list.html:7
+#: templates/catalog/item_list.html:6 templates/catalog/item_list.html:11
 #: templates/includes/header.html:25
 msgid "Item list"
 msgstr "Список товаров"
 
-#: templates/homepage/main.html:4
-msgid "Homepage – Djangex Market"
-msgstr "Главная – Джангекс Маркет"
+#: templates/catalog/item_list.html:20 templates/homepage/main.html:21
+msgid "Sold out!"
+msgstr "Всё раскупили!"
 
-#: templates/homepage/main.html:9 templates/includes/header.html:20
+#: templates/homepage/coffee.html:7 templates/homepage/coffee.html:12
+msgid "I'm a teapot"
+msgstr "Я чайник"
+
+#: templates/homepage/main.html:7 templates/homepage/main.html:12
+#: templates/includes/header.html:20
 msgid "Homepage"
 msgstr "Главная"
 
-#: templates/homepage/main.html:15
+#: templates/homepage/main.html:30
 msgid "Our chef developer"
 msgstr "Наш главный разработчик"
 
 #: templates/includes/footer.html:6
 msgid "Djangex Market LCC"
 msgstr "ООО Джангекс Маркет"
+
+#: templates/includes/item_card.html:26
+msgid "No tags"
+msgstr "Теги отсутствуют"
