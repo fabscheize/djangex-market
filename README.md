@@ -172,7 +172,12 @@ pip install -r requirements/test.txt
 cd lyceum
 ```
 
-3. Запустить тесты:
+3. Скомпилировать локализацию:
+```bash
+django-admin compilemessages
+```
+
+4. Запустить тесты:
 ```bash
 python manage.py test
 ```
