@@ -15,7 +15,7 @@ black:
     script:
         - black --check --diff .
 
-http_response:
+tests:
     stage: test
     image: python:3-slim
     cache:
