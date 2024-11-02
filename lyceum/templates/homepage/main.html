@@ -1,15 +1,28 @@
 {% extends "base.html" %}
+
 {% load i18n %}
-{% block title %}
-{% translate "Homepage – Djangex Market" %}
-{% endblock %}
-{% block content %}
 {% load static %}
+
+{% block title %}
+{% translate "Homepage" %} - {% translate "Djangex Market" %}
+{% endblock title %}
+
+{% block content %}
 <div class="container my-3">
   <h1>{% translate "Homepage" %}</h1>
 </div>
 
-{% include "includes/item_card.html" %}
+<div class="container my-3">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    {% for item in items %}
+    {% include "includes/item_card.html" %}
+    {% empty %}
+    <div class="container my-3">
+      <h3>{% translate "Sold out!" %}</h3>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 <div class="container my-4 d-flex justify-content-center">
   <figure class="figure text-center">

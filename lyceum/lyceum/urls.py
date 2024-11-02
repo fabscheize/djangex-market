@@ -1,18 +1,28 @@
 from importlib import import_module
 
 from django.conf.urls.static import static
-from django.contrib import admin
-from django.contrib.staticfiles.storage import staticfiles_storage
+import django.contrib
 from django.urls import include, path
-from django.views.generic.base import RedirectView
+import django.views
 
 from lyceum import settings
 
+__all__ = []
+
+
+def custom_page_not_found(request):
+    return django.views.defaults.page_not_found(request, None)
+
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', django.contrib.admin.site.urls),
     path(
         'favicon.ico/',
-        RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico')),
+        django.views.generic.base.RedirectView.as_view(
+            url=django.contrib.staticfiles.storage.staticfiles_storage.url(
+                'img/favicon.ico',
+            ),
+        ),
     ),
     path('', include('homepage.urls')),
     path('about/', include('about.urls')),
@@ -22,6 +32,9 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
+    urlpatterns.append(
+        path('404/', custom_page_not_found),
+    )  # Для проверки 404.html при Debug=True
     debug_toolbar = import_module('debug_toolbar.toolbar')
     urlpatterns += debug_toolbar.debug_toolbar_urls()
     urlpatterns += static(

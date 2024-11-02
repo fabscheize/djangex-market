@@ -1,14 +1,14 @@
 {% load static %}
 {% load i18n %}
-<header>
 
+<header>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url "homepage:home" %}">
-        <img src="{% static 'img/logo.png' %}" alt="Джангекс маркет" width="300" height="36">
+        <img src="{% static 'img/logo.png' %}" alt={% translate "Djangex Market" %} width="300" height="36">
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Джангекс маркет">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label={% translate "Djangex Market" %}>
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -49,5 +49,4 @@
       </div>
     </div>
   </nav>
-
 </header>

@@ -20,24 +20,47 @@ def normalize_name(name):
 
 
 class ItemManager(models.Manager):
-    def published(self):
+    def _item_main_fields(self):
+        tags_prefetch = models.Prefetch(
+            'tags',
+            queryset=Tag.objects.only('name').filter(is_published=True),
+        )
+
         return (
             self.get_queryset()
-            .filter(is_published=True)
-            .select_related('main_image')
-            .prefetch_related('image_gallery')
-            .only('name', 'text', 'category_id', 'category__name')
-            .order_by('category__name', 'name')
+            .filter(
+                is_published=True,
+                category__is_published=True,
+            )
+            .select_related(
+                'category',
+                'main_image',
+            )
+            .prefetch_related(tags_prefetch)
+            .only(
+                'name',
+                'text',
+                'category__name',
+                'main_image__image',
+            )
         )
+
+    def published(self):
+        return self._item_main_fields().order_by('category__name', 'name')
 
     def on_main(self):
         return (
-            self.get_queryset()
-            .filter(is_published=True, is_on_main=True)
-            .select_related('main_image')
-            .only('name', 'text', 'category_id', 'category__name')
+            self._item_main_fields()
+            .filter(is_on_main=True)
             .order_by('name', 'id')
         )
+
+    def item_detailed(self):
+        gallery_prefetch = models.Prefetch(
+            'image_gallery',
+            queryset=ItemImageGallery.objects.only('id', 'item_id', 'image'),
+        )
+        return self._item_main_fields().prefetch_related(gallery_prefetch)
 
 
 class Category(BaseSaleModel):

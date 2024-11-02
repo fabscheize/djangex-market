@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% translate "Page not found" %}
+{% endblock title %}
+
+{% block content %}
+<div class="container my-3">
+  <h1>{% translate "Page not found" %}</h1>
+</div>
+
+<div class="container my-4 d-block justify-content-center">
+  <figure class="figure text-center">
+    <img src="{% static 'img/404.jpg' %}" class="figure-img rounded d-block mx-auto" alt="cat" style="width: 500px; height: auto;">
+  </figure>
+</div>
+{% endblock content %}

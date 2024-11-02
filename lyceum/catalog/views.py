@@ -15,11 +15,8 @@ def item_list(request):
 def item_detail(request, pk):
     template = 'catalog/item.html'
     item = get_object_or_404(
-        catalog.models.Item.objects
-        .select_related('main_image')
-        .prefetch_related('image_gallery'),
+        catalog.models.Item.objects.item_detailed(),
         pk=pk,
     )
-
     context = {'item': item}
     return render(request, template, context)

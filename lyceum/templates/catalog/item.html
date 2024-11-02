@@ -2,11 +2,10 @@
 
 {% load static %}
 {% load i18n %}
-{% load thumbnail %}
 
 {% block title %}
-{{ item.name }}
-{% endblock %}
+{{ item.name }} - {% translate "Djangex Market" %}
+{% endblock title %}
 
 {% block content %}
 <div class="container my-5">
@@ -14,24 +13,19 @@
     <div class="col-md-4">
       <div id="itemCarousel" class="carousel slide">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#itemCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 0"></button>
+          <button type="button" data-bs-target="#itemCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 0"></button>
           {% for image in item.image_gallery.all %}
-            <button type="button" data-bs-target="#itemCarousel" data-bs-slide-to="{{ forloop.counter }}" aria-label="Слайд {{ forloop.counter }}"></button>
+          <button type="button" data-bs-target="#itemCarousel" data-bs-slide-to="{{ forloop.counter }}" aria-label="Slide {{ forloop.counter }}"></button>
           {% endfor %}
         </div>
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-
-            {% thumbnail item.main_image.image "800x800" crop="center" as im %}
-              <img src="{{ im.url }}" class="d-block w-100" alt="Изображение товара #{{ forloop.counter }}">
-            {% endthumbnail %}
+            <img src="{{ item.main_image.image.url }}" class="d-block w-100 item-image" alt={% translate "Item main image" %}>
           </div>
           {% for image in item.image_gallery.all %}
           <div class="carousel-item">
-            {% thumbnail image.image "800x800" crop="center" as im %}
-              <img src="{{ im.url }}" class="d-block w-100" alt="Изображение товара #{{ forloop.counter }}">
-            {% endthumbnail %}
+            <img src="{{ image.image.url }}" class="d-block w-100 item-image" alt="#{{ forloop.counter }}">
           </div>
           {% endfor %}
         </div>
@@ -53,7 +47,7 @@
       <p><small class="text-muted">{% translate "Category:" %} {{ item.category }}</small></p>
       <div class="mb-3">
         {% for tag in item.tags.all %}
-          <span class="badge bg-secondary">{{ tag }}</span>
+        <span class="badge bg-secondary">{{ tag }}</span>
         {% endfor %}
       </div>
     </div>

@@ -1,8 +1,11 @@
 {% extends "base.html" %}
+
 {% load i18n %}
+
 {% block title %}
-{% translate "About" %}
-{% endblock %}
+{% translate "About" %} - {% translate "Djangex Market" %}
+{% endblock title %}
+
 {% block content %}
 <div class="container my-3">
   <h1>{% translate "About" %}</h1>
