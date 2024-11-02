@@ -22,6 +22,8 @@ tests:
         paths:
             - .cache/pip
     script:
+        - apt-get update
+        - apt-get install gettext
         - pip install -r requirements/test.txt
         - cd lyceum
         - django-admin compilemessages
