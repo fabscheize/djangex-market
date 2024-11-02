@@ -15,8 +15,7 @@ PUNCTUATION_REGEX = re.compile(r'[\W_]')
 
 def normalize_name(name):
     name = re.sub(PUNCTUATION_REGEX, '', name).lower()
-    name = translit(name, 'ru', reversed=True)
-    return name
+    return translit(name, 'ru', reversed=True)
 
 
 class ItemManager(models.Manager):

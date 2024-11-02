@@ -16,9 +16,7 @@ def reverse_russian_words(string) -> str:
         word[::-1] if RUSSIAN_REGEX.search(word) else word for word in words
     ]
 
-    transformed_string = ''.join(transformed_words)
-
-    return transformed_string
+    return ''.join(transformed_words)
 
 
 class ReverseMiddleware:
