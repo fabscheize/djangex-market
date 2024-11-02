@@ -6,7 +6,7 @@ from django.urls import reverse
 __all__ = []
 
 
-class HomeHttpResponseTest(TestCase):
+class HomepageHttpResponseTest(TestCase):
     def setUp(self):
         self.client = Client()
 
