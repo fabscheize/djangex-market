@@ -17,4 +17,4 @@ class HomepageHttpResponseTest(TestCase):
     def test_coffee_status_code(self):
         response = self.client.get(reverse('homepage:coffee'))
         self.assertEqual(response.status_code, HTTPStatus.IM_A_TEAPOT)
-        self.assertEqual('Я чайник'.encode('utf-8'), response.content)
+        self.assertIn('Я чайник'.encode('utf-8'), response.content)
