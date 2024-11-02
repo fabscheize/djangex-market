@@ -23,7 +23,7 @@ tests:
             - .cache/pip
     script:
         - apt-get update
-        - apt-get install gettext
+        - apt-get install gettext -y
         - pip install -r requirements/test.txt
         - cd lyceum
         - django-admin compilemessages
