@@ -116,11 +116,11 @@ python manage.py loaddata fixtures/data.json
 
 - Linux/MacOS
 ```bash
-cp demo_db.sqllite3 db.sqllite3
+cp demo_db.sqlite3 db.sqlite3
 ```
 - Windows
 ```bash
-copy demo_db.sqllite3 db.sqllite3
+copy demo_db.sqlite3 db.sqlite3
 ```
 
 Для отображения картинок товаров нужно скопировать их в папку ```media```:
