@@ -14,15 +14,19 @@
       <p class="card-text">{{ item.text|truncatewords_html:10|safe }}</p>
     </div>
 
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{ item.category }}</li>
-    </ul>
+    {% with request.resolver_match.view_name as view_name %}
+      {% if view_name != 'catalog:list' %}
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{ item.category }}</li>
+        </ul>
+      {% endif %}
+    {% endwith %}
 
-    <div class="card-body">
+    <div class="card-footer d-flex align-items-center">
       {% for tag in item.tags.all %}
-      <span class="badge bg-secondary">{{ tag }}</span>
-      {% empty %}
-      <span>{% translate "Теги отсутствуют" %}</span>
+        <span class="badge bg-secondary me-2">{{ tag }}</span>
+        {% empty %}
+        <span>{% translate "Теги отсутствуют" %}</span>
       {% endfor %}
     </div>
   </div>

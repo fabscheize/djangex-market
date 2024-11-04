@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
-{% load i18n %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-{% translate "Страница не найдена" %}
+  {% translate "Страница не найдена" %}
 {% endblock title %}
 
 {% block content %}
-<div class="container my-3">
-  <h1>{% translate "Страница не найдена" %}</h1>
-</div>
+  <div class="container my-3">
+    <h1>{% translate "Страница не найдена" %}</h1>
+  </div>
 
-<div class="container my-4 d-block justify-content-center">
-  <figure class="figure text-center">
-    <img src="{% static 'img/404.jpg' %}" class="figure-img rounded d-block mx-auto" alt="cat" style="width: 500px; height: auto;">
-  </figure>
-</div>
+  <div class="container my-4 d-block justify-content-center">
+    <figure class="figure text-center">
+      <img src="{% static 'img/404.jpg' %}" class="figure-img rounded d-block mx-auto" alt="cat" style="width: 500px; height: auto;">
+    </figure>
+  </div>
 {% endblock content %}

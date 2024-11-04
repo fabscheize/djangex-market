@@ -1,33 +1,33 @@
 {% extends "base.html" %}
 
-{% load i18n %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-{% translate "Главная" %} - {% translate "Джангекс Маркет" %}
+  {% translate "Главная" %} - {% translate "Джангекс Маркет" %}
 {% endblock title %}
 
 {% block content %}
-<div class="container my-3">
-  <h1>{% translate "Главная" %}</h1>
-</div>
-
-<div class="container my-3">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-    {% for item in items %}
-    {% include "includes/item_card.html" %}
-    {% empty %}
-    <div class="container my-3 d-flex justify-content-center">
-      <h3>{% translate "Всё раскупили!" %}</h3>
-    </div>
-    {% endfor %}
+  <div class="container my-3">
+    <h1>{% translate "Главная" %}</h1>
   </div>
-</div>
 
-<div class="container my-4 d-flex justify-content-center">
-  <figure class="figure text-center">
-    <img src="{% static 'img/cat.jpeg' %}" class="figure-img img-fluid rounded d-block" alt="cat">
-    <figcaption class="figure-caption">{% translate "Наш главный разработчик" %}</figcaption>
-  </figure>
-</div>
+  <div class="container my-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      {% for item in items %}
+        {% include "includes/item_card.html" %}
+        {% empty %}
+        <div class="container my-3 d-flex justify-content-center">
+          <h3>{% translate "Всё раскупили!" %}</h3>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="container my-4 d-flex justify-content-center">
+    <figure class="figure text-center">
+      <img src="{% static 'img/cat.jpeg' %}" class="figure-img img-fluid rounded d-block" alt="cat">
+      <figcaption class="figure-caption">{% translate "Наш главный разработчик" %}</figcaption>
+    </figure>
+  </div>
 {% endblock content %}

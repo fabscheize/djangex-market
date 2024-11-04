@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
-{% load i18n %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-{% translate "Я чайник" %}
+  {% translate "Я чайник" %}
 {% endblock title %}
 
 {% block content %}
-<div class="container my-3">
-  <h1>{% translate "Я чайник" %}</h1>
-</div>
+  <div class="container my-3">
+    <h1>{% translate "Я чайник" %}</h1>
+  </div>
 
-<div class="container my-4 d-flex justify-content-center">
-  <figure class="figure text-center">
-    <img src="{% static 'img/teapot.jpg' %}" class="figure-img img-fluid rounded d-block" alt="cat">
-  </figure>
-</div>
+  <div class="container my-4 d-flex justify-content-center">
+    <figure class="figure text-center">
+      <img src="{% static 'img/teapot.jpg' %}" class="figure-img img-fluid rounded d-block" alt="cat">
+    </figure>
+  </div>
 {% endblock content %}
