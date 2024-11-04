@@ -4,7 +4,7 @@
 {% load i18n %}
 
 {% block title %}
-{{ item.name }} - {% translate "Djangex Market" %}
+{{ item.name }} - {% translate "Джангекс Маркет" %}
 {% endblock title %}
 
 {% block content %}
@@ -21,7 +21,7 @@
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ item.main_image.get_image_800x800.url }}" class="d-block w-100 item-image" alt={% translate "Item main image" %}>
+            <img src="{{ item.main_image.get_image_800x800.url }}" class="d-block w-100 item-image" alt={% translate "Главное изображение товара" %}>
           </div>
           {% for image in item.images.all %}
           <div class="carousel-item">
@@ -32,11 +32,11 @@
 
         <button class="carousel-control-prev" type="button" data-bs-target="#itemCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">{% translate "Prev" %}</span>
+          <span class="visually-hidden">{% translate "Назад" %}</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#itemCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">{% translate "Next" %}</span>
+          <span class="visually-hidden">{% translate "Вперед" %}</span>
         </button>
       </div>
     </div>
@@ -44,7 +44,7 @@
     <div class="col-md-5 my-3">
       <h2 class="fw-bold">{{ item.name }}</h2>
       <p>{{ item.text|safe }}</p>
-      <p><small class="text-muted">{% translate "Category:" %} {{ item.category }}</small></p>
+      <p><small class="text-muted">{% translate "Категория:" %} {{ item.category }}</small></p>
       <div class="mb-3">
         {% for tag in item.tags.all %}
         <span class="badge bg-secondary">{{ tag }}</span>

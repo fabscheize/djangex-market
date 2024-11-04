@@ -4,12 +4,12 @@
 {% load static %}
 
 {% block title %}
-{% translate "Homepage" %} - {% translate "Djangex Market" %}
+{% translate "Главная" %} - {% translate "Джангекс Маркет" %}
 {% endblock title %}
 
 {% block content %}
 <div class="container my-3">
-  <h1>{% translate "Homepage" %}</h1>
+  <h1>{% translate "Главная" %}</h1>
 </div>
 
 <div class="container my-3">
@@ -18,7 +18,7 @@
     {% include "includes/item_card.html" %}
     {% empty %}
     <div class="container my-3 d-flex justify-content-center">
-      <h3>{% translate "Sold out!" %}</h3>
+      <h3>{% translate "Всё раскупили!" %}</h3>
     </div>
     {% endfor %}
   </div>
@@ -27,7 +27,7 @@
 <div class="container my-4 d-flex justify-content-center">
   <figure class="figure text-center">
     <img src="{% static 'img/cat.jpeg' %}" class="figure-img img-fluid rounded d-block" alt="cat">
-    <figcaption class="figure-caption">{% translate "Our chef developer" %}</figcaption>
+    <figcaption class="figure-caption">{% translate "Наш главный разработчик" %}</figcaption>
   </figure>
 </div>
 {% endblock content %}

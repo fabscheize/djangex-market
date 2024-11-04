@@ -4,6 +4,7 @@ import django.core.files.base
 import django.core.validators
 import django.db.models
 import django.utils.safestring
+from django.utils.translation import gettext_lazy as _
 import sorl.thumbnail
 
 __all__ = []
@@ -15,14 +16,14 @@ def image_directory_path(instance, filename):
 
 class BaseSaleModel(django.db.models.Model):
     name = django.db.models.CharField(
-        verbose_name='название',
-        help_text='Максимум 150 символов',
+        verbose_name=_('название'),
+        help_text=_('Максимум 150 символов'),
         max_length=150,
         unique=True,
     )
 
     is_published = django.db.models.BooleanField(
-        verbose_name='опубликовано',
+        verbose_name=_('опубликовано'),
         default=True,
     )
 
@@ -36,7 +37,7 @@ class BaseSaleModel(django.db.models.Model):
 class BaseImageModel(django.db.models.Model):
     image = django.db.models.ImageField(
         upload_to=image_directory_path,
-        verbose_name='изображение',
+        verbose_name=_('изображение'),
         default=None,
     )
 
@@ -62,11 +63,11 @@ class BaseImageModel(django.db.models.Model):
         if self.image:
             return django.utils.safestring.mark_safe(
                 f'<img src="{self.get_image_300x300().url}" '
-                'width="{500}" height="{500}" />',
+                'width="{300}" height="{300}" />',
             )
-        return 'Нет изображения'
+        return _('Нет изображения')
 
-    display_image_300x300.short_description = 'превью'
+    display_image_300x300.short_description = _('превью')
     display_image_300x300.allow_tags = True
 
     class Meta:

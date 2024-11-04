@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-02 11:39+0000\n"
+"POT-Creation-Date: 2024-11-04 19:38+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,124 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: about/apps.py:10 templates/about/about.html:6 templates/about/about.html:11
+#: templates/includes/header.html:30
+msgid "О проекте"
+msgstr "About"
+
+#: catalog/apps.py:10
+msgid "Каталог"
+msgstr "Catalog"
+
+#: catalog/models.py:69 catalog/models.py:113
+msgid "слаг"
+msgstr "slug"
+
+#: catalog/models.py:73 catalog/models.py:117
+msgid "Только латинские буквы, цифры, знаки подчеркивания или дефиса"
+msgstr "Only latin letters, numbers, underscores or hyphens"
+
+#: catalog/models.py:77
+msgid "вес"
+msgstr "weight"
+
+#: catalog/models.py:86 catalog/models.py:122
+msgid "нормализованное имя"
+msgstr "normalized name"
+
+#: catalog/models.py:99
+msgid "Категория с похожим именем уже существует."
+msgstr "A category with a similar name already exists."
+
+#: catalog/models.py:107 catalog/models.py:159
+msgid "категория"
+msgstr "category"
+
+#: catalog/models.py:108
+msgid "категории"
+msgstr "categories"
+
+#: catalog/models.py:135
+msgid "Тег с похожим именем уже существует."
+msgstr "A tag with a similar name already exists."
+
+#: catalog/models.py:143
+msgid "тег"
+msgstr "tag"
+
+#: catalog/models.py:144 catalog/models.py:164
+msgid "теги"
+msgstr "tags"
+
+#: catalog/models.py:151
+msgid "на главной"
+msgstr "on main"
+
+#: catalog/models.py:168
+msgid "текст"
+msgstr "text"
+
+#: catalog/models.py:171
+msgid "В описании обязательно должно быть слово 'превосходно' или 'роскошно'"
+msgstr "The description must contain 'превосходно' or 'роскошно'"
+
+#: catalog/models.py:186 core/models.py:68
+msgid "Нет изображения"
+msgstr "No image"
+
+#: catalog/models.py:188 core/models.py:70
+msgid "превью"
+msgstr "preview"
+
+#: catalog/models.py:192 catalog/models.py:201 catalog/models.py:217
+msgid "товар"
+msgstr "item"
+
+#: catalog/models.py:193
+msgid "товары"
+msgstr "items"
+
+#: catalog/models.py:208
+msgid "главное изображение"
+msgstr "main image"
+
+#: catalog/models.py:209
+msgid "главные изображения"
+msgstr "main images"
+
+#: catalog/models.py:224 core/models.py:40
+msgid "изображение"
+msgstr "image"
+
+#: catalog/models.py:225
+msgid "изображения"
+msgstr "images"
+
+#: catalog/validators.py:23
+msgid "Убедитесь, что в тексте есть одно из следующих слов: "
+msgstr "Make sure that the text contains one of the following words: "
+
+#: core/apps.py:10
+msgid "База"
+msgstr "Core"
+
+#: core/models.py:19
+msgid "название"
+msgstr "name"
+
+#: core/models.py:20
+msgid "Максимум 150 символов"
+msgstr "Max 150 symbols"
+
+#: core/models.py:26
+msgid "опубликовано"
+msgstr "published"
+
+#: homepage/apps.py:10 templates/homepage/main.html:7
+#: templates/homepage/main.html:12 templates/includes/header.html:20
+msgid "Главная"
+msgstr "Homepage"
 
 #: lyceum/settings.py:121
 msgid "Russian"
@@ -27,82 +145,61 @@ msgid "English"
 msgstr ""
 
 #: templates/404.html:7 templates/404.html:12
-msgid "Page not found"
-msgstr ""
+msgid "Страница не найдена"
+msgstr "Page not found"
 
-#: templates/about/about.html:6
-msgid "About – Djangex Market"
-msgstr ""
-
-#: templates/about/about.html:11 templates/includes/header.html:30
-msgid "About"
-msgstr ""
+#: templates/about/about.html:6 templates/base.html:17
+#: templates/catalog/item.html:7 templates/catalog/item_list.html:6
+#: templates/homepage/main.html:7 templates/includes/header.html:8
+#: templates/includes/header.html:11
+msgid "Джангекс Маркет"
+msgstr "Djangex Market"
 
 #: templates/about/about.html:15
-msgid "There is nothing to say"
-msgstr ""
-
-#: templates/base.html:17 templates/includes/header.html:8
-#: templates/includes/header.html:11
-msgid "Djangex Market"
-msgstr ""
+msgid "Тут нечего сказать"
+msgstr "There is nothing to say"
 
 #: templates/base.html:26
-msgid "Content has sunk into oblivion"
-msgstr ""
-
-#: templates/catalog/item.html:7
-msgid " – Djangex Market"
-msgstr ""
+msgid "Контента не будет, расходимся"
+msgstr "Content has sunk into oblivion"
 
 #: templates/catalog/item.html:24
-msgid "Item main image"
-msgstr ""
+msgid "Главное изображение товара"
+msgstr "Item main image"
 
 #: templates/catalog/item.html:35
-msgid "Prev"
-msgstr ""
+msgid "Назад"
+msgstr "Next"
 
 #: templates/catalog/item.html:39
-msgid "Next"
-msgstr ""
+msgid "Вперед"
+msgstr "Prev"
 
 #: templates/catalog/item.html:47
-msgid "Category:"
-msgstr ""
+msgid "Категория:"
+msgstr "Category:"
 
-#: templates/catalog/item_list.html:6
-msgid "Item list – Djangex Market"
-msgstr ""
-
-#: templates/catalog/item_list.html:11 templates/includes/header.html:25
-msgid "Item list"
-msgstr ""
+#: templates/catalog/item_list.html:6 templates/catalog/item_list.html:11
+#: templates/includes/header.html:25
+msgid "Список товаров"
+msgstr "Item list"
 
 #: templates/catalog/item_list.html:20 templates/homepage/main.html:21
-msgid "Sold out!"
-msgstr ""
+msgid "Всё раскупили!"
+msgstr "Sold out!"
 
 #: templates/homepage/coffee.html:7 templates/homepage/coffee.html:12
-msgid "I'm a teapot"
-msgstr ""
-
-#: templates/homepage/main.html:7
-msgid "Homepage – Djangex Market"
-msgstr ""
-
-#: templates/homepage/main.html:12 templates/includes/header.html:20
-msgid "Homepage"
-msgstr ""
+msgid "Я чайник"
+msgstr "I'm a teapot"
 
 #: templates/homepage/main.html:30
-msgid "Our chef developer"
-msgstr ""
+msgid "Наш главный разработчик"
+msgstr "Our main developer"
 
 #: templates/includes/footer.html:6
-msgid "Djangex Market LCC"
-msgstr ""
+msgid "ООО Джангекс Маркет"
+msgstr "Djangex Market LCC"
 
-#: templates/includes/item_card.html:26
-msgid "No tags"
-msgstr ""
+#: templates/includes/item_card.html:25
+msgid "Теги отсутствуют"
+msgstr "No tags"

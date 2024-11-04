@@ -22,7 +22,7 @@
       {% for tag in item.tags.all %}
       <span class="badge bg-secondary">{{ tag }}</span>
       {% empty %}
-      <span>{% translate "No tags" %}</span>
+      <span>{% translate "Теги отсутствуют" %}</span>
       {% endfor %}
     </div>
   </div>
