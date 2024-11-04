@@ -29,7 +29,10 @@ class ItemAdmin(admin.ModelAdmin):
     list_editable = (models.Item.is_published.field.name,)
     list_display_links = (models.Item.name.field.name,)
     filter_horizontal = (models.Item.tags.field.name,)
-
+    readonly_fields = (
+        models.Item.created.field.name,
+        models.Item.updated.field.name,
+    )
     inlines = [MainImageInline, ItemImageInline]
 
 

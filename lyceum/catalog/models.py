@@ -177,6 +177,16 @@ class Item(BaseSaleModel):
         ],
     )
 
+    created = models.DateTimeField(
+        verbose_name=_('время создания'),
+        auto_now_add=True,
+    )
+
+    updated = models.DateTimeField(
+        verbose_name=_('время изменения'),
+        auto_now=True,
+    )
+
     def display_main_image(self):
         if hasattr(self, 'main_image'):
             return mark_safe(

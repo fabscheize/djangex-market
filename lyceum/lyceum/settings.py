@@ -130,7 +130,7 @@ LANGUAGE_CODE = 'ru-RU'
 
 TEMPLATE_CONTEXT_PROCESSORS = ('django.core.context_processors.i18n',)
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Novosibirsk'
 
 USE_I18N = True
 

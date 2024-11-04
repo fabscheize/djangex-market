@@ -11,6 +11,8 @@
     <h1>{% translate "Список товаров" %}</h1>
   </div>
 
+  {% include "includes/list_navbar.html" %}
+
   {% for item in items %}
     {% ifchanged item.category %}
       {% if not forloop.first %}</div></div>{% endif %}

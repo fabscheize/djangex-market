@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+  {{ title }} - {% translate "Джангекс Маркет" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container my-3">
+    <h1>{% translate "Список товаров" %}</h1>
+  </div>
+
+  {% include "includes/list_navbar.html" %}
+
+  {% include "includes/simple_list.html" %}
+{% endblock content %}
