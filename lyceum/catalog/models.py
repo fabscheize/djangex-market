@@ -3,6 +3,7 @@ import re
 from django.core import exceptions, validators
 from django.db import models
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
 from tinymce import models as tinymce_models
 from transliterate import translit
 
@@ -65,15 +66,13 @@ class ItemManager(models.Manager):
 
 class Category(BaseSaleModel):
     slug = models.SlugField(
-        verbose_name='слаг',
+        verbose_name=_('slug'),
         max_length=200,
         unique=True,
-        help_text=(
-            'Только латинские буквы, цифры, знаки подчеркивания или дефиса'
-        ),
+        help_text=(_('Only latin letters, numbers, underscores or hyphens')),
     )
     weight = models.IntegerField(
-        verbose_name='вес',
+        verbose_name=_('weight'),
         default=100,
         validators=[
             validators.MinValueValidator(1),
@@ -82,9 +81,9 @@ class Category(BaseSaleModel):
     )
 
     normalized_name = models.CharField(
-        verbose_name='нормализованное имя',
+        verbose_name=_('normalized name'),
         max_length=150,
-        unique=True,
+        unique=False,
         editable=False,
     )
 
@@ -95,7 +94,7 @@ class Category(BaseSaleModel):
             and Category.objects.filter(normalized_name=normalized).exists()
         ):
             raise exceptions.ValidationError(
-                {'name': 'Категория с похожим именем уже существует.'},
+                {'name': _('A category with a similar name already exists.')},
             )
 
     def save(self, *args, **kwargs):
@@ -103,24 +102,22 @@ class Category(BaseSaleModel):
         super().save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'категория'
-        verbose_name_plural = 'категории'
+        verbose_name = _('category')
+        verbose_name_plural = _('categories')
 
 
 class Tag(BaseSaleModel):
     slug = models.SlugField(
-        verbose_name='слаг',
+        verbose_name=_('slug'),
         max_length=200,
         unique=True,
-        help_text=(
-            'Только латинские буквы, цифры, знаки подчеркивания или дефиса'
-        ),
+        help_text=(_('Only latin letters, numbers, underscores or hyphens')),
     )
 
     normalized_name = models.CharField(
-        verbose_name='нормализованное имя',
+        verbose_name=_('normalized name'),
         max_length=150,
-        unique=True,
+        unique=False,
         editable=False,
     )
 
@@ -131,7 +128,7 @@ class Tag(BaseSaleModel):
             and Tag.objects.filter(normalized_name=normalized).exists()
         ):
             raise exceptions.ValidationError(
-                {'name': 'Тег с похожим именем уже существует.'},
+                {'name': _('A tag with a similar name already exists.')},
             )
 
     def save(self, *args, **kwargs):
@@ -139,15 +136,15 @@ class Tag(BaseSaleModel):
         super().save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'тег'
-        verbose_name_plural = 'теги'
+        verbose_name = _('tag')
+        verbose_name_plural = _('tags')
 
 
 class Item(BaseSaleModel):
     objects = ItemManager()
 
     is_on_main = models.BooleanField(
-        verbose_name='на главной',
+        verbose_name=_('on main'),
         default=False,
     )
 
@@ -155,19 +152,18 @@ class Item(BaseSaleModel):
         Category,
         on_delete=models.CASCADE,
         related_query_name='items',
-        verbose_name='категория',
+        verbose_name=_('category'),
     )
 
     tags = models.ManyToManyField(
         Tag,
-        verbose_name='теги',
+        verbose_name=_('tags'),
     )
 
     text = tinymce_models.HTMLField(
-        verbose_name='текст',
+        verbose_name=_('text'),
         help_text=(
-            'В описании обязательно должно быть слово '
-            '"превосходно" или "роскошно"'
+            _('The description should contain "превосходно" or "роскошно"')
         ),
         validators=[
             ValidateContainsWords('превосходно', 'роскошно'),
@@ -180,14 +176,14 @@ class Item(BaseSaleModel):
                 f'<img src="{self.main_image.get_image_50x50.url}" '
                 'width="{50}" height="{50}" />',
             )
-        return 'Нет изображения'
+        return _('No image')
 
-    display_main_image.short_description = 'превью'
+    display_main_image.short_description = _('preview')
     display_main_image.allow_tags = True
 
     class Meta:
-        verbose_name = 'товар'
-        verbose_name_plural = 'товары'
+        verbose_name = _('item')
+        verbose_name_plural = _('items')
 
 
 class ItemMainImage(BaseImageModel):
@@ -195,15 +191,15 @@ class ItemMainImage(BaseImageModel):
         Item,
         on_delete=models.CASCADE,
         related_name='main_image',
-        verbose_name='товар',
+        verbose_name=_('item'),
     )
 
     def __str__(self):
         return self.item.name
 
     class Meta:
-        verbose_name = 'главное изображение'
-        verbose_name_plural = 'главные изображения'
+        verbose_name = _('main image')
+        verbose_name_plural = _('main images')
 
 
 class ItemImageGallery(BaseImageModel):
@@ -211,12 +207,12 @@ class ItemImageGallery(BaseImageModel):
         Item,
         on_delete=models.CASCADE,
         related_name='images',
-        verbose_name='товар',
+        verbose_name=_('item'),
     )
 
     def __str__(self):
         return f'{self.item.name} - {self.id}'
 
     class Meta:
-        verbose_name = 'изображение'
-        verbose_name_plural = 'изображения'
+        verbose_name = _('image')
+        verbose_name_plural = _('images')
