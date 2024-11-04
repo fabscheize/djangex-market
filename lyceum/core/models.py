@@ -23,7 +23,7 @@ class BaseSaleModel(django.db.models.Model):
     )
 
     is_published = django.db.models.BooleanField(
-        verbose_name=_('is_published'),
+        verbose_name=_('published'),
         default=True,
     )
 
