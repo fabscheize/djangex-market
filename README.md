@@ -123,18 +123,15 @@ cp demo_db.sqllite3 db.sqllite3
 copy demo_db.sqllite3 db.sqllite3
 ```
 
-Для отображения картинок товаров нужно скопировать их в папку ```media```, предварительно создав её:
-```bash
-mkdir media
-```
+Для отображения картинок товаров нужно скопировать их в папку ```media```:
 
 - Linux/MacOS
 ```bash
-cp -r static_dev/img/catalog/ media/catalog
+mv static_dev/img/demo_media media
 ```
 - Windows
 ```bash
-copy -r static_dev/img/catalog/ media/catalog
+move static_dev/img/demo_media media
 ```
 
 5. Создать суперпользователя для админки:
