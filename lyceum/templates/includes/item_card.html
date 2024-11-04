@@ -1,11 +1,10 @@
 {% load static %}
 {% load i18n %}
-{% comment %} {% load filters %} {% endcomment %}
 
 <div class="col">
   <div class="card h-100">
     <a href="{% url 'catalog:item' item.pk %}">
-        <img src="{{ item.main_image.image.url }}" class="d-block w-100 item-image" class="card-img-top" alt="...">
+        <img src="{{ item.main_image.get_image_800x800.url }}" class="d-block w-100 item-image" class="card-img-top" alt="{{ item.name }}">
     </a>
 
     <div class="card-body">

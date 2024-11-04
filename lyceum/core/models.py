@@ -41,26 +41,33 @@ class BaseImageModel(django.db.models.Model):
     )
 
     def _thumb_image(self, size: int):
-        thumb = sorl.thumbnail.get_thumbnail(
+        return sorl.thumbnail.get_thumbnail(
             self.image,
             f'{size}x{size}',
             crop='center',
             quality=60,
         )
 
-        return django.utils.safestring.mark_safe(
-            f'<img src="{thumb.url}" width="{size}" height="{size}" />',
-        )
-
-    def get_image_300x300(self):
-        return self._thumb_image(300) if self.image else 'Нет изображения'
-
     @property
     def get_image_50x50(self):
         return self._thumb_image(50)
 
-    get_image_300x300.short_description = 'превью'
-    get_image_300x300.allow_tags = True
+    def get_image_300x300(self):
+        return self._thumb_image(300)
+
+    def get_image_800x800(self):
+        return self._thumb_image(800)
+
+    def display_image_300x300(self):
+        if self.image:
+            return django.utils.safestring.mark_safe(
+                f'<img src="{self.get_image_300x300().url}" '
+                'width="{500}" height="{500}" />',
+            )
+        return 'Нет изображения'
+
+    display_image_300x300.short_description = 'превью'
+    display_image_300x300.allow_tags = True
 
     class Meta:
         abstract = True

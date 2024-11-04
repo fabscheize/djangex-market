@@ -2,6 +2,7 @@ import re
 
 from django.core import exceptions, validators
 from django.db import models
+from django.utils.safestring import mark_safe
 from tinymce import models as tinymce_models
 from transliterate import translit
 
@@ -173,13 +174,16 @@ class Item(BaseSaleModel):
         ],
     )
 
-    def get_main_image(self):
+    def display_main_image(self):
         if hasattr(self, 'main_image'):
-            return self.main_image.get_image_50x50
+            return mark_safe(
+                f'<img src="{self.main_image.get_image_50x50.url}" '
+                'width="{50}" height="{50}" />',
+            )
         return 'Нет изображения'
 
-    get_main_image.short_description = 'превью'
-    get_main_image.allow_tags = True
+    display_main_image.short_description = 'превью'
+    display_main_image.allow_tags = True
 
     class Meta:
         verbose_name = 'товар'

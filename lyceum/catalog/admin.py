@@ -8,15 +8,15 @@ __all__ = []
 class MainImageInline(admin.StackedInline):
     model = models.ItemMainImage
     extra = 0
-    readonly_fields = (models.ItemMainImage.get_image_300x300,)
-    fields = ('image', models.ItemMainImage.get_image_300x300)
+    readonly_fields = (models.ItemMainImage.display_image_300x300,)
+    fields = ('image', models.ItemMainImage.display_image_300x300)
 
 
 class ItemImageInline(admin.TabularInline):
     model = models.ItemImageGallery
     extra = 0
-    readonly_fields = (models.ItemImageGallery.get_image_300x300,)
-    fields = (models.ItemImageGallery.get_image_300x300, 'image')
+    readonly_fields = (models.ItemImageGallery.display_image_300x300,)
+    fields = (models.ItemImageGallery.display_image_300x300, 'image')
 
 
 @admin.register(models.Item)
@@ -24,7 +24,7 @@ class ItemAdmin(admin.ModelAdmin):
     list_display = (
         models.Item.name.field.name,
         models.Item.is_published.field.name,
-        models.Item.get_main_image,
+        models.Item.display_main_image,
     )
     list_editable = (models.Item.is_published.field.name,)
     list_display_links = (models.Item.name.field.name,)

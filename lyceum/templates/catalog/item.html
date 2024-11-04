@@ -21,11 +21,11 @@
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ item.main_image.image.url }}" class="d-block w-100 item-image" alt={% translate "Item main image" %}>
+            <img src="{{ item.main_image.get_image_800x800.url }}" class="d-block w-100 item-image" alt={% translate "Item main image" %}>
           </div>
           {% for image in item.images.all %}
           <div class="carousel-item">
-            <img src="{{ image.image.url }}" class="d-block w-100 item-image" alt="#{{ forloop.counter }}">
+            <img src="{{ image.get_image_800x800.url }}" class="d-block w-100 item-image" alt="#{{ forloop.counter }}">
           </div>
           {% endfor %}
         </div>
