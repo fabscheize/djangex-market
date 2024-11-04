@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 11:06+0000\n"
+"POT-Creation-Date: 2024-11-04 11:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,16 +119,8 @@ msgstr ""
 msgid "Core"
 msgstr ""
 
-#: core/models.py:19
-msgid "title"
-msgstr ""
-
 #: core/models.py:20
 msgid "Max 150 symbols"
-msgstr ""
-
-#: core/models.py:26
-msgid "published"
 msgstr ""
 
 #: homepage/apps.py:10 templates/homepage/main.html:7
