@@ -1,7 +1,7 @@
 from http import HTTPStatus
 
 from django.test import Client, TestCase
-from django.urls import NoReverseMatch, reverse
+from django.urls import reverse
 from parametrize import parametrize
 
 from catalog.models import Category, Item
@@ -29,10 +29,7 @@ class CatalogHttpResponseTest(TestCase):
         'path, pk',
         [
             ('item', '1'),
-            ('re_item', '1'),
-            ('re_item', '0001'),
-            ('c_item', '1'),
-            ('c_item', '0001'),
+            ('item', '0001'),
         ],
     )
     def test_catalog_response_positive(self, path, pk):
@@ -42,16 +39,9 @@ class CatalogHttpResponseTest(TestCase):
     @parametrize(
         'path, pk',
         [
-            ('re_item', -1),
-            ('re_item', ''),
-            ('re_item', 'qwerty'),
-            ('c_item', -1),
-            ('c_item', ''),
-            ('c_item', 'qwerty'),
+            ('item', '2'),
         ],
     )
     def test_catalog_response_negative(self, path, pk):
-        with self.assertRaises(NoReverseMatch):
-            self.client.get(
-                reverse('catalog:' + path, args=[str(pk)]),
-            )
+        response = self.client.get(reverse('catalog:' + path, args=[pk]))
+        self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)

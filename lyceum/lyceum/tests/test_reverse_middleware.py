@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.test import RequestFactory, TestCase
+from django.test import override_settings, RequestFactory, TestCase
 from django.urls import reverse
 from parametrize import parametrize
 
@@ -21,6 +21,7 @@ class ReverseMiddlewareTest(TestCase):
             ),
         ],
     )
+    @override_settings(ALLOW_REVERSE=True)
     def test_middleware_reverses_content_on_tenth_request(
         self,
         initial_content,
