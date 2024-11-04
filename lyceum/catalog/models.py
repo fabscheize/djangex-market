@@ -163,7 +163,7 @@ class Item(BaseSaleModel):
     text = tinymce_models.HTMLField(
         verbose_name=_('text'),
         help_text=(
-            _('The description should contain "превосходно" or "роскошно"')
+            _("The description should contain 'превосходно' or 'роскошно'")
         ),
         validators=[
             ValidateContainsWords('превосходно', 'роскошно'),
