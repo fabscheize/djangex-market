@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 10:20+0000\n"
+"POT-Creation-Date: 2024-11-04 10:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,8 +86,8 @@ msgid "text"
 msgstr "текст"
 
 #: catalog/models.py:166
-msgid "The description should contain 'превосходно' or 'роскошно'"
-msgstr "Описание должно содержать 'превосходно' или 'роскошно'"
+msgid "The description should contain \"превосходно\" or \"роскошно\""
+msgstr "Описание должно содержать \"превосходно" или \"роскошно""
 
 #: catalog/models.py:179 core/models.py:68
 msgid "No image"
