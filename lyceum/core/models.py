@@ -16,14 +16,14 @@ def image_directory_path(instance, filename):
 
 class BaseSaleModel(django.db.models.Model):
     name = django.db.models.CharField(
-        verbose_name=_('title'),
+        verbose_name=_('name'),
         help_text=_('Max 150 symbols'),
         max_length=150,
         unique=True,
     )
 
     is_published = django.db.models.BooleanField(
-        verbose_name=_('published'),
+        verbose_name=_('is_published'),
         default=True,
     )
 
