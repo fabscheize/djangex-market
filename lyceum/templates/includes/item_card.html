@@ -1,6 +1,6 @@
 {% load static %}
 {% load i18n %}
-{% load filters %}
+{% comment %} {% load filters %} {% endcomment %}
 
 <div class="col">
   <div class="card h-100">
@@ -12,7 +12,7 @@
       <h5 class="card-title">
         <a href="{% url 'catalog:item' item.pk %}" class="nav-link">{{ item.name }}</a>
       </h5>
-      <p class="card-text">{{ item.text|truncate_words|safe }}</p>
+      <p class="card-text">{{ item.text|truncatewords_html:10|safe }}</p>
     </div>
 
     <ul class="list-group list-group-flush">
