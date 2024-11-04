@@ -17,7 +17,7 @@
     {% for item in items %}
     {% include "includes/item_card.html" %}
     {% empty %}
-    <div class="container my-3">
+    <div class="container my-3 d-flex justify-content-center">
       <h3>{% translate "Sold out!" %}</h3>
     </div>
     {% endfor %}
