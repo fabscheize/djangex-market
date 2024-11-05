@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 19:38+0700\n"
+"POT-Creation-Date: 2024-11-05 10:08+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,41 +79,63 @@ msgstr "text"
 msgid "В описании обязательно должно быть слово 'превосходно' или 'роскошно'"
 msgstr "The description must contain 'превосходно' or 'роскошно'"
 
-#: catalog/models.py:186 core/models.py:68
+#: catalog/models.py:181
+msgid "время создания"
+msgstr "create time"
+
+#: catalog/models.py:186
+#, fuzzy
+#| msgid "Нет изображения"
+msgid "время изменения"
+msgstr "update time"
+
+#: catalog/models.py:196 core/models.py:68
 msgid "Нет изображения"
 msgstr "No image"
 
-#: catalog/models.py:188 core/models.py:70
+#: catalog/models.py:198 core/models.py:70
 msgid "превью"
 msgstr "preview"
 
-#: catalog/models.py:192 catalog/models.py:201 catalog/models.py:217
+#: catalog/models.py:202 catalog/models.py:211 catalog/models.py:227
 msgid "товар"
 msgstr "item"
 
-#: catalog/models.py:193
+#: catalog/models.py:203
 msgid "товары"
 msgstr "items"
 
-#: catalog/models.py:208
+#: catalog/models.py:218
 msgid "главное изображение"
 msgstr "main image"
 
-#: catalog/models.py:209
+#: catalog/models.py:219
 msgid "главные изображения"
 msgstr "main images"
 
-#: catalog/models.py:224 core/models.py:40
+#: catalog/models.py:234 core/models.py:40
 msgid "изображение"
 msgstr "image"
 
-#: catalog/models.py:225
+#: catalog/models.py:235
 msgid "изображения"
 msgstr "images"
 
 #: catalog/validators.py:23
 msgid "Убедитесь, что в тексте есть одно из следующих слов: "
 msgstr "Make sure that the text contains one of the following words: "
+
+#: catalog/views.py:49 templates/includes/list_navbar.html:10
+msgid "Новинки"
+msgstr "New"
+
+#: catalog/views.py:60 templates/includes/list_navbar.html:13
+msgid "Пятница"
+msgstr "Friday"
+
+#: catalog/views.py:70 templates/includes/list_navbar.html:16
+msgid "Непроверенное"
+msgstr "Unverified"
 
 #: core/apps.py:10
 msgid "База"
@@ -131,16 +153,20 @@ msgstr "Max 150 symbols"
 msgid "опубликовано"
 msgstr "published"
 
+#: download/apps.py:10
+msgid "Загрузка"
+msgstr "Download"
+
 #: homepage/apps.py:10 templates/homepage/main.html:7
 #: templates/homepage/main.html:12 templates/includes/header.html:20
 msgid "Главная"
 msgstr "Homepage"
 
-#: lyceum/settings.py:121
+#: lyceum/settings.py:122
 msgid "Russian"
 msgstr ""
 
-#: lyceum/settings.py:122
+#: lyceum/settings.py:123
 msgid "English"
 msgstr ""
 
@@ -150,8 +176,8 @@ msgstr "Page not found"
 
 #: templates/about/about.html:6 templates/base.html:17
 #: templates/catalog/item.html:7 templates/catalog/item_list.html:6
-#: templates/homepage/main.html:7 templates/includes/header.html:8
-#: templates/includes/header.html:11
+#: templates/catalog/special.html:7 templates/homepage/main.html:7
+#: templates/includes/header.html:8 templates/includes/header.html:11
 msgid "Джангекс Маркет"
 msgstr "Djangex Market"
 
@@ -167,24 +193,30 @@ msgstr "Content has sunk into oblivion"
 msgid "Главное изображение товара"
 msgstr "Item main image"
 
-#: templates/catalog/item.html:35
+#: templates/catalog/item.html:26 templates/catalog/item.html:33
+#, fuzzy
+#| msgid "Нет изображения"
+msgid "Скачать изображение"
+msgstr "Download image"
+
+#: templates/catalog/item.html:41
 msgid "Назад"
 msgstr "Next"
 
-#: templates/catalog/item.html:39
+#: templates/catalog/item.html:45
 msgid "Вперед"
 msgstr "Prev"
 
-#: templates/catalog/item.html:47
+#: templates/catalog/item.html:53
 msgid "Категория:"
 msgstr "Category:"
 
 #: templates/catalog/item_list.html:6 templates/catalog/item_list.html:11
-#: templates/includes/header.html:25
+#: templates/catalog/special.html:12 templates/includes/header.html:25
 msgid "Список товаров"
 msgstr "Item list"
 
-#: templates/catalog/item_list.html:20 templates/homepage/main.html:21
+#: templates/catalog/item_list.html:33 templates/includes/simple_list.html:9
 msgid "Всё раскупили!"
 msgstr "Sold out!"
 
@@ -192,7 +224,7 @@ msgstr "Sold out!"
 msgid "Я чайник"
 msgstr "I'm a teapot"
 
-#: templates/homepage/main.html:30
+#: templates/homepage/main.html:20
 msgid "Наш главный разработчик"
 msgstr "Our main developer"
 
@@ -200,6 +232,14 @@ msgstr "Our main developer"
 msgid "ООО Джангекс Маркет"
 msgstr "Djangex Market LCC"
 
-#: templates/includes/item_card.html:25
+#: templates/includes/header.html:36
+msgid "Админка"
+msgstr "Admin"
+
+#: templates/includes/item_card.html:29
 msgid "Теги отсутствуют"
 msgstr "No tags"
+
+#: templates/includes/list_navbar.html:7
+msgid "Все"
+msgstr "All"
