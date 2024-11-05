@@ -190,7 +190,7 @@ class Item(BaseSaleModel):
     )
 
     def display_main_image(self):
-        if hasattr(self, 'main_image'):
+        if self.main_image.is_image:
             return mark_safe(
                 f'<img src="{self.main_image.get_image_50x50.url}" '
                 'width="{50}" height="{50}" />',

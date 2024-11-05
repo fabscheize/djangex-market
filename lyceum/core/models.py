@@ -1,6 +1,6 @@
 import uuid
 
-import django.core.files.base
+from django.core.files.storage import default_storage
 import django.core.validators
 import django.db.models
 import django.utils.safestring
@@ -41,13 +41,19 @@ class BaseImageModel(django.db.models.Model):
         default=None,
     )
 
+    @property
+    def is_image(self):
+        return self.image and default_storage.exists(self.image.name)
+
     def _thumb_image(self, size: int):
-        return sorl.thumbnail.get_thumbnail(
-            self.image,
-            f'{size}x{size}',
-            crop='center',
-            quality=60,
-        )
+        if self.is_image:
+            return sorl.thumbnail.get_thumbnail(
+                self.image,
+                f'{size}x{size}',
+                crop='center',
+                quality=60,
+            )
+        return None
 
     @property
     def get_image_50x50(self):
@@ -60,7 +66,7 @@ class BaseImageModel(django.db.models.Model):
         return self._thumb_image(800)
 
     def display_image_300x300(self):
-        if self.image:
+        if self.is_image:
             return django.utils.safestring.mark_safe(
                 f'<img src="{self.get_image_300x300().url}" '
                 'width="{300}" height="{300}" />',

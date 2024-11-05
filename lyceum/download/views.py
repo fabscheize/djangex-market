@@ -5,9 +5,11 @@ __all__ = []
 
 
 def get_file(request, path):
-    if not path:
+    try:
+        response = FileResponse(
+            open(settings.MEDIA_ROOT / path, 'rb'),
+            as_attachment=True,
+        )
+    except FileNotFoundError:
         raise Http404('File not found')
-    return FileResponse(
-        open(settings.MEDIA_ROOT / path, 'rb'),
-        as_attachment=True,
-    )
+    return response
