@@ -1,6 +1,6 @@
 from http import HTTPStatus
 
-from django.test import Client, TestCase
+from django.test import Client, override_settings, TestCase
 from django.urls import reverse
 
 from catalog.models import Item
@@ -32,6 +32,7 @@ class HomepageHttpResponseTest(TestCase):
         response = self.client.get(reverse('homepage:home'))
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
+    @override_settings(ALLOW_REVERSE=False)
     def test_coffee_status_code(self):
         response = self.client.get(reverse('homepage:coffee'))
         self.assertEqual(response.status_code, HTTPStatus.IM_A_TEAPOT)
