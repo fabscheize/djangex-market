@@ -1,250 +1,295 @@
 [
-  {
-    "model": "catalog.category",
-    "pk": 1,
-    "fields": {
-      "name": "Головные уборы",
-      "is_published": true,
-      "slug": "hats",
-      "weight": 100,
-      "normalized_name": "golovnyeubory"
-    }
-  },
-  {
-    "model": "catalog.category",
-    "pk": 2,
-    "fields": {
-      "name": "Модные аксессуары",
-      "is_published": true,
-      "slug": "fashion",
-      "weight": 100,
-      "normalized_name": "modnyeaksessuary"
-    }
-  },
-  {
-    "model": "catalog.category",
-    "pk": 3,
-    "fields": {
-      "name": "Транспорт",
-      "is_published": true,
-      "slug": "transport",
-      "weight": 300,
-      "normalized_name": "transport"
-    }
-  },
-  {
-    "model": "catalog.tag",
-    "pk": 1,
-    "fields": {
-      "name": "Тег 1",
-      "is_published": true,
-      "slug": "tag_1",
-      "normalized_name": "teg1"
-    }
-  },
-  {
-    "model": "catalog.tag",
-    "pk": 2,
-    "fields": {
-      "name": "Тег 2",
-      "is_published": false,
-      "slug": "tag_2",
-      "normalized_name": "teg2"
-    }
-  },
-  {
-    "model": "catalog.tag",
-    "pk": 3,
-    "fields": {
-      "name": "Тег 3",
-      "is_published": true,
-      "slug": "tag_3",
-      "normalized_name": "teg3"
-    }
-  },
-  {
-    "model": "catalog.tag",
-    "pk": 4,
-    "fields": {
-      "name": "Тег 4",
-      "is_published": true,
-      "slug": "tag_4",
-      "normalized_name": "teg4"
-    }
-  },
-  {
-    "model": "catalog.tag",
-    "pk": 5,
-    "fields": {
-      "name": "Тег 5",
-      "is_published": true,
-      "slug": "tag_5",
-      "normalized_name": "teg5"
-    }
-  },
-  {
-    "model": "catalog.item",
-    "pk": 1,
-    "fields": {
-      "name": "Кастрюля",
-      "is_published": true,
-      "is_on_main": true,
-      "category": 1,
-      "text": "<p>Превосходно покупают</p>",
-      "tags": [
-        2,
-        3
-      ]
-    }
-  },
-  {
-    "model": "catalog.item",
-    "pk": 2,
-    "fields": {
-      "name": "Гетры",
-      "is_published": false,
-      "is_on_main": true,
-      "category": 2,
-      "text": "<p>В них ты выглядишь превосходно</p>",
-      "tags": [
-        4,
-        5
-      ]
-    }
-  },
-  {
-    "model": "catalog.item",
-    "pk": 3,
-    "fields": {
-      "name": "Арбуз",
-      "is_published": true,
-      "is_on_main": false,
-      "category": 1,
-      "text": "<p><em>Роскошно иметь такой у себя</em></p>",
-      "tags": [
-        1,
-        5
-      ]
-    }
-  },
-  {
-    "model": "catalog.item",
-    "pk": 4,
-    "fields": {
-      "name": "Язь",
-      "is_published": true,
-      "is_on_main": false,
-      "category": 2,
-      "text": "<p><strong>Роскошно пойманный здоровенный язь</strong></p>",
-      "tags": [
-        2
-      ]
-    }
-  },
-  {
-    "model": "catalog.item",
-    "pk": 5,
-    "fields": {
-      "name": "Трактор",
-      "is_published": true,
-      "is_on_main": true,
-      "category": 3,
-      "text": "<p>Очень длинное превосходно составленное описание товара, чтобы проверить вывод первых десяти слов в шаблоне</p>",
-      "tags": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
-    }
-  },
-  {
-    "model": "catalog.itemmainimage",
-    "pk": 1,
-    "fields": {
-      "image": "catalog/1/5461cddc-90c8-4e50-99ff-0e703b742ef9-pot-main.jpg",
-      "item": 1
-    }
-  },
-  {
-    "model": "catalog.itemmainimage",
-    "pk": 2,
-    "fields": {
-      "image": "catalog/2/32cab4d4-1c8c-44be-bd5c-2a018576a1ea-gaiters-main.jpg",
-      "item": 2
-    }
-  },
-  {
-    "model": "catalog.itemmainimage",
-    "pk": 3,
-    "fields": {
-      "image": "catalog/3/d5ad848d-09b9-4ad3-89e9-d6526c5968c2-watermelon-main.jpg",
-      "item": 3
-    }
-  },
-  {
-    "model": "catalog.itemmainimage",
-    "pk": 4,
-    "fields": {
-      "image": "catalog/4/e1611ed4-bb52-4b42-a0e2-3cea8aec7e95-yaz-main.jpg",
-      "item": 4
-    }
-  },
-  {
-    "model": "catalog.itemmainimage",
-    "pk": 5,
-    "fields": {
-      "image": "catalog/5/4375bc34-3762-4f84-8717-0cbf6ddcf487-tractor-main.jpg",
-      "item": 5
-    }
-  },
-  {
-    "model": "catalog.itemimagegallery",
-    "pk": 1,
-    "fields": {
-      "image": "catalog/1/ca1d2b70-e733-4c4f-bba0-919bea5dba81-pot-1.jpg",
-      "item": 1
-    }
-  },
-  {
-    "model": "catalog.itemimagegallery",
-    "pk": 2,
-    "fields": {
-      "image": "catalog/1/aa8e1034-2549-4099-b952-a8b4a4079ece-pot-2.jpg",
-      "item": 1
-    }
-  },
-  {
-    "model": "catalog.itemimagegallery",
-    "pk": 3,
-    "fields": {
-      "image": "catalog/3/b85c6344-c622-4dfa-ac6b-cb665b3f3ca5-watermelon-1.jpg",
-      "item": 3
-    }
-  },
-  {
-    "model": "catalog.itemimagegallery",
-    "pk": 4,
-    "fields": {
-      "image": "catalog/3/1abfbe4b-c9f8-468a-9135-ac1941764223-watermelon-2.jpg",
-      "item": 3
-    }
-  },
-  {
-    "model": "catalog.itemimagegallery",
-    "pk": 5,
-    "fields": {
-      "image": "catalog/4/8c680cb7-db73-4837-a6a0-d7be706b9dfe-yaz-1.jpg",
-      "item": 4
-    }
-  },
-  {
-    "model": "catalog.itemimagegallery",
-    "pk": 6,
-    "fields": {
-      "image": "catalog/5/775655bc-cc64-4cc1-b59f-971ba5ba8583-tractor-1.jpg",
-      "item": 5
-    }
+{
+  "model": "catalog.category",
+  "pk": 1,
+  "fields": {
+    "name": "Головные уборы",
+    "is_published": true,
+    "slug": "hats",
+    "weight": 100,
+    "normalized_name": "golovnyeubory"
   }
-  ]
+},
+{
+  "model": "catalog.category",
+  "pk": 2,
+  "fields": {
+    "name": "Модные аксессуары",
+    "is_published": true,
+    "slug": "fashion",
+    "weight": 100,
+    "normalized_name": "modnyeaksessuary"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Транспорт",
+    "is_published": true,
+    "slug": "transport",
+    "weight": 300,
+    "normalized_name": "transport"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 4,
+  "fields": {
+    "name": "Морепродукты",
+    "is_published": true,
+    "slug": "seafood",
+    "weight": 100,
+    "normalized_name": "moreprodukty"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 1,
+  "fields": {
+    "name": "Тег 1",
+    "is_published": true,
+    "slug": "tag_1",
+    "normalized_name": "teg1"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 2,
+  "fields": {
+    "name": "Тег 2",
+    "is_published": false,
+    "slug": "tag_2",
+    "normalized_name": "teg2"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 3,
+  "fields": {
+    "name": "Тег 3",
+    "is_published": true,
+    "slug": "tag_3",
+    "normalized_name": "teg3"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 4,
+  "fields": {
+    "name": "Тег 4",
+    "is_published": true,
+    "slug": "tag_4",
+    "normalized_name": "teg4"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 5,
+  "fields": {
+    "name": "Тег 5",
+    "is_published": true,
+    "slug": "tag_5",
+    "normalized_name": "teg5"
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 1,
+  "fields": {
+    "name": "Кастрюля",
+    "is_published": true,
+    "is_on_main": true,
+    "category": 1,
+    "text": "<p>Превосходно покупают</p>",
+    "created": "2024-11-04T15:42:39.719Z",
+    "updated": "2024-11-04T15:42:39.723Z",
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 2,
+  "fields": {
+    "name": "Гетры",
+    "is_published": false,
+    "is_on_main": true,
+    "category": 2,
+    "text": "<p>В них ты выглядишь превосходно</p>",
+    "created": "2024-11-04T15:42:39.719Z",
+    "updated": "2024-11-04T15:42:39.723Z",
+    "tags": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 3,
+  "fields": {
+    "name": "Арбуз",
+    "is_published": true,
+    "is_on_main": false,
+    "category": 1,
+    "text": "<p><em>Роскошно иметь такой у себя</em></p>",
+    "created": "2024-11-04T15:42:39.719Z",
+    "updated": "2024-11-04T17:15:51.056Z",
+    "tags": [
+      1,
+      5
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 4,
+  "fields": {
+    "name": "Язь",
+    "is_published": true,
+    "is_on_main": false,
+    "category": 2,
+    "text": "<p><strong>Роскошно пойманный здоровенный язь</strong></p>",
+    "created": "2024-11-04T15:42:39.719Z",
+    "updated": "2024-11-04T17:16:03.730Z",
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 5,
+  "fields": {
+    "name": "Трактор",
+    "is_published": true,
+    "is_on_main": true,
+    "category": 3,
+    "text": "<p>Очень длинное превосходно составленное описание товара, чтобы проверить вывод первых десяти слов в шаблоне</p>",
+    "created": "2024-11-04T15:42:39.719Z",
+    "updated": "2024-11-04T15:42:39.723Z",
+    "tags": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 6,
+  "fields": {
+    "name": "Открытка",
+    "is_published": true,
+    "is_on_main": false,
+    "category": 2,
+    "text": "<p>Превосходно поднимает настроение</p>",
+    "created": "2024-11-01T15:59:08.819Z",
+    "updated": "2024-11-01T15:59:28.765Z",
+    "tags": [
+      3
+    ]
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 1,
+  "fields": {
+    "image": "catalog/1/5461cddc-90c8-4e50-99ff-0e703b742ef9-pot-main.jpg",
+    "item": 1
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 2,
+  "fields": {
+    "image": "catalog/2/32cab4d4-1c8c-44be-bd5c-2a018576a1ea-gaiters-main.jpg",
+    "item": 2
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 3,
+  "fields": {
+    "image": "catalog/3/d5ad848d-09b9-4ad3-89e9-d6526c5968c2-watermelon-main.jpg",
+    "item": 3
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 4,
+  "fields": {
+    "image": "catalog/4/e1611ed4-bb52-4b42-a0e2-3cea8aec7e95-yaz-main.jpg",
+    "item": 4
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 5,
+  "fields": {
+    "image": "catalog/5/4375bc34-3762-4f84-8717-0cbf6ddcf487-tractor-main.jpg",
+    "item": 5
+  }
+},
+{
+  "model": "catalog.itemmainimage",
+  "pk": 6,
+  "fields": {
+    "image": "catalog/6/a83870d8-1188-4179-b486-93c1380681ce-card-main.jpg",
+    "item": 6
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 1,
+  "fields": {
+    "image": "catalog/1/ca1d2b70-e733-4c4f-bba0-919bea5dba81-pot-1.jpg",
+    "item": 1
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 2,
+  "fields": {
+    "image": "catalog/1/aa8e1034-2549-4099-b952-a8b4a4079ece-pot-2.jpg",
+    "item": 1
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 3,
+  "fields": {
+    "image": "catalog/3/b85c6344-c622-4dfa-ac6b-cb665b3f3ca5-watermelon-1.jpg",
+    "item": 3
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 4,
+  "fields": {
+    "image": "catalog/3/1abfbe4b-c9f8-468a-9135-ac1941764223-watermelon-2.jpg",
+    "item": 3
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 5,
+  "fields": {
+    "image": "catalog/4/8c680cb7-db73-4837-a6a0-d7be706b9dfe-yaz-1.jpg",
+    "item": 4
+  }
+},
+{
+  "model": "catalog.itemimagegallery",
+  "pk": 6,
+  "fields": {
+    "image": "catalog/5/775655bc-cc64-4cc1-b59f-971ba5ba8583-tractor-1.jpg",
+    "item": 5
+  }
+}
+]
