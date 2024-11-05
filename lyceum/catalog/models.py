@@ -180,11 +180,13 @@ class Item(BaseSaleModel):
     created = models.DateTimeField(
         verbose_name=_('время создания'),
         auto_now_add=True,
+        null=True,
     )
 
     updated = models.DateTimeField(
         verbose_name=_('время изменения'),
         auto_now=True,
+        null=True,
     )
 
     def display_main_image(self):
