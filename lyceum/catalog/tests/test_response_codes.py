@@ -4,36 +4,28 @@ from django.test import Client, TestCase
 from django.urls import reverse
 from parametrize import parametrize
 
-from catalog.models import Category, Item
-
-
 __all__ = []
 
 
 class CatalogHttpResponseTest(TestCase):
+    fixtures = ['data.json']
+
     @classmethod
     def setUpTestData(cls):
         cls.client = Client()
-        cls.category = Category.objects.create(
-            name='Категория',
-            slug='category',
-            weight=100,
-        )
-        cls.item = Item.objects.create(
-            name='Товар 1',
-            text='Превосходно тестируем код',
-            category=cls.category,
-        )
 
     @parametrize(
-        'path, pk',
+        'path, args',
         [
-            ('item', '1'),
-            ('item', '0001'),
+            ('item', ['1']),
+            ('item', ['0001']),
+            ('new', None),
+            ('friday', None),
+            ('unverified', None),
         ],
     )
-    def test_catalog_response_positive(self, path, pk):
-        response = self.client.get(reverse('catalog:' + path, args=[pk]))
+    def test_catalog_response_positive(self, path, args):
+        response = self.client.get(reverse('catalog:' + path, args=args))
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
     @parametrize(
