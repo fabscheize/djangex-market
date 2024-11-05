@@ -3,6 +3,7 @@ import random
 
 from django.db import models
 from django.shortcuts import get_object_or_404, render
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 import catalog.models
@@ -34,8 +35,7 @@ def new_list(request):
     items_ids = list(
         catalog.models.Item.objects.published()
         .filter(
-            created__gte=datetime.date.today()
-            - datetime.timedelta(days=7),
+            created__gte=timezone.now() - datetime.timedelta(days=7),
         )
         .values_list('id', flat=True),
     )
