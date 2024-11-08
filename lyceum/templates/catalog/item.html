@@ -40,14 +40,16 @@
             {% endfor %}
           </div>
 
-          <button class="carousel-control-prev" type="button" data-bs-target="#itemCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">{% translate "Назад" %}</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#itemCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">{% translate "Вперед" %}</span>
-          </button>
+          {% if item.images.all %}
+            <button class="carousel-control-prev" type="button" data-bs-target="#itemCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">{% translate "Назад" %}</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#itemCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">{% translate "Вперед" %}</span>
+            </button>
+          {% endif %}
         </div>
       </div>
 

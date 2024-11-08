@@ -22,12 +22,15 @@
       {% endif %}
     {% endwith %}
 
-    <div class="card-footer d-flex align-items-center">
-      {% for tag in item.tags.all %}
-        <span class="badge bg-secondary me-2">{{ tag }}</span>
-        {% empty %}
+    <div class="card-footer d-flex align-items-center flex-wrap">
+      {% for tag in item.tags.all|slice:":3" %}
+        <span class="badge bg-secondary me-2 mb-1">{{ tag }}</span>
+      {% empty %}
         <span>{% translate "Теги отсутствуют" %}</span>
       {% endfor %}
+      {% if item.tags.count > 3 %}
+        <span class="badge bg-secondary me-2 mb-1">{% translate "и еще " %}{{ item.tags.count|add:"-3" }}{% translate "..." %}</span>
+      {% endif %}
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-05 10:08+0700\n"
+"POT-Creation-Date: 2024-11-08 15:29+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,41 +83,41 @@ msgstr "The description must contain 'превосходно' or 'роскошн
 msgid "время создания"
 msgstr "create time"
 
-#: catalog/models.py:186
+#: catalog/models.py:187
 #, fuzzy
 #| msgid "Нет изображения"
 msgid "время изменения"
 msgstr "update time"
 
-#: catalog/models.py:196 core/models.py:68
+#: catalog/models.py:198 core/models.py:74
 msgid "Нет изображения"
 msgstr "No image"
 
-#: catalog/models.py:198 core/models.py:70
+#: catalog/models.py:200 core/models.py:76
 msgid "превью"
 msgstr "preview"
 
-#: catalog/models.py:202 catalog/models.py:211 catalog/models.py:227
+#: catalog/models.py:204 catalog/models.py:213 catalog/models.py:229
 msgid "товар"
 msgstr "item"
 
-#: catalog/models.py:203
+#: catalog/models.py:205
 msgid "товары"
 msgstr "items"
 
-#: catalog/models.py:218
+#: catalog/models.py:220
 msgid "главное изображение"
 msgstr "main image"
 
-#: catalog/models.py:219
+#: catalog/models.py:221
 msgid "главные изображения"
 msgstr "main images"
 
-#: catalog/models.py:234 core/models.py:40
+#: catalog/models.py:236 core/models.py:40
 msgid "изображение"
 msgstr "image"
 
-#: catalog/models.py:235
+#: catalog/models.py:237
 msgid "изображения"
 msgstr "images"
 
@@ -158,7 +158,7 @@ msgid "Загрузка"
 msgstr "Download"
 
 #: homepage/apps.py:10 templates/homepage/main.html:7
-#: templates/homepage/main.html:12 templates/includes/header.html:20
+#: templates/includes/header.html:20
 msgid "Главная"
 msgstr "Homepage"
 
@@ -193,21 +193,21 @@ msgstr "Content has sunk into oblivion"
 msgid "Главное изображение товара"
 msgstr "Item main image"
 
-#: templates/catalog/item.html:26 templates/catalog/item.html:33
+#: templates/catalog/item.html:27 templates/catalog/item.html:36
 #, fuzzy
 #| msgid "Нет изображения"
 msgid "Скачать изображение"
 msgstr "Download image"
 
-#: templates/catalog/item.html:41
+#: templates/catalog/item.html:46
 msgid "Назад"
 msgstr "Next"
 
-#: templates/catalog/item.html:45
+#: templates/catalog/item.html:50
 msgid "Вперед"
 msgstr "Prev"
 
-#: templates/catalog/item.html:53
+#: templates/catalog/item.html:59
 msgid "Категория:"
 msgstr "Category:"
 
@@ -224,10 +224,6 @@ msgstr "Sold out!"
 msgid "Я чайник"
 msgstr "I'm a teapot"
 
-#: templates/homepage/main.html:20
-msgid "Наш главный разработчик"
-msgstr "Our main developer"
-
 #: templates/includes/footer.html:6
 msgid "ООО Джангекс Маркет"
 msgstr "Djangex Market LCC"
@@ -239,6 +235,14 @@ msgstr "Admin"
 #: templates/includes/item_card.html:29
 msgid "Теги отсутствуют"
 msgstr "No tags"
+
+#: templates/includes/item_card.html:32
+msgid "и еще "
+msgstr "and "
+
+#: templates/includes/item_card.html:32
+msgid "..."
+msgstr " more..."
 
 #: templates/includes/list_navbar.html:7
 msgid "Все"
