@@ -3,16 +3,16 @@
 <div class="container my-3">
   <div class="btn-group">
     {% with request.resolver_match.view_name as view_name %}
-      {% if view_name == 'catalog:list' %} <a href="#" class="btn btn-warning active" aria-disabled="true" aria-current="page"> {% else %} <a class="btn btn-outline-warning text-black" href="{% url 'catalog:list' %}"> {% endif %}
+      {% if view_name == 'catalog:list' %} <a class="btn btn-warning active" aria-disabled="true" aria-current="page"> {% else %} <a class="btn btn-outline-warning text-black" href="{% url 'catalog:list' %}"> {% endif %}
         {% translate "Все" %}
       </a>
-      {% if view_name == 'catalog:new' %} <a class="btn btn-warning active" aria-disabled="true" href="#"> {% else %} <a class="btn btn-outline-warning text-black" href="{% url 'catalog:new' %}"> {% endif %}
+      {% if view_name == 'catalog:new' %} <a class="btn btn-warning active" aria-disabled="true"> {% else %} <a class="btn btn-outline-warning text-black" href="{% url 'catalog:new' %}"> {% endif %}
         {% translate "Новинки" %}
       </a>
-      {% if view_name == 'catalog:friday' %} <a class="btn btn-warning active " aria-disabled="true" href="#"> {% else %} <a class="btn btn-outline-warning text-black" href="{% url 'catalog:friday' %}"> {% endif %}
+      {% if view_name == 'catalog:friday' %} <a class="btn btn-warning active " aria-disabled="true"> {% else %} <a class="btn btn-outline-warning text-black" href="{% url 'catalog:friday' %}"> {% endif %}
         {% translate "Пятница" %}
       </a>
-      {% if view_name == 'catalog:unverified' %} <a class="btn btn-warning active" aria-disabled="true" href="#"> {% else %} <a class="btn btn-outline-warning text-black" href="{% url 'catalog:unverified' %}"> {% endif %}
+      {% if view_name == 'catalog:unverified' %} <a class="btn btn-warning active" aria-disabled="true"> {% else %} <a class="btn btn-outline-warning text-black" href="{% url 'catalog:unverified' %}"> {% endif %}
         {% translate "Непроверенное" %}
       </a>
     {% endwith %}

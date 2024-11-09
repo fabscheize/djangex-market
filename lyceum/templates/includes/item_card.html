@@ -4,14 +4,16 @@
 <div class="col">
   <div class="card h-100">
     <a href="{% url 'catalog:item' item.pk %}">
-        <img src="{{ item.main_image.get_image_800x800.url }}" class="d-block w-100 item-image" class="card-img-top" alt="{{ item.name }}">
+        <img src="{{ item.main_image.get_image_800x800.url }}" class="d-block w-100 item-image card-img-top" alt="{{ item.name }}">
     </a>
 
     <div class="card-body">
       <h5 class="card-title">
         <a href="{% url 'catalog:item' item.pk %}" class="nav-link">{{ item.name }}</a>
       </h5>
-      <p class="card-text">{{ item.text|truncatewords_html:10|safe }}</p>
+      <div class="card-text">
+        {{ item.text|truncatewords_html:10|safe }}
+      </div>
     </div>
 
     {% with request.resolver_match.view_name as view_name %}

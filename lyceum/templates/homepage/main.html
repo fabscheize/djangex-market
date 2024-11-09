@@ -8,15 +8,11 @@
 {% endblock title %}
 
 {% block content %}
-<div class="container my-3 d-flex">
-  <figure class="figure text-center">
-    <img src="{% static 'img/11-11.jpg' %}" class="figure-img img-fluid rounded d-block" alt="cat">
-  </figure>
-</div>
-
-  {% comment %} <div class="container my-3">
-    <h1>{% translate "Главная" %}</h1>
-  </div> {% endcomment %}
+  <div class="container my-3 d-flex">
+    <figure class="figure text-center">
+      <img src="{% static 'img/11-11.jpg' %}" class="figure-img img-fluid rounded d-block" alt="cat">
+    </figure>
+  </div>
 
   {% include "includes/simple_list.html" %}
 

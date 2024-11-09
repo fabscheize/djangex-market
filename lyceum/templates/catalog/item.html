@@ -21,7 +21,7 @@
 
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="{{ item.main_image.get_image_800x800.url }}" class="d-block w-100 item-image" alt={% translate "Главное изображение товара" %}>
+              <img src="{{ item.main_image.get_image_800x800.url }}" class="d-block w-100 item-image" alt="{% translate "Главное изображение товара" %}">
               {% if item.main_image.is_image %}
                 <a href="{% url 'download:file' item.main_image.image %}" class="btn btn-outline-warning position-absolute top-0 start-0 m-3 btn-sm" style="z-index: 1050; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);">
                   {% translate "Скачать изображение" %}
@@ -55,7 +55,7 @@
 
       <div class="col-md-5 my-3">
         <h2 class="fw-bold">{{ item.name }}</h2>
-        <p>{{ item.text|safe }}</p>
+        <div>{{ item.text|safe }}</div>
         <p><small class="text-muted">{% translate "Категория:" %} {{ item.category }}</small></p>
         <div class="mb-3">
           {% for tag in item.tags.all %}
