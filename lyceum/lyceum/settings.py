@@ -10,22 +10,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env.str(
     'DJANGO_SECRET_KEY',
-    env.str(
-        'SECRET_KEY',
-        default='XXXXXX',
-    ),
+    default='XXXXXX',
 )
 
 ALLOWED_HOSTS = env.list(
     'DJANGO_ALLOWED_HOSTS',
-    env.list('ALLOWED_HOSTS', default=['*']),
+    default=['*'],
 )
 
-DEBUG = env.bool('DJANGO_DEBUG', env.bool('DEBUG', default=False))
+DEBUG = env.bool(
+    'DJANGO_DEBUG',
+    default=False,
+)
 
 raw_value = env.str(
     'DJANGO_ALLOW_REVERSE',
-    env.str('ALLOW_REVERSE', default=''),
+    default='',
 )
 ALLOW_REVERSE = raw_value.lower() in ('', 'true', 'yes', '1', 'y')
 
