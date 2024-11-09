@@ -3,12 +3,27 @@
 [![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187/-/commits/main)
 
 ## Содержание
-- [Зависимости](#зависимости)
-- [Установка](#установка)
-- [Запуск сервера](#запуск-сервера)
-- [Локальная разработка](#локальная-разработка)
-- [Тестирование](#тестирование)
-- [ER-диаграмма](#er-диаграмма)
+
+- [Lyceum](#lyceum)
+  - [Содержание](#содержание)
+  - [Зависимости](#зависимости)
+  - [Установка](#установка)
+  - [Продакшен](#продакшен)
+    - [Продакшен: подготовка](#продакшен-подготовка)
+    - [Продакшен: база данных и медиа](#продакшен-база-данных-и-медиа)
+    - [Продакшен: локализация](#продакшен-локализация)
+    - [Продакшен: запуск](#продакшен-запуск)
+  - [Локальная разработка](#локальная-разработка)
+    - [Локальная разработка: подготовка](#локальная-разработка-подготовка)
+    - [Локальная разработка: база данных и медиа](#локальная-разработка-база-данных-и-медиа)
+    - [Локальная разработка: админка](#локальная-разработка-админка)
+    - [Локальная разработка: локализация](#локальная-разработка-локализация)
+    - [Локальная разработка: запуск](#локальная-разработка-запуск)
+  - [Тестирование](#тестирование)
+    - [Тестирование: подготовка](#тестирование-подготовка)
+    - [Тестирование: локализация](#тестирование-локализация)
+    - [Тестирование: запуск](#тестирование-запуск)
+  - [ER-диаграмма](#er-диаграмма)
 
 ## Зависимости
 
@@ -16,168 +31,226 @@
 
 ## Установка
 
-1. Клонировать репозиторий:
-```bash
-git clone https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187 && cd 286651-ya.vkarsten-course-1187
-```
+1. Cклонировать репозиторий:
 
-2. Создать виртуальное окружение:
+   ```bash
+   git clone https://gitlab.crja72.ru/django/2024/autumn/course/students/286651-ya.vkarsten-course-1187 && cd 286651-ya.vkarsten-course-1187
+   ```
 
-- Linux/MacOS
-```bash
-python3 -m venv venv
-```
-- Windows
-```bash
-python -m venv venv
-```
+1. Создать виртуальное окружение:
 
-3. Активировать виртуальное окружение:
+   - Linux/MacOS
 
-- Linux/MacOS
-```bash
-source venv/bin/activate
-```
-- Windows
-```bash
-venv\Scripts\activate.bat
-```
+     ```bash
+     python3 -m venv venv
+     ```
 
-## Запуск
+   - Windows
+
+     ```bash
+     python -m venv venv
+     ```
+
+1. Активировать виртуальное окружение:
+
+   - Linux/MacOS
+
+     ```bash
+     source venv/bin/activate
+     ```
+
+   - Windows
+
+     ```bash
+     venv\Scripts\activate.bat
+     ```
+
+## Продакшен
 
 Необходимо выполнить команды из корневой директории проекта:
 
+### Продакшен: подготовка
+
 1. Установить зависимости:
-```bash
-pip install -r requirements/prod.txt
-```
 
-2. Перейти в директорию проекта:
-```bash
-cd lyceum
-```
+   ```bash
+   pip install -r requirements/prod.txt
+   ```
 
-3. Применить миграции:
-```bash
-python manage.py migrate
-```
+1. Перейти в директорию проекта:
 
-4. Собрать статику:
-```bash
-python manage.py collectstatic
-```
+   ```bash
+   cd lyceum
+   ```
 
-5. Скомпилировать локализацию:
-```bash
-django-admin compilemessages
-```
+### Продакшен: база данных и медиа
 
-6. Запустить сервер:
-```bash
-python manage.py runserver
-```
+1. Применить миграции:
+
+   ```bash
+   python manage.py migrate
+   ```
+
+1. Собрать статику:
+
+   ```bash
+   python manage.py collectstatic
+   ```
+
+### Продакшен: локализация
+
+- Скомпилировать локализацию:
+
+  ```bash
+  django-admin compilemessages
+  ```
+
+### Продакшен: запуск
+
+- Запустить сервер:
+
+  ```bash
+  python manage.py runserver
+  ```
 
 ## Локальная разработка
 
 Необходимо выполнить команды из корневой директории проекта:
 
+### Локальная разработка: подготовка
+
 1. Установить зависимости для разработки:
-```bash
-pip install -r requirements/dev.txt
-```
 
-2. Перейти в директорию проекта:
-```bash
-cd lyceum
-```
+   ```bash
+   pip install -r requirements/dev.txt
+   ```
 
-3. Отредактировать (при необходимости) переменные окружения в файле ```.env.example``` и скопировать их в файл ```.env```:
+1. Отредактировать (при необходимости) переменные окружения в файле ```.env.example``` и скопировать их в файл ```.env```:
 
-- Linux/MacOS
-```bash
-cp .env.example .env
-```
-- Windows
-```bash
-copy .env.example .env
-```
+   - Linux/MacOS
 
-5. Применить миграции:
-```bash
-python manage.py migrate
-```
+     ```bash
+     cp .env.example .env
+     ```
 
-4. Загрузить фикстуры базы данных:
-```bash
-python manage.py loaddata fixtures/data.json
-```
+   - Windows
 
-Либо же можно воспользоваться демонстрационной БД – для это необходимо скопировать ее из файла:
+     ```bash
+     copy .env.example .env
+     ```
 
-- Linux/MacOS
-```bash
-cp demo_db.sqlite3 db.sqlite3
-```
-- Windows
-```bash
-copy demo_db.sqlite3 db.sqlite3
-```
+1. Перейти в директорию проекта:
 
-Для отображения картинок товаров нужно скопировать их в папку ```media```:
+   ```bash
+   cd lyceum
+   ```
 
-- Linux/MacOS
-```bash
-mv static_dev/img/demo_media media
-```
-- Windows
-```bash
-move static_dev/img/demo_media media
-```
+### Локальная разработка: база данных и медиа
 
-5. Создать суперпользователя для админки:
-```bash
-python manage.py createsuperuser
-```
-(следовать инструкциям скрипта)
+1. Применить миграции:
 
-Если используете демонстрационную БД, можно воспользоваться готовым суперпользователем:
-- логин ```admin```
-- пароль ```admin```
+   ```bash
+   python manage.py migrate
+   ```
 
-6. Скомпилировать локализацию:
-```bash
-django-admin compilemessages
-```
+1. Загрузить фикстуры базы данных:
 
-7. Запустить сервер:
-```bash
-python manage.py runserver
-```
+   ```bash
+   python manage.py loaddata fixtures/data.json
+   ```
 
+   Либо же можно воспользоваться демонстрационной БД – для это необходимо скопировать ее из файла:
+
+   - Linux/MacOS
+
+      ```bash
+      cp demo_db.sqlite3 db.sqlite3
+      ```
+
+   - Windows
+
+      ```bash
+      copy demo_db.sqlite3 db.sqlite3
+      ```
+
+1. Для отображения картинок товаров нужно скопировать их в папку ```media```:
+
+   - Linux/MacOS
+
+     ```bash
+     mv static_dev/img/demo_media media
+     ```
+
+   - Windows
+
+     ```bash
+     move static_dev/img/demo_media media
+     ```
+
+### Локальная разработка: админка
+
+- Создать суперпользователя для админки:
+
+  ```bash
+  python manage.py createsuperuser
+  ```
+
+  (следовать инструкциям скрипта)
+
+  Если используете демонстрационную БД, можно воспользоваться готовым суперпользователем:
+
+  - логин ```admin```
+  - пароль ```admin```
+
+### Локальная разработка: локализация
+
+- Скомпилировать локализацию:
+
+   ```bash
+   django-admin compilemessages
+   ```
+
+### Локальная разработка: запуск
+
+- Запустить сервер:
+
+  ```bash
+  python manage.py runserver
+  ```
 
 ## Тестирование
 
 Необходимо выполнить команды из корневой директории проекта:
 
+### Тестирование: подготовка
+
 1. Установить зависимости для тестирования:
-```bash
-pip install -r requirements/test.txt
-```
 
-2. Перейти в директорию проекта:
-```bash
-cd lyceum
-```
+   ```bash
+   pip install -r requirements/test.txt
+   ```
 
-3. Скомпилировать локализацию:
-```bash
-django-admin compilemessages
-```
+1. Перейти в директорию проекта:
 
-4. Запустить тесты:
-```bash
-python manage.py test
-```
+   ```bash
+   cd lyceum
+   ```
+
+### Тестирование: локализация
+
+- Скомпилировать локализацию:
+
+  ```bash
+  django-admin compilemessages
+  ```
+
+### Тестирование: запуск
+
+- Запустить тесты:
+
+  ```bash
+  python manage.py test
+  ```
 
 ## ER-диаграмма
 
