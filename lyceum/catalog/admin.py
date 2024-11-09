@@ -9,14 +9,20 @@ class MainImageInline(admin.StackedInline):
     model = models.ItemMainImage
     extra = 0
     readonly_fields = (models.ItemMainImage.display_image_300x300,)
-    fields = ('image', models.ItemMainImage.display_image_300x300)
+    fields = (
+        models.ItemMainImage.image.field.name,
+        models.ItemMainImage.display_image_300x300,
+    )
 
 
 class ItemImageInline(admin.TabularInline):
     model = models.ItemImageGallery
     extra = 0
     readonly_fields = (models.ItemImageGallery.display_image_300x300,)
-    fields = (models.ItemImageGallery.display_image_300x300, 'image')
+    fields = (
+        models.ItemImageGallery.display_image_300x300,
+        models.ItemImageGallery.image.field.name,
+    )
 
 
 @admin.register(models.Item)

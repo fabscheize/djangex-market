@@ -37,7 +37,7 @@ def new_list(request):
         .filter(
             created__gte=timezone.now() - datetime.timedelta(days=7),
         )
-        .values_list('id', flat=True),
+        .values_list(catalog.models.Item.id.field.name, flat=True),
     )
 
     try:
@@ -45,7 +45,7 @@ def new_list(request):
     except ValueError:
         selected = items_ids
 
-    items = catalog.models.Item.objects.filter(pk__in=selected)
+    items = catalog.models.Item.objects.published().filter(pk__in=selected)
     context = {'items': items, 'title': _('Новинки')}
     return render(request, template, context)
 
@@ -55,7 +55,7 @@ def friday_list(request):
     items = (
         catalog.models.Item.objects.published()
         .filter(updated__week_day=6)
-        .order_by('updated')[:5]
+        .order_by(catalog.models.Item.updated.field.name)[:5]
     )
     context = {'items': items, 'title': _('Пятница')}
     return render(request, template, context)
@@ -64,8 +64,10 @@ def friday_list(request):
 def unverified_list(request):
     template = 'catalog/special.html'
     items = catalog.models.Item.objects.published().filter(
-        created__gte=models.F('updated') - datetime.timedelta(seconds=1),
-        created__lte=models.F('updated') + datetime.timedelta(seconds=1),
+        created__gte=models.F(catalog.models.Item.updated.field.name)
+        - datetime.timedelta(seconds=1),
+        created__lte=models.F(catalog.models.Item.updated.field.name)
+        + datetime.timedelta(seconds=1),
     )
     context = {'items': items, 'title': _('Непроверенное')}
     return render(request, template, context)

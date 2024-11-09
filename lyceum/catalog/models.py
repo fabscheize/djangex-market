@@ -23,8 +23,10 @@ def normalize_name(name):
 class ItemManager(models.Manager):
     def _item_main_fields(self):
         tags_prefetch = models.Prefetch(
-            'tags',
-            queryset=Tag.objects.only('name').filter(is_published=True),
+            Item.tags.field.name,
+            queryset=Tag.objects.only(Tag.name.field.name).filter(
+                is_published=True,
+            ),
         )
 
         return (
@@ -34,32 +36,40 @@ class ItemManager(models.Manager):
                 category__is_published=True,
             )
             .select_related(
-                'category',
-                'main_image',
+                Item.category.field.name,
+                Item.main_image.related.name,
             )
             .prefetch_related(tags_prefetch)
             .only(
-                'name',
-                'text',
-                'category__name',
-                'main_image__image',
+                Item.name.field.name,
+                Item.text.field.name,
+                f'{Item.category.field.name}__{Category.name.field.name}',
+                f'{Item.main_image.related.name}'
+                f'__{ItemMainImage.image.field.name}',
             )
         )
 
     def published(self):
-        return self._item_main_fields().order_by('category__name', 'name')
+        return self._item_main_fields().order_by(
+            f'{Item.category.field.name}__{Category.name.field.name}',
+            Item.name.field.name,
+        )
 
     def on_main(self):
         return (
             self._item_main_fields()
             .filter(is_on_main=True)
-            .order_by('name', 'id')
+            .order_by(Item.name.field.name, Item.id.field.name)
         )
 
     def item_detailed(self):
         gallery_prefetch = models.Prefetch(
-            'images',
-            queryset=ItemImageGallery.objects.only('id', 'item_id', 'image'),
+            Item.images.rel.related_name,
+            queryset=ItemImageGallery.objects.only(
+                ItemImageGallery.id.field.name,
+                ItemImageGallery.item_id.field.name,
+                ItemImageGallery.image.field.name,
+            ),
         )
         return self._item_main_fields().prefetch_related(gallery_prefetch)
 
