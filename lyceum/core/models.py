@@ -21,17 +21,16 @@ class BaseSaleModel(django.db.models.Model):
         max_length=150,
         unique=True,
     )
-
     is_published = django.db.models.BooleanField(
         verbose_name=_('опубликовано'),
         default=True,
     )
 
-    def __str__(self):
-        return self.name if len(self.name) <= 21 else self.name[:18] + '...'
-
     class Meta:
         abstract = True
+
+    def __str__(self):
+        return self.name if len(self.name) <= 21 else self.name[:18] + '...'
 
 
 class BaseImageModel(django.db.models.Model):
@@ -40,6 +39,9 @@ class BaseImageModel(django.db.models.Model):
         verbose_name=_('изображение'),
         default=None,
     )
+
+    class Meta:
+        abstract = True
 
     @property
     def is_image(self):
@@ -75,6 +77,3 @@ class BaseImageModel(django.db.models.Model):
 
     display_image_300x300.short_description = _('превью')
     display_image_300x300.allow_tags = True
-
-    class Meta:
-        abstract = True

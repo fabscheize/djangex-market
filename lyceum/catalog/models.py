@@ -70,7 +70,11 @@ class Category(BaseSaleModel):
         max_length=200,
         unique=True,
         help_text=(
-            _('Только латинские буквы, цифры, знаки подчеркивания или дефиса')
+            _(
+                'Только латинские буквы, цифры, '
+                'знаки подчеркивания или дефиса. ',
+            )
+            + _('Максимум 200 символов')
         ),
     )
     weight = models.IntegerField(
@@ -80,14 +84,22 @@ class Category(BaseSaleModel):
             validators.MinValueValidator(1),
             validators.MaxValueValidator(32767),
         ],
+        help_text=_('Значение от 1 до 32767'),
     )
-
     normalized_name = models.CharField(
         verbose_name=_('нормализованное имя'),
         max_length=150,
         unique=False,
         editable=False,
     )
+
+    class Meta:
+        verbose_name = _('категория')
+        verbose_name_plural = _('категории')
+
+    def save(self, *args, **kwargs):
+        self.normalized_name = normalize_name(self.name)
+        super().save(*args, **kwargs)
 
     def clean(self):
         normalized = normalize_name(self.name)
@@ -99,14 +111,6 @@ class Category(BaseSaleModel):
                 {'name': _('Категория с похожим именем уже существует.')},
             )
 
-    def save(self, *args, **kwargs):
-        self.normalized_name = normalize_name(self.name)
-        super().save(*args, **kwargs)
-
-    class Meta:
-        verbose_name = _('категория')
-        verbose_name_plural = _('категории')
-
 
 class Tag(BaseSaleModel):
     slug = models.SlugField(
@@ -114,16 +118,27 @@ class Tag(BaseSaleModel):
         max_length=200,
         unique=True,
         help_text=(
-            _('Только латинские буквы, цифры, знаки подчеркивания или дефиса')
+            _(
+                'Только латинские буквы, цифры, '
+                'знаки подчеркивания или дефиса. ',
+            )
+            + _('Максимум 200 символов')
         ),
     )
-
     normalized_name = models.CharField(
         verbose_name=_('нормализованное имя'),
         max_length=150,
         unique=False,
         editable=False,
     )
+
+    class Meta:
+        verbose_name = _('тег')
+        verbose_name_plural = _('теги')
+
+    def save(self, *args, **kwargs):
+        self.normalized_name = normalize_name(self.name)
+        super().save(*args, **kwargs)
 
     def clean(self):
         normalized = normalize_name(self.name)
@@ -135,59 +150,50 @@ class Tag(BaseSaleModel):
                 {'name': _('Тег с похожим именем уже существует.')},
             )
 
-    def save(self, *args, **kwargs):
-        self.normalized_name = normalize_name(self.name)
-        super().save(*args, **kwargs)
-
-    class Meta:
-        verbose_name = _('тег')
-        verbose_name_plural = _('теги')
-
 
 class Item(BaseSaleModel):
-    objects = ItemManager()
-
     is_on_main = models.BooleanField(
         verbose_name=_('на главной'),
         default=False,
     )
-
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
-        related_query_name='items',
         verbose_name=_('категория'),
     )
-
     tags = models.ManyToManyField(
         Tag,
         verbose_name=_('теги'),
     )
-
     text = tinymce_models.HTMLField(
         verbose_name=_('текст'),
+        validators=[
+            ValidateContainsWords('превосходно', 'роскошно'),
+        ],
         help_text=(
             _(
                 'В описании обязательно должно быть слово '
                 "'превосходно' или 'роскошно'",
             )
         ),
-        validators=[
-            ValidateContainsWords('превосходно', 'роскошно'),
-        ],
     )
-
     created = models.DateTimeField(
         verbose_name=_('время создания'),
         auto_now_add=True,
         null=True,
     )
-
     updated = models.DateTimeField(
         verbose_name=_('время изменения'),
         auto_now=True,
         null=True,
     )
+
+    objects = ItemManager()
+
+    class Meta:
+        verbose_name = _('товар')
+        verbose_name_plural = _('товары')
+        default_related_name = 'items'
 
     def display_main_image(self):
         if self.main_image.is_image:
@@ -200,10 +206,6 @@ class Item(BaseSaleModel):
     display_main_image.short_description = _('превью')
     display_main_image.allow_tags = True
 
-    class Meta:
-        verbose_name = _('товар')
-        verbose_name_plural = _('товары')
-
 
 class ItemMainImage(BaseImageModel):
     item = models.OneToOneField(
@@ -213,12 +215,12 @@ class ItemMainImage(BaseImageModel):
         verbose_name=_('товар'),
     )
 
-    def __str__(self):
-        return self.item.name
-
     class Meta:
         verbose_name = _('главное изображение')
         verbose_name_plural = _('главные изображения')
+
+    def __str__(self):
+        return self.item.name
 
 
 class ItemImageGallery(BaseImageModel):
@@ -229,9 +231,9 @@ class ItemImageGallery(BaseImageModel):
         verbose_name=_('товар'),
     )
 
-    def __str__(self):
-        return f'{self.item.name} - {self.id}'
-
     class Meta:
         verbose_name = _('изображение')
         verbose_name_plural = _('изображения')
+
+    def __str__(self):
+        return f'{self.item.name} - {self.id}'

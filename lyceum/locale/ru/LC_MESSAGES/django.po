@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-08 15:29+0700\n"
+"POT-Creation-Date: 2024-11-09 15:33+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,27 +29,31 @@ msgstr ""
 msgid "Каталог"
 msgstr ""
 
-#: catalog/models.py:69 catalog/models.py:113
+#: catalog/models.py:79 catalog/models.py:127
 msgid "слаг"
 msgstr ""
 
-#: catalog/models.py:73 catalog/models.py:117
-msgid "Только латинские буквы, цифры, знаки подчеркивания или дефиса"
+#: catalog/models.py:84 catalog/models.py:132
+msgid "Только латинские буквы, цифры, знаки подчеркивания или дефиса. "
 msgstr ""
 
-#: catalog/models.py:77
+#: catalog/models.py:87 catalog/models.py:135
+msgid "Максимум 200 символов"
+msgstr ""
+
+#: catalog/models.py:91
 msgid "вес"
 msgstr ""
 
-#: catalog/models.py:86 catalog/models.py:122
+#: catalog/models.py:97
+msgid "Значение от 1 до 32767"
+msgstr ""
+
+#: catalog/models.py:100 catalog/models.py:139
 msgid "нормализованное имя"
 msgstr ""
 
-#: catalog/models.py:99
-msgid "Категория с похожим именем уже существует."
-msgstr ""
-
-#: catalog/models.py:107 catalog/models.py:159
+#: catalog/models.py:107 catalog/models.py:172
 msgid "категория"
 msgstr ""
 
@@ -57,47 +61,43 @@ msgstr ""
 msgid "категории"
 msgstr ""
 
-#: catalog/models.py:135
-msgid "Тег с похожим именем уже существует."
+#: catalog/models.py:121
+msgid "Категория с похожим именем уже существует."
 msgstr ""
 
-#: catalog/models.py:143
+#: catalog/models.py:146
 msgid "тег"
 msgstr ""
 
-#: catalog/models.py:144 catalog/models.py:164
+#: catalog/models.py:147 catalog/models.py:176
 msgid "теги"
 msgstr ""
 
-#: catalog/models.py:151
+#: catalog/models.py:160
+msgid "Тег с похожим именем уже существует."
+msgstr ""
+
+#: catalog/models.py:166
 msgid "на главной"
 msgstr ""
 
-#: catalog/models.py:168
+#: catalog/models.py:179
 msgid "текст"
 msgstr ""
 
-#: catalog/models.py:171
+#: catalog/models.py:185
 msgid "В описании обязательно должно быть слово 'превосходно' или 'роскошно'"
 msgstr ""
 
-#: catalog/models.py:181
+#: catalog/models.py:191
 msgid "время создания"
 msgstr ""
 
-#: catalog/models.py:187
+#: catalog/models.py:196
 msgid "время изменения"
 msgstr ""
 
-#: catalog/models.py:198 core/models.py:74
-msgid "Нет изображения"
-msgstr ""
-
-#: catalog/models.py:200 core/models.py:76
-msgid "превью"
-msgstr ""
-
-#: catalog/models.py:204 catalog/models.py:213 catalog/models.py:229
+#: catalog/models.py:204 catalog/models.py:225 catalog/models.py:241
 msgid "товар"
 msgstr ""
 
@@ -105,19 +105,27 @@ msgstr ""
 msgid "товары"
 msgstr ""
 
-#: catalog/models.py:220
+#: catalog/models.py:214 core/models.py:76
+msgid "Нет изображения"
+msgstr ""
+
+#: catalog/models.py:216 core/models.py:78
+msgid "превью"
+msgstr ""
+
+#: catalog/models.py:229
 msgid "главное изображение"
 msgstr ""
 
-#: catalog/models.py:221
+#: catalog/models.py:230
 msgid "главные изображения"
 msgstr ""
 
-#: catalog/models.py:236 core/models.py:40
+#: catalog/models.py:245 core/models.py:39
 msgid "изображение"
 msgstr ""
 
-#: catalog/models.py:237
+#: catalog/models.py:246
 msgid "изображения"
 msgstr ""
 
@@ -133,7 +141,7 @@ msgstr ""
 msgid "Пятница"
 msgstr ""
 
-#: catalog/views.py:70 templates/includes/list_navbar.html:16
+#: catalog/views.py:72 templates/includes/list_navbar.html:16
 msgid "Непроверенное"
 msgstr ""
 
@@ -149,7 +157,7 @@ msgstr ""
 msgid "Максимум 150 символов"
 msgstr ""
 
-#: core/models.py:26
+#: core/models.py:25
 msgid "опубликовано"
 msgstr ""
 
