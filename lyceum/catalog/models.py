@@ -28,7 +28,6 @@ class ItemManager(models.Manager):
                 is_published=True,
             ),
         )
-
         return (
             self.get_queryset()
             .filter(

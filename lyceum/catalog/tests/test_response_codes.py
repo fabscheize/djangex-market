@@ -26,7 +26,11 @@ class CatalogHttpResponseTest(TestCase):
     )
     def test_catalog_response_positive(self, path, args):
         response = self.client.get(reverse('catalog:' + path, args=args))
-        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(
+            response.status_code,
+            HTTPStatus.OK,
+            msg='Could not reach the endpoint',
+        )
 
     @parametrize(
         'path, pk',
@@ -36,4 +40,8 @@ class CatalogHttpResponseTest(TestCase):
     )
     def test_catalog_response_negative(self, path, pk):
         response = self.client.get(reverse('catalog:' + path, args=[pk]))
-        self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
+        self.assertEqual(
+            response.status_code,
+            HTTPStatus.NOT_FOUND,
+            msg='Getting unpublished item',
+        )

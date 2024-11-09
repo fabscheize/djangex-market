@@ -43,6 +43,7 @@ class ItemModelTest(TestCase):
         self.assertEqual(
             Item.objects.count(),
             element_count + 1,
+            msg='New object has not been created',
         )
 
     @parametrize(
@@ -56,7 +57,10 @@ class ItemModelTest(TestCase):
     def test_item_validation_negative(self, name, text):
         element_count = Item.objects.count()
 
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(
+            ValidationError,
+            msg='Validation did not happen',
+        ):
             create_and_save_entry(
                 Item,
                 name=name,
@@ -67,4 +71,5 @@ class ItemModelTest(TestCase):
         self.assertEqual(
             Item.objects.count(),
             element_count,
+            msg='There are more elements than there should be',
         )

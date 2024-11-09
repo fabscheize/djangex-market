@@ -36,6 +36,7 @@ class CategoryModelTest(TestCase):
         self.assertEqual(
             Category.objects.count(),
             element_count + 1,
+            msg='New object has not been created',
         )
 
     @parametrize(
@@ -52,7 +53,10 @@ class CategoryModelTest(TestCase):
     def test_category_validation_negative(self, name, slug, weight):
         element_count = Category.objects.count()
 
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(
+            ValidationError,
+            msg='Validation did not happen',
+        ):
             create_and_save_entry(
                 Category,
                 name=name,
@@ -63,4 +67,5 @@ class CategoryModelTest(TestCase):
         self.assertEqual(
             Category.objects.count(),
             element_count,
+            msg='There are more elements than there should be',
         )

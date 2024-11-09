@@ -12,4 +12,8 @@ class AboutHttpResponseTest(TestCase):
 
     def test_homepage_response(self):
         response = self.client.get(reverse('about:about'))
-        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(
+            response.status_code,
+            HTTPStatus.OK,
+            msg='Could not reach the endpoint',
+        )

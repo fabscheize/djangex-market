@@ -31,7 +31,11 @@ class TagModelTest(TestCase):
             slug=slug,
         )
 
-        self.assertEqual(Tag.objects.count(), element_count + 1)
+        self.assertEqual(
+            Tag.objects.count(),
+            element_count + 1,
+            msg='New object has not been created',
+        )
 
     @parametrize(
         'name, slug',
@@ -46,11 +50,18 @@ class TagModelTest(TestCase):
     def test_tag_validation_negative(self, name, slug):
         element_count = Tag.objects.count()
 
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(
+            ValidationError,
+            msg='Validation did not happen',
+        ):
             create_and_save_entry(
                 Tag,
                 name=name,
                 slug=slug,
             )
 
-        self.assertEqual(Tag.objects.count(), element_count)
+        self.assertEqual(
+            Tag.objects.count(),
+            element_count,
+            msg='There are more elements than there should be',
+        )

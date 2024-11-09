@@ -38,7 +38,10 @@ class NormalizedNameTest(TestCase):
     def test_category_normalized_name(self, name):
         element_count = Category.objects.count()
 
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(
+            ValidationError,
+            msg='Validation did not happen',
+        ):
             create_and_save_entry(
                 Category,
                 name=name,
@@ -46,7 +49,11 @@ class NormalizedNameTest(TestCase):
                 weight=100,
             )
 
-        self.assertEqual(Category.objects.count(), element_count)
+        self.assertEqual(
+            Category.objects.count(),
+            element_count,
+            msg='There are more elements than there should be',
+        )
 
     @parametrize(
         'name',
@@ -60,11 +67,18 @@ class NormalizedNameTest(TestCase):
     def test_tag_normalized_name(self, name):
         element_count = Tag.objects.count()
 
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(
+            ValidationError,
+            msg='Validation did not happen',
+        ):
             create_and_save_entry(
                 Tag,
                 name=name,
                 slug='tag-2',
             )
 
-        self.assertEqual(Tag.objects.count(), element_count)
+        self.assertEqual(
+            Tag.objects.count(),
+            element_count,
+            msg='There are more elements than there should be',
+        )
