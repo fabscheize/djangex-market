@@ -97,13 +97,13 @@
   "model": "catalog.item",
   "pk": 1,
   "fields": {
-    "name": "Кастрюля",
+    "name": "Банан",
     "is_published": true,
     "is_on_main": true,
     "category": 1,
     "text": "<p>Превосходно покупают</p>",
     "created": "2024-11-04T15:42:39.719Z",
-    "updated": "2024-11-04T15:42:39.723Z",
+    "updated": "2024-11-10T12:15:13.261Z",
     "tags": [
       2,
       3
@@ -120,7 +120,7 @@
     "category": 2,
     "text": "<p>В них ты выглядишь превосходно</p>",
     "created": "2024-11-04T15:42:39.719Z",
-    "updated": "2024-11-04T15:42:39.723Z",
+    "updated": "2024-11-10T12:16:05.742Z",
     "tags": [
       4,
       5
@@ -200,7 +200,7 @@
   "model": "catalog.itemmainimage",
   "pk": 1,
   "fields": {
-    "image": "catalog/1/5461cddc-90c8-4e50-99ff-0e703b742ef9-pot-main.jpg",
+    "image": "catalog/1/b0ff568e-d72b-47cf-bbae-e2a4e88c5155-banana-main.jpg",
     "item": 1
   }
 },
@@ -248,15 +248,7 @@
   "model": "catalog.itemimagegallery",
   "pk": 1,
   "fields": {
-    "image": "catalog/1/ca1d2b70-e733-4c4f-bba0-919bea5dba81-pot-1.jpg",
-    "item": 1
-  }
-},
-{
-  "model": "catalog.itemimagegallery",
-  "pk": 2,
-  "fields": {
-    "image": "catalog/1/aa8e1034-2549-4099-b952-a8b4a4079ece-pot-2.jpg",
+    "image": "catalog/1/1dbcdc74-6329-42a0-88d9-8bb2941f3b59-banana-1.jpg",
     "item": 1
   }
 },
