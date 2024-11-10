@@ -4,10 +4,16 @@
   <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
     {% for item in items %}
       {% include "includes/item_card.html" %}
-      {% empty %}
-      <div class="container my-3 d-flex justify-content-center">
-        <h3>{% translate "Всё раскупили!" %}</h3>
-      </div>
+    {% empty %}
+      {% with request.resolver_match.view_name as view_name %}
+        <div class="container my-3 d-flex justify-content-center">
+          {% if view_name == 'homepage:home' %}
+            <h3>{% translate "Всё раскупили!" %}</h3>
+          {% else %}
+            <h3>{% translate "Нет товаров, подходящих под фильтр :(" %}</h3>
+          {% endif %}
+        </div>
+      {% endwith %}
     {% endfor %}
   </div>
 </div>
