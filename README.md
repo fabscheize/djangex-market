@@ -29,6 +29,8 @@
 
 - Python 3.9 или выше
 
+__Важно__: если Вы используете __Windows__, все следующие команды, кроме тех, где будет явный альтернативный вариант, выполняются аналогично, но необходимо заменить `pip3` на `pip`, а `python3` на `python`.
+
 ## Установка
 
 1. Cклонировать репозиторий:
@@ -39,17 +41,9 @@
 
 1. Создать виртуальное окружение:
 
-   - Linux/MacOS
-
-     ```bash
-     python3 -m venv venv
-     ```
-
-   - Windows
-
-     ```bash
-     python -m venv venv
-     ```
+   ```bash
+   python3 -m venv venv
+   ```
 
 1. Активировать виртуальное окружение:
 
@@ -74,7 +68,7 @@
 1. Установить зависимости:
 
    ```bash
-   pip install -r requirements/prod.txt
+   pip3 install -r requirements/prod.txt
    ```
 
 1. Перейти в директорию проекта:
@@ -88,13 +82,13 @@
 1. Применить миграции:
 
    ```bash
-   python manage.py migrate
+   python3 manage.py migrate
    ```
 
 1. Собрать статику:
 
    ```bash
-   python manage.py collectstatic
+   python3 manage.py collectstatic
    ```
 
 ### Продакшен: локализация
@@ -110,7 +104,7 @@
 - Запустить сервер:
 
   ```bash
-  python manage.py runserver
+  python3 manage.py runserver
   ```
 
 ## Локальная разработка
@@ -122,10 +116,10 @@
 1. Установить зависимости для разработки:
 
    ```bash
-   pip install -r requirements/dev.txt
+   pip3 install -r requirements/dev.txt
    ```
 
-1. Отредактировать (при необходимости) переменные окружения в файле ```.env.example``` и скопировать их в файл ```.env```:
+1. Отредактировать (при необходимости) переменные окружения в файле `.env.example` и скопировать их в файл `.env`:
 
    - Linux/MacOS
 
@@ -150,13 +144,13 @@
 1. Применить миграции:
 
    ```bash
-   python manage.py migrate
+   python3 manage.py migrate
    ```
 
 1. Загрузить фикстуры базы данных:
 
    ```bash
-   python manage.py loaddata fixtures/data.json
+   python3 manage.py loaddata fixtures/data.json
    ```
 
    Либо же можно воспользоваться демонстрационной БД – для это необходимо скопировать ее из файла:
@@ -173,7 +167,7 @@
       copy demo_db.sqlite3 db.sqlite3
       ```
 
-1. Для отображения картинок товаров нужно скопировать их в папку ```media```:
+1. Для отображения картинок товаров нужно скопировать их в папку `media`:
 
    - Linux/MacOS
 
@@ -192,15 +186,15 @@
 - Создать суперпользователя для админки:
 
   ```bash
-  python manage.py createsuperuser
+  python3 manage.py createsuperuser
   ```
 
   (следовать инструкциям скрипта)
 
   Если используете демонстрационную БД, можно воспользоваться готовым суперпользователем:
 
-  - логин ```admin```
-  - пароль ```admin```
+  - логин `admin`
+  - пароль `admin`
 
 ### Локальная разработка: локализация
 
@@ -215,7 +209,7 @@
 - Запустить сервер:
 
   ```bash
-  python manage.py runserver
+  python3 manage.py runserver
   ```
 
 ## Тестирование
@@ -227,7 +221,7 @@
 1. Установить зависимости для тестирования:
 
    ```bash
-   pip install -r requirements/test.txt
+   pip3 install -r requirements/test.txt
    ```
 
 1. Перейти в директорию проекта:
@@ -249,11 +243,11 @@
 - Запустить тесты:
 
   ```bash
-  python manage.py test
+  python3 manage.py test
   ```
 
 ## ER-диаграмма
 
-ER-диаграмма базы данных приложения ```Catalog```:
+ER-диаграмма базы данных приложения `Catalog`:
 
 ![ERD](./ER.jpg)
