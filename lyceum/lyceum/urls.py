@@ -28,6 +28,7 @@ urlpatterns = [
     path('about/', include('about.urls')),
     path('catalog/', include('catalog.urls')),
     path('download/', include('download.urls')),
+    path('feedback/', include('feedback.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
 ]

@@ -29,11 +29,17 @@ raw_value = env.str(
 )
 ALLOW_REVERSE = raw_value.lower() in ('', 'true', 'yes', '1', 'y')
 
+MAIL = env.str(
+    'DJANGO_MAIL',
+    default='no-reply@djangex-market.ru',
+)
+
 INSTALLED_APPS = [
     'about.apps.AboutConfig',
     'catalog.apps.CatalogConfig',
     'core.apps.CoreConfig',
     'download.apps.DownloadConfig',
+    'feedback.apps.FeedbackConfig',
     'homepage.apps.HomepageConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -156,3 +162,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 FIXTURE_DIRS = [
     BASE_DIR / 'fixtures',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = BASE_DIR / 'send_mail'

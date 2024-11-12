@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+  {% translate "Эхо" %} - {% translate "Джангекс Маркет" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container my-3">
+    <h1>{% translate "Эхо" %}</h1>
+  </div>
+
+  <div class="container my-3">
+    <form  action="{% url "homepage:submit" %}" method="post" enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+      {% with form=echo_form %}
+        {% include "includes/form.html" %}
+      {% endwith %}
+      <button type="submit" class="btn btn-warning">Отправить</button>
+    </form>
+  </div>
+{% endblock content %}
