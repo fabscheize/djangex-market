@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-10 20:05+0700\n"
+"POT-Creation-Date: 2024-11-12 16:07+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,7 +83,7 @@ msgstr "A tag with a similar name already exists."
 msgid "на главной"
 msgstr "on main"
 
-#: catalog/models.py:178
+#: catalog/models.py:178 feedback/models.py:17
 msgid "текст"
 msgstr "text"
 
@@ -91,7 +91,7 @@ msgstr "text"
 msgid "В описании обязательно должно быть слово 'превосходно' или 'роскошно'"
 msgstr "The description must contain 'превосходно' or 'роскошно'"
 
-#: catalog/models.py:190
+#: catalog/models.py:190 feedback/models.py:20
 msgid "время создания"
 msgstr "create time"
 
@@ -169,16 +169,85 @@ msgstr "published"
 msgid "Загрузка"
 msgstr "Download"
 
+#: feedback/apps.py:10 templates/feedback/feedback.html:6
+#: templates/feedback/feedback.html:11
+msgid "Обратная связь"
+msgstr "Feedback"
+
+#: feedback/forms.py:26
+msgid "Ваше имя"
+msgstr "Your name"
+
+#: feedback/forms.py:27
+msgid "Ваша электронная почта"
+msgstr "Your email"
+
+#: feedback/forms.py:28
+msgid "Ваш вопрос или пожелание"
+msgstr "Your feedback"
+
+#: feedback/forms.py:44
+msgid "Пожалуйста, укажите Ваше имя."
+msgstr "Please enter your name."
+
+#: feedback/forms.py:45 feedback/forms.py:55 homepage/forms.py:14
+msgid "Пожалуйста, проверьте данные."
+msgstr "Please ckeck your data."
+
+#: feedback/forms.py:48
+msgid "Пожалуйста, укажите Вашу электронную почту."
+msgstr "Please enter your email."
+
+#: feedback/forms.py:50
+msgid "Пожалуйста, введите корректный формат электронной почты."
+msgstr "Please enter the correct email format."
+
+#: feedback/forms.py:54
+msgid "Пожалуйста, заполните Ваше обращение."
+msgstr "Please enter your feedback."
+
+#: feedback/models.py:9
+msgid "имя"
+msgstr "name"
+
+#: feedback/models.py:13
+msgid "почта"
+msgstr "email"
+
+#: feedback/models.py:26
+msgid "отзыв"
+msgstr "feedback"
+
+#: feedback/models.py:27
+msgid "отзывы"
+msgstr "feedbacks"
+
+#: feedback/views.py:26
+msgid "Ответ по вашему обращению, "
+msgstr "The answer to your feedback, "
+
+#: feedback/views.py:34
+msgid "Ваше обращение успешно отправлено. Спасибо!"
+msgstr "Your feedback has been sent successfully. Thanks!"
+
 #: homepage/apps.py:10 templates/homepage/main.html:7
 #: templates/includes/header.html:20
 msgid "Главная"
 msgstr "Homepage"
 
-#: lyceum/settings.py:122
+#: homepage/forms.py:10
+msgid "Введите текст"
+msgstr "Enter your text"
+
+#: homepage/forms.py:13
+msgid "Пожалуйста, заполните поле."
+msgstr "Please fill in the text field."
+
+#: lyceum/settings.py:128
 msgid "Russian"
 msgstr ""
 
-#: lyceum/settings.py:123
+#: lyceum/settings.py:129
 msgid "English"
 msgstr ""
 
@@ -188,7 +257,8 @@ msgstr "Page not found"
 
 #: templates/about/about.html:6 templates/base.html:17
 #: templates/catalog/item.html:7 templates/catalog/item_list.html:6
-#: templates/catalog/special.html:7 templates/homepage/main.html:7
+#: templates/catalog/special.html:7 templates/feedback/feedback.html:6
+#: templates/homepage/echo.html:6 templates/homepage/main.html:7
 #: templates/includes/header.html:8 templates/includes/header.html:11
 msgid "Джангекс Маркет"
 msgstr "Djangex Market"
@@ -228,13 +298,30 @@ msgstr "Category:"
 msgid "Список товаров"
 msgstr "Item list"
 
-#: templates/catalog/item_list.html:33 templates/includes/simple_list.html:11
+#: templates/catalog/item_list.html:33 templates/includes/simple_list.html:14
 msgid "Всё раскупили!"
 msgstr "Sold out!"
+
+#: templates/feedback/feedback.html:20 templates/homepage/echo.html:20
+msgid "Отправить"
+msgstr "Send"
 
 #: templates/homepage/coffee.html:7 templates/homepage/coffee.html:12
 msgid "Я чайник"
 msgstr "I'm a teapot"
+
+#: templates/homepage/echo.html:6 templates/homepage/echo.html:11
+#: templates/homepage/main.html:22
+msgid "Эхо"
+msgstr "Echo"
+
+#: templates/homepage/main.html:20
+msgid "Есть вопросы или пожелания?"
+msgstr "Any questions or suggestions?"
+
+#: templates/homepage/main.html:21
+msgid "Связаться с нами"
+msgstr "Contact us"
 
 #: templates/includes/footer.html:6
 msgid "ООО Джангекс Маркет"
@@ -260,6 +347,6 @@ msgstr " more..."
 msgid "Все"
 msgstr "All"
 
-#: templates/includes/simple_list.html:13
+#: templates/includes/simple_list.html:17
 msgid "Нет товаров, подходящих под фильтр :("
-msgstr "No products matching the filter :("
+msgstr "No items matching the filter :("

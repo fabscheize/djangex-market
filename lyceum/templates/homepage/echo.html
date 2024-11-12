@@ -12,12 +12,12 @@
   </div>
 
   <div class="container my-3">
-    <form  action="{% url "homepage:submit" %}" method="post" enctype="multipart/form-data" novalidate>
+    <form  action="{% url "homepage:echo" %}" method="post" enctype="multipart/form-data" novalidate>
       {% csrf_token %}
       {% with form=echo_form %}
         {% include "includes/form.html" %}
       {% endwith %}
-      <button type="submit" class="btn btn-warning">Отправить</button>
+      <button type="submit" class="btn btn-warning">{% translate "Отправить" %}</button>
     </form>
   </div>
 {% endblock content %}

@@ -35,7 +35,9 @@ class FeedbackForm(BaseModelForm):
             Feedback.mail.field.name: forms.EmailInput(
                 {'placeholder': 'name@example.com'},
             ),
-            Feedback.text.field.name: forms.Textarea,
+            Feedback.text.field.name: forms.Textarea(
+                {'rows': 5},
+            ),
         }
         error_messages = {
             Feedback.name.field.name: {

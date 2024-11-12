@@ -19,6 +19,6 @@
   <div class="container my-5">
     <h3>{% translate "Есть вопросы или пожелания?" %}</h3>
     <a class="btn btn-warning" href="{% url "feedback:feedback" %}" role="button">{% translate "Связаться с нами" %}</a>
-    {% comment %} <a class="btn btn-outline-warning mx-2" href="{% url "homepage:echo" %}" role="button">{% translate "Эхо" %}</a> {% endcomment %}
+    <a class="btn btn-outline-warning mx-2" href="{% url "homepage:echo" %}" role="button">{% translate "Эхо" %}</a>
   </div>
 {% endblock content %}
