@@ -26,13 +26,14 @@ class ReverseMiddleware:
         self.get_response = get_response
 
     @classmethod
-    def is_need_to_reverse(cls) -> bool:
+    def is_need_to_reverse(cls):
         if not settings.ALLOW_REVERSE:
             return False
 
         cls.count = (cls.count + 1) % 10
         if cls.count % 10 != 0:
             return False
+
         cls.count = 0
         return True
 

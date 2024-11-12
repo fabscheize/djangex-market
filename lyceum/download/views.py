@@ -12,4 +12,5 @@ def get_file(request, path):
         )
     except FileNotFoundError:
         raise Http404('File not found')
+
     return response

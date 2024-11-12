@@ -8,7 +8,7 @@ __all__ = []
 
 
 @deconstruct.deconstructible
-class ValidateContainsWords(object):
+class ValidateContainsWords:
     def __init__(self, *words):
         self.words = words
         self.pattern = re.compile(

@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.contrib.messages import success
+import django.contrib
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -31,7 +31,10 @@ def feedback(request):
             recipient_list=[feedback_form.cleaned_data['mail']],
             fail_silently=False,
         )
-        success(request, _('Ваше обращение успешно отправлено. Спасибо!'))
+        django.contrib.messages.success(
+            request,
+            _('Ваше обращение успешно отправлено. Спасибо!'),
+        )
 
         return redirect(reverse('feedback:feedback'))
 

@@ -6,7 +6,6 @@ __all__ = []
 
 class EchoForm(forms.Form):
     text = forms.CharField(
-        max_length=100,
         label=_('Введите текст'),
         widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         error_messages={

@@ -55,6 +55,7 @@ class BaseImageModel(django.db.models.Model):
                 crop='center',
                 quality=60,
             )
+
         return None
 
     @property
@@ -73,6 +74,7 @@ class BaseImageModel(django.db.models.Model):
                 f'<img src="{self.get_image_300x300().url}" '
                 'width="{300}" height="{300}" />',
             )
+
         return _('Нет изображения')
 
     display_image_300x300.short_description = _('превью')

@@ -29,11 +29,10 @@ def echo(request):
         'echo_form': echo_form,
     }
 
-    if request.method == 'POST':
-        if echo_form.is_valid():
-            text = echo_form.cleaned_data['text']
-            request.session['submitted_text'] = text
-            return redirect(reverse('homepage:submit'))
+    if request.method == 'POST' and echo_form.is_valid():
+        text = echo_form.cleaned_data['text']
+        request.session['submitted_text'] = text
+        return redirect(reverse('homepage:submit'))
 
     for field in echo_form:
         if field.errors:

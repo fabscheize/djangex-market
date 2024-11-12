@@ -60,4 +60,3 @@ class CategoryAdmin(admin.ModelAdmin):
     )
     list_editable = (models.Category.is_published.field.name,)
     list_display_links = (models.Category.name.field.name,)
-    list_display_links = (models.Category.name.field.name,)

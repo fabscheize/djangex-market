@@ -28,24 +28,21 @@ class ItemManager(models.Manager):
                 is_published=True,
             ),
         )
-        return (
-            self.get_queryset()
-            .filter(
-                is_published=True,
-                category__is_published=True,
-            )
-            .select_related(
-                Item.category.field.name,
-                Item.main_image.related.name,
-            )
-            .prefetch_related(tags_prefetch)
-            .only(
-                Item.name.field.name,
-                Item.text.field.name,
-                f'{Item.category.field.name}__{Category.name.field.name}',
-                f'{Item.main_image.related.name}'
-                f'__{ItemMainImage.image.field.name}',
-            )
+        published = self.get_queryset().filter(
+            is_published=True,
+            category__is_published=True,
+        )
+        queryset = published.select_related(
+            Item.category.field.name,
+            Item.main_image.related.name,
+        ).prefetch_related(tags_prefetch)
+
+        return queryset.only(
+            Item.name.field.name,
+            Item.text.field.name,
+            f'{Item.category.field.name}__{Category.name.field.name}',
+            f'{Item.main_image.related.name}'
+            f'__{ItemMainImage.image.field.name}',
         )
 
     def published(self):
@@ -210,6 +207,7 @@ class Item(BaseSaleModel):
                 f'<img src="{self.main_image.get_image_50x50.url}" '
                 'width="{50}" height="{50}" />',
             )
+
         return _('Нет изображения')
 
     display_main_image.short_description = _('превью')

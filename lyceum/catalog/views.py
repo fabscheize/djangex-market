@@ -32,12 +32,12 @@ def item_detail(request, pk):
 
 def new_list(request):
     template = 'catalog/special.html'
+    published = catalog.models.Item.objects.published()
+    week_filter = published.filter(
+        created__gte=timezone.now() - datetime.timedelta(days=7),
+    )
     items_ids = list(
-        catalog.models.Item.objects.published()
-        .filter(
-            created__gte=timezone.now() - datetime.timedelta(days=7),
-        )
-        .values_list(catalog.models.Item.id.field.name, flat=True),
+        week_filter.values_list(catalog.models.Item.id.field.name, flat=True),
     )
 
     try:
@@ -52,12 +52,10 @@ def new_list(request):
 
 def friday_list(request):
     template = 'catalog/special.html'
-    items = (
-        catalog.models.Item.objects.published()
-        .filter(updated__week_day=6)
-        .order_by(catalog.models.Item.updated.field.name)[:5]
-    )
-    context = {'items': items, 'title': _('Пятница')}
+    published = catalog.models.Item.objects.published()
+    updated_on_friday = published.filter(updated__week_day=6)
+    items = updated_on_friday.order_by(catalog.models.Item.updated.field.name)
+    context = {'items': items[:5], 'title': _('Пятница')}
     return render(request, template, context)
 
 

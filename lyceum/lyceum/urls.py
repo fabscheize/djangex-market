@@ -3,7 +3,8 @@ from importlib import import_module
 from django.conf.urls.static import static
 import django.contrib
 from django.urls import include, path
-import django.views
+from django.views.defaults import page_not_found
+from django.views.generic.base import RedirectView
 
 from lyceum import settings
 
@@ -11,19 +12,22 @@ __all__ = []
 
 
 def custom_page_not_found(request):
-    return django.views.defaults.page_not_found(request, None)
+    return page_not_found(request, None)
 
 
-urlpatterns = [
-    path('admin/', django.contrib.admin.site.urls),
-    path(
-        'favicon.ico/',
-        django.views.generic.base.RedirectView.as_view(
+def favicon_url():
+    return (
+        RedirectView.as_view(
             url=django.contrib.staticfiles.storage.staticfiles_storage.url(
                 'img/favicon.ico',
             ),
         ),
-    ),
+    )
+
+
+urlpatterns = [
+    path('admin/', django.contrib.admin.site.urls),
+    path('favicon.ico/', favicon_url),
     path('', include('homepage.urls')),
     path('about/', include('about.urls')),
     path('catalog/', include('catalog.urls')),
