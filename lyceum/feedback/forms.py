@@ -27,7 +27,7 @@ class FeedbackForm(BaseModelForm):
             Feedback.mail.field.name: _('Ваша электронная почта'),
             Feedback.text.field.name: _('Ваш вопрос или пожелание'),
         }
-        help_texst = {
+        help_texts = {
             Feedback.mail.field.name: 'name@example.com',
         }
         widgets = {

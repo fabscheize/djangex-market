@@ -236,6 +236,7 @@ class ItemImageGallery(BaseImageModel):
     item = models.ForeignKey(
         Item,
         on_delete=models.CASCADE,
+        # related_query_name
         related_name='images',
         verbose_name=_('товар'),
     )

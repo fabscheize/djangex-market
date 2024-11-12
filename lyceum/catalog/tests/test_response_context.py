@@ -63,12 +63,7 @@ class CatalogContextTest(ContextTest):
 
     def test_catalog_number_of_items(self):
         items = type(self).response.context['items']
-        self.assertEqual(
-            len(items),
-            5,
-            msg='The number of objects does not match '
-            'the number in the fixtures',
-        )
+        self.assertEqual(len(items), 5)
 
     def test_catalog_loaded_fields(self):
         items = type(self).response.context['items'][0]
