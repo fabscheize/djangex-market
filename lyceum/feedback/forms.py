@@ -19,7 +19,10 @@ class FeedbackForm(BaseModelForm):
     class Meta:
         model = models.Feedback
 
-        fields = (models.Feedback.text.field.name,)
+        exclude = (
+            models.Feedback.status.field.name,
+            models.Feedback.created_on.field.name,
+        )
         labels = {
             models.Feedback.text.field.name: _('Ваш вопрос или пожелание'),
         }

@@ -8,7 +8,7 @@ __all__ = []
 
 
 def feedback_directory_path(instance, filename):
-    return f'uploads/{instance.feedback.id}/{uuid.uuid4()}-{filename}'
+    return f'uploads/{instance.feedback_id}/{uuid.uuid4()}-{filename}'
 
 
 class Feedback(models.Model):
