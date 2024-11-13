@@ -9,7 +9,6 @@ class EchoForm(forms.Form):
         label=_('Введите текст'),
         widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         error_messages={
-            'required': _('Пожалуйста, заполните поле.'),
-            'invalid': _('Пожалуйста, проверьте данные.'),
+            'required': _('Пожалуйста, заполните поле'),
         },
     )

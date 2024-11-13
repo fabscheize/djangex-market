@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-12 16:07+0700\n"
+"POT-Creation-Date: 2024-11-13 10:39+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,103 +29,103 @@ msgstr ""
 msgid "Каталог"
 msgstr ""
 
-#: catalog/models.py:78 catalog/models.py:126
+#: catalog/models.py:75 catalog/models.py:123
 msgid "слаг"
 msgstr ""
 
-#: catalog/models.py:83 catalog/models.py:131
+#: catalog/models.py:80 catalog/models.py:128
 msgid "Только латинские буквы, цифры, знаки подчеркивания или дефиса. "
 msgstr ""
 
-#: catalog/models.py:86 catalog/models.py:134
+#: catalog/models.py:83 catalog/models.py:131
 msgid "Максимум 200 символов"
 msgstr ""
 
-#: catalog/models.py:90
+#: catalog/models.py:87
 msgid "вес"
 msgstr ""
 
-#: catalog/models.py:96
+#: catalog/models.py:93
 msgid "Значение от 1 до 32767"
 msgstr ""
 
-#: catalog/models.py:99 catalog/models.py:138
+#: catalog/models.py:96 catalog/models.py:135
 msgid "нормализованное имя"
 msgstr ""
 
-#: catalog/models.py:106 catalog/models.py:171
+#: catalog/models.py:103 catalog/models.py:168
 msgid "категория"
 msgstr ""
 
-#: catalog/models.py:107
+#: catalog/models.py:104
 msgid "категории"
 msgstr ""
 
-#: catalog/models.py:120
+#: catalog/models.py:117
 msgid "Категория с похожим именем уже существует."
 msgstr ""
 
-#: catalog/models.py:145
+#: catalog/models.py:142
 msgid "тег"
 msgstr ""
 
-#: catalog/models.py:146 catalog/models.py:175
+#: catalog/models.py:143 catalog/models.py:172
 msgid "теги"
 msgstr ""
 
-#: catalog/models.py:159
+#: catalog/models.py:156
 msgid "Тег с похожим именем уже существует."
 msgstr ""
 
-#: catalog/models.py:165
+#: catalog/models.py:162
 msgid "на главной"
 msgstr ""
 
-#: catalog/models.py:178 feedback/models.py:17
+#: catalog/models.py:175 feedback/models.py:19
 msgid "текст"
 msgstr ""
 
-#: catalog/models.py:184
+#: catalog/models.py:181
 msgid "В описании обязательно должно быть слово 'превосходно' или 'роскошно'"
 msgstr ""
 
-#: catalog/models.py:190 feedback/models.py:20
+#: catalog/models.py:187 feedback/models.py:22
 msgid "время создания"
 msgstr ""
 
-#: catalog/models.py:195
+#: catalog/models.py:192
 msgid "время изменения"
 msgstr ""
 
-#: catalog/models.py:203 catalog/models.py:224 catalog/models.py:240
+#: catalog/models.py:200 catalog/models.py:222 catalog/models.py:239
 msgid "товар"
 msgstr ""
 
-#: catalog/models.py:204
+#: catalog/models.py:201
 msgid "товары"
 msgstr ""
 
-#: catalog/models.py:213 core/models.py:76
+#: catalog/models.py:211 core/models.py:78
 msgid "Нет изображения"
 msgstr ""
 
-#: catalog/models.py:215 core/models.py:78
+#: catalog/models.py:213 core/models.py:80
 msgid "превью"
 msgstr ""
 
-#: catalog/models.py:228
+#: catalog/models.py:226
 msgid "главное изображение"
 msgstr ""
 
-#: catalog/models.py:229
+#: catalog/models.py:227
 msgid "главные изображения"
 msgstr ""
 
-#: catalog/models.py:244 core/models.py:39
+#: catalog/models.py:243 core/models.py:39
 msgid "изображение"
 msgstr ""
 
-#: catalog/models.py:245
+#: catalog/models.py:244
 msgid "изображения"
 msgstr ""
 
@@ -137,11 +137,11 @@ msgstr ""
 msgid "Новинки"
 msgstr ""
 
-#: catalog/views.py:60 templates/includes/list_navbar.html:13
+#: catalog/views.py:58 templates/includes/list_navbar.html:13
 msgid "Пятница"
 msgstr ""
 
-#: catalog/views.py:72 templates/includes/list_navbar.html:16
+#: catalog/views.py:70 templates/includes/list_navbar.html:16
 msgid "Непроверенное"
 msgstr ""
 
@@ -166,7 +166,7 @@ msgid "Загрузка"
 msgstr ""
 
 #: feedback/apps.py:10 templates/feedback/feedback.html:6
-#: templates/feedback/feedback.html:11
+#: templates/feedback/feedback.html:11 templates/includes/header.html:35
 msgid "Обратная связь"
 msgstr ""
 
@@ -182,47 +182,43 @@ msgstr ""
 msgid "Ваш вопрос или пожелание"
 msgstr ""
 
-#: feedback/forms.py:44
-msgid "Пожалуйста, укажите Ваше имя."
+#: feedback/forms.py:31 feedback/forms.py:32
+msgid "Обязательное поле"
 msgstr ""
 
-#: feedback/forms.py:45 feedback/forms.py:55 homepage/forms.py:14
-msgid "Пожалуйста, проверьте данные."
+#: feedback/forms.py:51
+msgid "Пожалуйста, укажите Вашу электронную почту"
 msgstr ""
 
-#: feedback/forms.py:48
-msgid "Пожалуйста, укажите Вашу электронную почту."
+#: feedback/forms.py:53
+msgid "Пожалуйста, введите корректный формат электронной почты"
 msgstr ""
 
-#: feedback/forms.py:50
-msgid "Пожалуйста, введите корректный формат электронной почты."
-msgstr ""
-
-#: feedback/forms.py:54
-msgid "Пожалуйста, заполните Ваше обращение."
+#: feedback/forms.py:57
+msgid "Пожалуйста, заполните Ваше обращение"
 msgstr ""
 
 #: feedback/models.py:9
 msgid "имя"
 msgstr ""
 
-#: feedback/models.py:13
+#: feedback/models.py:15
 msgid "почта"
 msgstr ""
 
-#: feedback/models.py:26
+#: feedback/models.py:28
 msgid "отзыв"
 msgstr ""
 
-#: feedback/models.py:27
+#: feedback/models.py:29
 msgid "отзывы"
 msgstr ""
 
-#: feedback/views.py:26
-msgid "Ответ по вашему обращению, "
+#: feedback/views.py:24
+msgid "Ответ по вашему обращению"
 msgstr ""
 
-#: feedback/views.py:34
+#: feedback/views.py:32
 msgid "Ваше обращение успешно отправлено. Спасибо!"
 msgstr ""
 
@@ -231,12 +227,16 @@ msgstr ""
 msgid "Главная"
 msgstr ""
 
-#: homepage/forms.py:10
+#: homepage/forms.py:9
 msgid "Введите текст"
 msgstr ""
 
+#: homepage/forms.py:12
+msgid "Пожалуйста, заполните поле"
+msgstr ""
+
 #: homepage/forms.py:13
-msgid "Пожалуйста, заполните поле."
+msgid "Пожалуйста, проверьте данные"
 msgstr ""
 
 #: lyceum/settings.py:128
@@ -296,7 +296,11 @@ msgstr ""
 msgid "Всё раскупили!"
 msgstr ""
 
-#: templates/feedback/feedback.html:20 templates/homepage/echo.html:20
+#: templates/feedback/feedback.html:22
+msgid "Подтверждаю, что я сладкая булочка"
+msgstr ""
+
+#: templates/feedback/feedback.html:24 templates/homepage/echo.html:20
 msgid "Отправить"
 msgstr ""
 
@@ -321,7 +325,7 @@ msgstr ""
 msgid "ООО Джангекс Маркет"
 msgstr ""
 
-#: templates/includes/header.html:36
+#: templates/includes/header.html:41
 msgid "Админка"
 msgstr ""
 

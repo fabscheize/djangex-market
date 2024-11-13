@@ -14,7 +14,6 @@ ITEMS_PER_PAGE = 5
 
 def feedback(request):
     template = 'feedback/feedback.html'
-
     feedback_form = FeedbackForm(request.POST or None)
     context = {
         'feedback_form': feedback_form,
@@ -22,10 +21,7 @@ def feedback(request):
 
     if request.method == 'POST' and feedback_form.is_valid():
         send_mail(
-            subject=(
-                _('Ответ по вашему обращению, ')
-                + f'{feedback_form.cleaned_data["name"]}'
-            ),
+            subject=_('Ответ по вашему обращению'),
             message=f'{feedback_form.cleaned_data["text"]}',
             from_email=settings.MAIL,
             recipient_list=[feedback_form.cleaned_data['mail']],

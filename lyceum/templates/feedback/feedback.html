@@ -17,6 +17,10 @@
       {% with form=feedback_form %}
         {% include "includes/form.html" %}
       {% endwith %}
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">{% translate "Подтверждаю, что я сладкая булочка" %}</label>
+      </div>
       <button type="submit" class="btn btn-warning">{% translate "Отправить" %}</button>
     </form>
   </div>

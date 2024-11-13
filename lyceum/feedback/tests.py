@@ -35,7 +35,8 @@ class FeedbackFormTests(TestCase):
     @parametrize(
         'field, help_text',
         [
-            ('mail', 'name@example.com'),
+            ('mail', 'Обязательное поле'),
+            ('text', 'Обязательное поле'),
         ],
     )
     def test_form_help_texts(self, field, help_text):

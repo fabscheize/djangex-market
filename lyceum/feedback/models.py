@@ -8,6 +8,8 @@ class Feedback(django.db.models.Model):
     name = django.db.models.CharField(
         verbose_name=_('имя'),
         max_length=100,
+        blank=True,
+        null=True,
     )
     mail = django.db.models.EmailField(
         verbose_name=_('почта'),

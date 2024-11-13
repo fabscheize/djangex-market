@@ -3,6 +3,7 @@
     <label class="form-label" for="{{ field.id_for_label }}">
       {{ field.label }}
     </label>
+
     {{ field }}
 
     {% if field.errors %}
@@ -11,6 +12,10 @@
           {{ error|escape }}
         </div>
       {% endfor %}
+    {% else %}
+      <div id="{{ field.id_for_label }}Help" class="form-text">
+        {{ field.help_text }}
+      </div>
     {% endif %}
   </div>
 {% endfor %}

@@ -28,30 +28,32 @@ class FeedbackForm(BaseModelForm):
             Feedback.text.field.name: _('Ваш вопрос или пожелание'),
         }
         help_texts = {
-            Feedback.mail.field.name: 'name@example.com',
+            Feedback.mail.field.name: _('Обязательное поле'),
+            Feedback.text.field.name: _('Обязательное поле'),
         }
         widgets = {
             Feedback.name.field.name: forms.TextInput,
             Feedback.mail.field.name: forms.EmailInput(
-                {'placeholder': 'name@example.com'},
+                {
+                    'placeholder': 'name@example.com',
+                    'aria-describedby': 'id_emailHelp',
+                },
             ),
             Feedback.text.field.name: forms.Textarea(
-                {'rows': 5},
+                {
+                    'rows': 5,
+                    'aria-describedby': 'id_textHelp',
+                },
             ),
         }
         error_messages = {
-            Feedback.name.field.name: {
-                'required': _('Пожалуйста, укажите Ваше имя.'),
-                'invalid': _('Пожалуйста, проверьте данные.'),
-            },
             Feedback.mail.field.name: {
-                'required': _('Пожалуйста, укажите Вашу электронную почту.'),
+                'required': _('Пожалуйста, укажите Вашу электронную почту'),
                 'invalid': _(
-                    'Пожалуйста, введите корректный формат электронной почты.',
+                    'Пожалуйста, введите корректный формат электронной почты',
                 ),
             },
             Feedback.text.field.name: {
-                'required': _('Пожалуйста, заполните Ваше обращение.'),
-                'invalid': _('Пожалуйста, проверьте данные.'),
+                'required': _('Пожалуйста, заполните Ваше обращение'),
             },
         }
