@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from feedback.models import Feedback
+from feedback import models
 
 __all__ = []
 
@@ -17,30 +17,17 @@ class BaseModelForm(forms.ModelForm):
 
 class FeedbackForm(BaseModelForm):
     class Meta:
-        model = Feedback
-        exclude = (
-            Feedback.id.field.name,
-            Feedback.created_on.field.name,
-            Feedback.status.field.name,
-        )
+        model = models.Feedback
+
+        fields = (models.Feedback.text.field.name,)
         labels = {
-            Feedback.name.field.name: _('Ваше имя'),
-            Feedback.mail.field.name: _('Ваша электронная почта'),
-            Feedback.text.field.name: _('Ваш вопрос или пожелание'),
+            models.Feedback.text.field.name: _('Ваш вопрос или пожелание'),
         }
         help_texts = {
-            Feedback.mail.field.name: _('Обязательное поле'),
-            Feedback.text.field.name: _('Обязательное поле'),
+            models.Feedback.text.field.name: _('Обязательное поле'),
         }
         widgets = {
-            Feedback.name.field.name: forms.TextInput,
-            Feedback.mail.field.name: forms.EmailInput(
-                {
-                    'placeholder': 'name@example.com',
-                    'aria-describedby': 'id_emailHelp',
-                },
-            ),
-            Feedback.text.field.name: forms.Textarea(
+            models.Feedback.text.field.name: forms.Textarea(
                 {
                     'rows': 5,
                     'aria-describedby': 'id_textHelp',
@@ -48,13 +35,69 @@ class FeedbackForm(BaseModelForm):
             ),
         }
         error_messages = {
-            Feedback.mail.field.name: {
+            models.Feedback.text.field.name: {
+                'required': _('Пожалуйста, заполните Ваше обращение'),
+            },
+        }
+
+
+class FeedbackAuthorForm(BaseModelForm):
+    class Meta:
+        model = models.FeedbackAuthor
+
+        fields = (
+            models.FeedbackAuthor.name.field.name,
+            models.FeedbackAuthor.mail.field.name,
+        )
+        labels = {
+            models.FeedbackAuthor.name.field.name: _('Ваше имя'),
+            models.FeedbackAuthor.mail.field.name: _('Ваша электронная почта'),
+        }
+        help_texts = {
+            models.FeedbackAuthor.mail.field.name: _('Обязательное поле'),
+        }
+        widgets = {
+            models.FeedbackAuthor.name.field.name: forms.TextInput,
+            models.FeedbackAuthor.mail.field.name: forms.EmailInput(
+                {
+                    'placeholder': 'name@example.com',
+                    'aria-describedby': 'id_emailHelp',
+                },
+            ),
+        }
+        error_messages = {
+            models.FeedbackAuthor.mail.field.name: {
                 'required': _('Пожалуйста, укажите Вашу электронную почту'),
                 'invalid': _(
                     'Пожалуйста, введите корректный формат электронной почты',
                 ),
             },
-            Feedback.text.field.name: {
-                'required': _('Пожалуйста, заполните Ваше обращение'),
-            },
         }
+
+
+class MultipleFileInput(forms.ClearableFileInput):
+    allow_multiple_selected = True
+
+
+class MultipleFileField(forms.FileField):
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault(
+            'widget',
+            MultipleFileInput(attrs={'class': 'form-control'}),
+        )
+        super().__init__(*args, **kwargs)
+
+    def clean(self, data, initial=None):
+        single_file_clean = super().clean
+
+        if isinstance(data, (list, tuple)):
+            return [single_file_clean(d, initial) for d in data]
+
+        return [single_file_clean(data, initial)]
+
+
+class FeedbackFileForm(forms.Form):
+    files = MultipleFileField(
+        label=_('При необходимости прикрепите файлы'),
+        required=False,
+    )

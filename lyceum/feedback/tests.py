@@ -1,4 +1,9 @@
-from django.test import TestCase
+from pathlib import Path
+from tempfile import TemporaryDirectory
+
+from django.conf import settings
+from django.core.files.base import ContentFile
+from django.test import override_settings, TestCase
 from django.urls import reverse
 from parametrize import parametrize
 
@@ -12,21 +17,28 @@ class FeedbackFormTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.feedback_form = forms.FeedbackForm()
+        cls.feedback_author_form = forms.FeedbackAuthorForm()
+        cls.feedback_file_form = forms.FeedbackFileForm()
 
     def test_correct_context(self):
         response = self.client.get(reverse('feedback:feedback'))
         self.assertIn('form', response.context, msg='No form in context')
 
     @parametrize(
-        'field, label',
+        'form, field, label',
         [
-            ('name', 'Ваше имя'),
-            ('mail', 'Ваша электронная почта'),
-            ('text', 'Ваш вопрос или пожелание'),
+            ('feedback_author_form', 'name', 'Ваше имя'),
+            ('feedback_author_form', 'mail', 'Ваша электронная почта'),
+            ('feedback_form', 'text', 'Ваш вопрос или пожелание'),
+            (
+                'feedback_file_form',
+                'files',
+                'При необходимости прикрепите файлы',
+            ),
         ],
     )
-    def test_form_labels(self, field, label):
-        received = type(self).feedback_form.fields[field].label
+    def test_form_labels(self, form, field, label):
+        received = eval(f'self.{form}.fields[field].label')
 
         self.assertEqual(
             received,
@@ -35,14 +47,14 @@ class FeedbackFormTests(TestCase):
         )
 
     @parametrize(
-        'field, help_text',
+        'form, field, help_text',
         [
-            ('mail', 'Обязательное поле'),
-            ('text', 'Обязательное поле'),
+            ('feedback_author_form', 'mail', 'Обязательное поле'),
+            ('feedback_form', 'text', 'Обязательное поле'),
         ],
     )
-    def test_form_help_texts(self, field, help_text):
-        received = type(self).feedback_form.fields[field].help_text
+    def test_form_help_texts(self, form, field, help_text):
+        received = eval(f'self.{form}.fields[field].help_text')
 
         self.assertEqual(
             received,
@@ -66,7 +78,7 @@ class FeedbackFormTests(TestCase):
         )
 
         self.assertTrue(
-            response.context['form'].has_error('mail'),
+            response.context['forms'][0].has_error('mail'),
             msg='Mail validation did not happen',
         )
 
@@ -100,3 +112,42 @@ class FeedbackFormTests(TestCase):
             element_count + 1,
             msg='New object has not been created',
         )
+
+    @override_settings(MEDIA_ROOT=TemporaryDirectory().name)
+    def test_file_upload(self):
+        num_of_files = 5
+
+        files = [
+            ContentFile(f'file_{i}'.encode(), name='filename')
+            for i in range(num_of_files)
+        ]
+
+        form_data = {
+            'name': 'name',
+            'mail': 'name@mail.com',
+            'text': 'text',
+            'files': files,
+        }
+
+        self.client.post(
+            reverse('feedback:feedback'),
+            data=form_data,
+            follow=True,
+        )
+
+        file_object = models.Feedback.objects.get(text='text')
+
+        self.assertEqual(
+            file_object.files.count(),
+            num_of_files,
+            msg='There are more elements than there should be',
+        )
+
+        media_root = Path(settings.MEDIA_ROOT)
+
+        for i, file in enumerate(file_object.files.all()):
+            uploaded_file = media_root / file.file.path
+            self.assertEqual(
+                uploaded_file.open().read(),
+                f'file_{i}',
+            )

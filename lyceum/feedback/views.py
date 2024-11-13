@@ -5,8 +5,8 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from feedback.forms import FeedbackForm
-from feedback.models import Feedback
+from feedback import forms
+from feedback import models
 
 __all__ = []
 
@@ -15,21 +15,37 @@ ITEMS_PER_PAGE = 5
 
 def feedback(request):
     template = 'feedback/feedback.html'
-    feedback_form = FeedbackForm(request.POST or None)
+
+    feedback_form = forms.FeedbackForm(request.POST or None)
+    feedback_author_form = forms.FeedbackAuthorForm(request.POST or None)
+    feedback_file_form = forms.FeedbackFileForm(request.POST or None)
+
+    all_forms = (feedback_author_form, feedback_form, feedback_file_form)
     context = {
-        'feedback_form': feedback_form,
+        'forms': all_forms,
     }
 
-    if request.method == 'POST' and feedback_form.is_valid():
+    if request.method == 'POST' and all(form.is_valid() for form in all_forms):
         send_mail(
             subject=_('Ответ по вашему обращению'),
             message=f'{feedback_form.cleaned_data["text"]}',
             from_email=settings.MAIL,
-            recipient_list=[feedback_form.cleaned_data['mail']],
-            fail_silently=False,
+            recipient_list=[feedback_author_form.cleaned_data['mail']],
+            fail_silently=True,
         )
 
-        Feedback.objects.create(**feedback_form.cleaned_data)
+        feedback_object = models.Feedback.objects.create(
+            **feedback_form.cleaned_data,
+        )
+        models.FeedbackAuthor.objects.create(
+            feedback=feedback_object,
+            **feedback_author_form.cleaned_data,
+        )
+        for file in request.FILES.getlist('files'):
+            models.FeedbackFile.objects.create(
+                feedback=feedback_object,
+                file=file,
+            )
 
         django.contrib.messages.success(
             request,

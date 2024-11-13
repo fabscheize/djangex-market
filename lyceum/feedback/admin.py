@@ -5,6 +5,24 @@ from feedback import models
 __all__ = []
 
 
+class FeedbackAuthorInline(admin.StackedInline):
+    model = models.FeedbackAuthor
+    extra = 0
+    can_delete = False
+    readonly_fields = (
+        models.FeedbackAuthor.name.field.name,
+        models.FeedbackAuthor.mail.field.name,
+    )
+
+
+class FeedbackFileInline(admin.TabularInline):
+    model = models.FeedbackFile
+    extra = 0
+    max_num = 0
+    can_delete = False
+    readonly_fields = (models.FeedbackFile.file.field.name,)
+
+
 @admin.register(models.Feedback)
 class FeedbackAdmin(admin.ModelAdmin):
     list_display = (
@@ -12,12 +30,11 @@ class FeedbackAdmin(admin.ModelAdmin):
         models.Feedback.status.field.name,
     )
     readonly_fields = (
-        models.Feedback.name.field.name,
-        models.Feedback.mail.field.name,
         models.Feedback.text.field.name,
         models.Feedback.created_on.field.name,
     )
     list_display_links = (models.Feedback.text.field.name,)
+    inlines = [FeedbackAuthorInline, FeedbackFileInline]
 
     def save_model(self, request, obj, form, change):
         if change:
