@@ -21,6 +21,7 @@ class FeedbackForm(BaseModelForm):
         exclude = (
             Feedback.id.field.name,
             Feedback.created_on.field.name,
+            Feedback.status.field.name,
         )
         labels = {
             Feedback.name.field.name: _('Ваше имя'),

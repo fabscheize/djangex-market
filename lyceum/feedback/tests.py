@@ -2,7 +2,8 @@ from django.test import TestCase
 from django.urls import reverse
 from parametrize import parametrize
 
-from feedback import forms
+from feedback import forms, models
+
 
 __all__ = []
 
@@ -26,6 +27,7 @@ class FeedbackFormTests(TestCase):
     )
     def test_form_labels(self, field, label):
         received = type(self).feedback_form.fields[field].label
+
         self.assertEqual(
             received,
             label,
@@ -41,6 +43,7 @@ class FeedbackFormTests(TestCase):
     )
     def test_form_help_texts(self, field, help_text):
         received = type(self).feedback_form.fields[field].help_text
+
         self.assertEqual(
             received,
             help_text,
@@ -48,6 +51,8 @@ class FeedbackFormTests(TestCase):
         )
 
     def test_create_feedback_negative(self):
+        element_count = models.Feedback.objects.count()
+
         form_data = {
             'name': 'name',
             'mail': 'invalid_mail',
@@ -65,7 +70,15 @@ class FeedbackFormTests(TestCase):
             msg='Mail validation did not happen',
         )
 
+        self.assertEqual(
+            models.Feedback.objects.count(),
+            element_count,
+            msg='There are more elements than there should be',
+        )
+
     def test_create_feedback_positive(self):
+        element_count = models.Feedback.objects.count()
+
         form_data = {
             'name': 'name',
             'mail': 'name@mail.com',
@@ -80,4 +93,10 @@ class FeedbackFormTests(TestCase):
         self.assertRedirects(
             response,
             reverse('feedback:feedback'),
+        )
+
+        self.assertEqual(
+            models.Feedback.objects.count(),
+            element_count + 1,
+            msg='New object has not been created',
         )

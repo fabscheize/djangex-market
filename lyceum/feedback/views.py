@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from feedback.forms import FeedbackForm
+from feedback.models import Feedback
 
 __all__ = []
 
@@ -27,6 +28,9 @@ def feedback(request):
             recipient_list=[feedback_form.cleaned_data['mail']],
             fail_silently=False,
         )
+
+        Feedback.objects.create(**feedback_form.cleaned_data)
+
         django.contrib.messages.success(
             request,
             _('Ваше обращение успешно отправлено. Спасибо!'),
