@@ -1,8 +1,7 @@
 from http import HTTPStatus
 
 from django.http import HttpResponse, HttpResponseNotAllowed
-from django.shortcuts import redirect, render
-from django.urls import reverse
+from django.shortcuts import render
 
 
 import catalog.models
@@ -24,28 +23,20 @@ def coffee(request):
 
 def echo(request):
     template = 'homepage/echo.html'
-    echo_form = EchoForm(request.POST or None)
+    echo_form = EchoForm()
     context = {
         'echo_form': echo_form,
     }
-
-    if request.method == 'POST' and echo_form.is_valid():
-        text = echo_form.cleaned_data['text']
-        request.session['submitted_text'] = text
-        return redirect(reverse('homepage:submit'))
-
-    for field in echo_form:
-        if field.errors:
-            field.field.widget.attrs['class'] = (
-                field.field.widget.attrs.get('class', '') + ' is-invalid'
-            )
-
     return render(request, template, context)
 
 
 def submit(request):
-    text = request.session.pop('submitted_text', None)
-    if text is None:
-        return HttpResponseNotAllowed(['POST'])
+    echo_form = EchoForm(request.POST)
+    if request.method == 'POST' and echo_form.is_valid():
+        text = echo_form.cleaned_data['text']
+        return HttpResponse(
+            text,
+            content_type='text/plain; charset=utf-8',
+        )
 
-    return HttpResponse(text, content_type='text/plain; charset=utf-8')
+    return HttpResponseNotAllowed(['POST'])
