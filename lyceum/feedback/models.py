@@ -66,7 +66,7 @@ class StatusLog(models.Model):
         db_column='from',
         max_length=3,
     )
-    to_status = models.CharField(
+    to = models.CharField(
         verbose_name=_('в статус'),
         db_column='to',
         max_length=3,

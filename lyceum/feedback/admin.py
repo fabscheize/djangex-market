@@ -27,7 +27,7 @@ class FeedbackAdmin(admin.ModelAdmin):
                     user=request.user,
                     feedback=obj,
                     from_status=old_status,
-                    to_status=obj.status,
+                    to=obj.status,
                 )
 
         super().save_model(request, obj, form, change)
@@ -39,12 +39,12 @@ class StatusLogAdmin(admin.ModelAdmin):
         models.StatusLog.timestamp.field.name,
         models.StatusLog.feedback.field.name,
         models.StatusLog.from_status.field.name,
-        models.StatusLog.to_status.field.name,
+        models.StatusLog.to.field.name,
     )
     readonly_fields = (
         models.StatusLog.feedback.field.name,
         models.StatusLog.from_status.field.name,
-        models.StatusLog.to_status.field.name,
+        models.StatusLog.to.field.name,
         models.StatusLog.user.field.name,
     )
     list_display_links = (models.StatusLog.timestamp.field.name,)
