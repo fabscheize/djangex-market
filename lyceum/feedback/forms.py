@@ -64,7 +64,7 @@ class FeedbackAuthorForm(BaseModelForm):
             models.FeedbackAuthor.mail.field.name: forms.EmailInput(
                 {
                     'placeholder': 'name@example.com',
-                    'aria-describedby': 'id_emailHelp',
+                    'aria-describedby': 'id_mailHelp',
                 },
             ),
         }

@@ -8,11 +8,11 @@
 
     {% if field.errors %}
       {% for error in field.errors %}
-        <div id="{{ field.id_for_label }}" class="invalid-feedback">
+        <div id="{{ field.id_for_label }}Help" class="invalid-feedback">
           {{ error|escape }}
         </div>
       {% endfor %}
-    {% else %}
+    {% elif field.help_text %}
       <div id="{{ field.id_for_label }}Help" class="form-text">
         {{ field.help_text }}
       </div>

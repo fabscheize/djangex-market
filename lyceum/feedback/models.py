@@ -7,10 +7,6 @@ from django.utils.translation import gettext_lazy as _
 __all__ = []
 
 
-def feedback_directory_path(instance, filename):
-    return f'uploads/{instance.feedback_id}/{uuid.uuid4()}-{filename}'
-
-
 class Feedback(models.Model):
     class Status(models.TextChoices):
         NEW = 'new', _('Новый')
@@ -63,6 +59,9 @@ class FeedbackAuthor(models.Model):
 
 
 class FeedbackFile(models.Model):
+    def feedback_directory_path(self, filename):
+        return f'uploads/{self.feedback_id}/{uuid.uuid4()}-{filename}'
+
     feedback = models.ForeignKey(
         Feedback,
         related_name='files',

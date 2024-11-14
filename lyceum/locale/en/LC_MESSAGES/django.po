@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 10:39+0700\n"
+"POT-Creation-Date: 2024-11-13 22:25+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,7 +83,7 @@ msgstr "A tag with a similar name already exists."
 msgid "на главной"
 msgstr "on main"
 
-#: catalog/models.py:175 feedback/models.py:19
+#: catalog/models.py:175 feedback/models.py:27
 msgid "текст"
 msgstr "text"
 
@@ -91,7 +91,7 @@ msgstr "text"
 msgid "В описании обязательно должно быть слово 'превосходно' или 'роскошно'"
 msgstr "The description must contain 'превосходно' or 'роскошно'"
 
-#: catalog/models.py:187 feedback/models.py:22
+#: catalog/models.py:187 feedback/models.py:30
 msgid "время создания"
 msgstr "create time"
 
@@ -101,7 +101,7 @@ msgstr "create time"
 msgid "время изменения"
 msgstr "update time"
 
-#: catalog/models.py:200 catalog/models.py:222 catalog/models.py:239
+#: catalog/models.py:200 catalog/models.py:222 catalog/models.py:238
 msgid "товар"
 msgstr "item"
 
@@ -125,11 +125,11 @@ msgstr "main image"
 msgid "главные изображения"
 msgstr "main images"
 
-#: catalog/models.py:243 core/models.py:39
+#: catalog/models.py:242 core/models.py:39
 msgid "изображение"
 msgstr "image"
 
-#: catalog/models.py:244
+#: catalog/models.py:243
 msgid "изображения"
 msgstr "images"
 
@@ -174,61 +174,129 @@ msgstr "Download"
 msgid "Обратная связь"
 msgstr "Feedback"
 
-#: feedback/forms.py:26
-msgid "Ваше имя"
-msgstr "Your name"
-
 #: feedback/forms.py:27
-msgid "Ваша электронная почта"
-msgstr "Your email"
-
-#: feedback/forms.py:28
 msgid "Ваш вопрос или пожелание"
 msgstr "Your feedback"
 
-#: feedback/forms.py:31 feedback/forms.py:32
+#: feedback/forms.py:30 feedback/forms.py:60
 msgid "Обязательное поле"
 msgstr "Required field"
 
-#: feedback/forms.py:51
-#, fuzzy
-#| msgid "Пожалуйста, заполните поле."
-msgid "Пожалуйста, укажите Вашу электронную почту"
-msgstr "Please enter your email"
-
-#: feedback/forms.py:53
-msgid "Пожалуйста, введите корректный формат электронной почты"
-msgstr "Please enter valid email format"
-
-#: feedback/forms.py:57
+#: feedback/forms.py:42
 #, fuzzy
 #| msgid "Пожалуйста, заполните поле."
 msgid "Пожалуйста, заполните Ваше обращение"
 msgstr "Please enter your feedback"
 
-#: feedback/models.py:9
-msgid "имя"
-msgstr "name"
+#: feedback/forms.py:56
+msgid "Ваше имя"
+msgstr "Your name"
 
-#: feedback/models.py:15
-msgid "почта"
-msgstr "email"
+#: feedback/forms.py:57
+msgid "Ваша электронная почта"
+msgstr "Your email"
 
-#: feedback/models.py:28
+#: feedback/forms.py:73
+#, fuzzy
+#| msgid "Пожалуйста, заполните поле."
+msgid "Пожалуйста, укажите Вашу электронную почту"
+msgstr "Please enter your email"
+
+#: feedback/forms.py:75
+msgid "Пожалуйста, введите корректный формат электронной почты"
+msgstr "Please enter valid email format"
+
+#: feedback/forms.py:104
+msgid "При необходимости прикрепите файлы"
+msgstr "Upload files if required"
+
+#: feedback/models.py:16
+msgid "Новый"
+msgstr "New"
+
+#: feedback/models.py:17
+#, fuzzy
+#| msgid "О проекте"
+msgid "В процессе"
+msgstr "About"
+
+#: feedback/models.py:18
+msgid "Отвечен"
+msgstr "Answered"
+
+#: feedback/models.py:21
+msgid "статус"
+msgstr "status"
+
+#: feedback/models.py:36 feedback/models.py:94
 msgid "отзыв"
 msgstr "feedback"
 
-#: feedback/models.py:29
+#: feedback/models.py:37
 msgid "отзывы"
 msgstr "feedbacks"
 
-#: feedback/views.py:24
+#: feedback/models.py:50
+msgid "имя"
+msgstr "name"
+
+#: feedback/models.py:56
+msgid "почта"
+msgstr "email"
+
+#: feedback/models.py:61
+#, fuzzy
+#| msgid "отзыв"
+msgid "автор отзыва"
+msgstr "feedback"
+
+#: feedback/models.py:62
+msgid "авторы отзывов"
+msgstr "feedback authors"
+
+#: feedback/models.py:72
+msgid "файл"
+msgstr "file"
+
+#: feedback/models.py:78
+msgid "прикрепленный файл"
+msgstr "uploaded file"
+
+#: feedback/models.py:79
+msgid "прикрепленные файлы"
+msgstr "uploaded files"
+
+#: feedback/models.py:84
+msgid "пользователь"
+msgstr "user"
+
+#: feedback/models.py:90
+msgid "время"
+msgstr "time"
+
+#: feedback/models.py:100
+msgid "из статуса"
+msgstr "from status"
+
+#: feedback/models.py:105
+msgid "в статус"
+msgstr "to status"
+
+#: feedback/models.py:111
+msgid "лог статуса"
+msgstr "status log"
+
+#: feedback/models.py:112
+msgid "логи статусов"
+msgstr "status logs"
+
+#: feedback/views.py:30
 #, fuzzy
 #| msgid "Ответ по вашему обращению, "
 msgid "Ответ по вашему обращению"
 msgstr "The answer to your feedback"
 
-#: feedback/views.py:32
+#: feedback/views.py:52
 msgid "Ваше обращение успешно отправлено. Спасибо!"
 msgstr "Your feedback has been sent successfully. Thanks!"
 
@@ -246,12 +314,6 @@ msgstr "Enter your text"
 #| msgid "Пожалуйста, заполните поле."
 msgid "Пожалуйста, заполните поле"
 msgstr "Please fill in the text field"
-
-#: homepage/forms.py:13
-#, fuzzy
-#| msgid "Пожалуйста, проверьте данные."
-msgid "Пожалуйста, проверьте данные"
-msgstr "Please ckeck your data"
 
 #: lyceum/settings.py:128
 msgid "Russian"
@@ -312,11 +374,11 @@ msgstr "Item list"
 msgid "Всё раскупили!"
 msgstr "Sold out!"
 
-#: templates/feedback/feedback.html:22
+#: templates/feedback/feedback.html:23
 msgid "Подтверждаю, что я сладкая булочка"
 msgstr "I accept I am a sweet bun"
 
-#: templates/feedback/feedback.html:24 templates/homepage/echo.html:20
+#: templates/feedback/feedback.html:26 templates/homepage/echo.html:20
 msgid "Отправить"
 msgstr "Send"
 
@@ -325,17 +387,8 @@ msgid "Я чайник"
 msgstr "I'm a teapot"
 
 #: templates/homepage/echo.html:6 templates/homepage/echo.html:11
-#: templates/homepage/main.html:22
 msgid "Эхо"
 msgstr "Echo"
-
-#: templates/homepage/main.html:20
-msgid "Есть вопросы или пожелания?"
-msgstr "Any questions or suggestions?"
-
-#: templates/homepage/main.html:21
-msgid "Связаться с нами"
-msgstr "Contact us"
 
 #: templates/includes/footer.html:6
 msgid "ООО Джангекс Маркет"
