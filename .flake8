@@ -34,6 +34,7 @@ application-import-names =
     feedback
     homepage
     lyceum
+    users
 import-order-style = google
 inline-quotes = single
 ignore =

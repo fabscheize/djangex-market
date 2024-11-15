@@ -26,15 +26,17 @@ def favicon_url():
 
 
 urlpatterns = [
-    path('admin/', django.contrib.admin.site.urls),
     path('favicon.ico/', favicon_url),
     path('', include('homepage.urls')),
     path('about/', include('about.urls')),
+    path('admin/', django.contrib.admin.site.urls),
+    path('auth/', include('users.urls')),
+    path('auth/', include('django.contrib.auth.urls')),
     path('catalog/', include('catalog.urls')),
     path('download/', include('download.urls')),
     path('feedback/', include('feedback.urls')),
-    path('tinymce/', include('tinymce.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('tinymce/', include('tinymce.urls')),
 ]
 
 if settings.DEBUG:
