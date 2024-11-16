@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+  {% translate "Выход" %} - {% translate "Джангекс Маркет" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container my-3 d-flex justify-content-center">
+    <h1>{% translate "Вы вышли и аккаунта" %}</h1>
+  </div>
+  <div class="container my-3 d-flex justify-content-center">
+    <h3>{% translate "Мы будем скучать!" %}</h3>
+  </div>
+
+  <div class="container my-3 d-flex justify-content-center">
+    <figure class="figure text-center" style="width: 400px;">
+      <img src="{% static 'img/logout.jpg' %}" class="figure-img img-fluid rounded d-block" alt="cat">
+    </figure>
+  </div>
+
+  <div class="container my-3 d-flex justify-content-center">
+    <div class="mx-auto d-grid gap-2" style="width: 400px;">
+      <a class="btn btn-warning d-flex justify-content-center" href="{% url 'users:login' %}" role="button">{% translate "Войти снова" %}</a>
+    </div>
+  </div>
+{% endblock content %}

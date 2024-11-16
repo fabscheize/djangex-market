@@ -18,6 +18,13 @@ def home(request):
 
 
 def coffee(request):
+    profile = request.user.profile
+    profile.coffee_count += 1
+    profile.save()
+
+    template = 'homepage/coffee.html'
+
+    return render(request, template, status=HTTPStatus.IM_A_TEAPOT)
     return HttpResponse('Я чайник', status=HTTPStatus.IM_A_TEAPOT)
 
 
