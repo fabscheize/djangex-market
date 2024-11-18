@@ -31,7 +31,7 @@ class UserRegistrationTest(django.test.TestCase):
         password1,
         password2,
     ):
-        with django.test.override_settings(DEFAULT_USER_ACTIVITY=False):
+        with django.test.override_settings(DEFAULT_USER_IS_ACTIVE=False):
             self.client.post(
                 reverse('users:signup'),
                 {
@@ -85,7 +85,7 @@ class UserRegistrationTest(django.test.TestCase):
         password1,
         password2,
     ):
-        with django.test.override_settings(DEFAULT_USER_ACTIVITY=False):
+        with django.test.override_settings(DEFAULT_USER_IS_ACTIVE=False):
             self.client.post(
                 reverse('users:signup'),
                 {
@@ -107,18 +107,19 @@ class UserRegistrationTest(django.test.TestCase):
 class UserActivationTest(django.test.TestCase):
     @classmethod
     def setUpTestData(cls):
-        django.test.Client().post(
-            reverse('users:signup'),
-            {
-                'username': 'user',
-                'email': 'user@example.com',
-                'password1': 'AA385W3ersHHGv',
-                'password2': 'AA385W3ersHHGv',
-            },
-            follow=True,
-        )
+        with django.test.override_settings(DEFAULT_USER_IS_ACTIVE=False):
+            django.test.Client().post(
+                reverse('users:signup'),
+                {
+                    'username': 'user',
+                    'email': 'user@example.com',
+                    'password1': 'AA385W3ersHHGv',
+                    'password2': 'AA385W3ersHHGv',
+                },
+                follow=True,
+            )
 
-    @django.test.override_settings(DEFAULT_USER_ACTIVITY=False)
+    @django.test.override_settings(DEFAULT_USER_IS_ACTIVE=False)
     @mock.patch('django.utils.timezone.now')
     def test_user_activation_positive(self, mock_now):
         user = User.objects.get(username='user')
@@ -136,7 +137,7 @@ class UserActivationTest(django.test.TestCase):
         user.refresh_from_db()
         self.assertTrue(user.is_active, msg='User was not activated')
 
-    @django.test.override_settings(DEFAULT_USER_ACTIVITY=False)
+    @django.test.override_settings(DEFAULT_USER_IS_ACTIVE=False)
     @mock.patch('django.utils.timezone.now')
     def test_user_activation_negative(self, mock_now):
         user = User.objects.get(username='user')

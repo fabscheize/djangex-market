@@ -6,6 +6,7 @@ from django.shortcuts import render
 
 import catalog.models
 from homepage.forms import EchoForm
+import users.models
 
 __all__ = []
 
@@ -18,9 +19,13 @@ def home(request):
 
 
 def coffee(request):
-    profile = request.user.profile
-    profile.coffee_count += 1
-    profile.save()
+    if request.user.is_authenticated:
+        try:
+            profile = request.user.profile
+            profile.coffee_count += 1
+            profile.save()
+        except users.models.Profile.DoesNotExist:
+            pass
 
     template = 'homepage/coffee.html'
 

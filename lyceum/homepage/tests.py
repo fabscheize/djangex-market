@@ -46,7 +46,7 @@ class HomepageHttpResponseTest(TestCase):
             msg='Could not reach the endpoint',
         )
 
-    @override_settings(ALLOW_REVERSE=False, DEFAULT_USER_ACTIVITY=True)
+    @override_settings(ALLOW_REVERSE=False, DEFAULT_USER_IS_ACTIVE=True)
     def test_coffee_status_code(self):
         user = User.objects.create(username='testuser')
         user.set_password('AA385W3ersHHGv')
