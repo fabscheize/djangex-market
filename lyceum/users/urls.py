@@ -63,4 +63,41 @@ urlpatterns = [
         ),
         name='password_reset_complete',
     ),
+    path(
+        'reset/done/',
+        auth_views.PasswordResetCompleteView.as_view(
+            template_name='users/password_reset_complete.html',
+        ),
+        name='password_reset_complete',
+    ),
+    path(
+        'signup/',
+        views.signup,
+        name='signup',
+    ),
+    path(
+        'activate/<str:username>/',
+        views.activate,
+        name='activate',
+    ),
+    path(
+        'user_list/',
+        views.user_list,
+        name='user_list',
+    ),
+    path(
+        'user_detail/<int:pk>',
+        views.user_detail,
+        name='user_detail',
+    ),
+    path(
+        'profile/',
+        views.profile,
+        name='profile',
+    ),
+    path(
+        'send_mail/<str:username>/',
+        views.send_activation_email,
+        name='send_mail',
+    ),
 ]

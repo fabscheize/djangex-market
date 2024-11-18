@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% translate "Пользователь " %}{{ user_detail.username }} - {% translate "Джангекс Маркет" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container my-3">
+    <h1>{% translate "Пользователь " %}{{ user_detail.username }}</h1>
+  </div>
+
+  <div class="container my-3">
+    <div class="row">
+      <div class="col-sm col-md-4">
+        <figure class="figure text-center my-3" style="max-width: 300px;">
+          <img src="{% if user_detail.profile.image %}{{ user_detail.profile.get_image_300x300.url }}{% else %}{% static 'img/no-avatar.jpg' %}{% endif %}" class="figure-img rounded img-fluid" >
+        </figure>
+      </div>
+
+      <div class="col-sm col-md-8 my-3">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>{% translate "Имя" %}: </b>{% if user_detail.first_name %}{{ user_detail.first_name }}{% else %}<i>{% translate "Не указано" %}</i>{% endif %}</li>
+            <li class="list-group-item"><b>{% translate "Фамилия" %}: </b>{% if user_detail.last_name %}{{ user_detail.last_name }}{% else %}<i>{% translate "Не указано" %}</i>{% endif %}</li>
+            <li class="list-group-item"><b>{% translate "Почта" %}: </b>{% if user_detail.email %}{{ user_detail.email }}{% else %}<i>{% translate "Не указано" %}</i>{% endif %}</li>
+            <li class="list-group-item"><b>{% translate "Дата рождения" %}: </b>{% if user_detail.profile.birthday %}{{ user_detail.profile.birthday }}{% else %}<i>{% translate "Не указано" %}</i>{% endif %}</li>
+            <li class="list-group-item"><b>{% translate "Сколько выпито кофе" %}: </b>{{ user_detail.profile.coffee_count }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

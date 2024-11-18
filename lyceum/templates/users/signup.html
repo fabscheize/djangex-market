@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load custom_filters %}
+
+{% block title %}
+  {% translate "Регистрация" %} - {% translate "Джангекс Маркет" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container my-3 d-flex justify-content-center">
+    <h1>{% translate "Регистрация" %}</h1>
+  </div>
+
+  <div class="container my-3">
+    <div class="mx-auto" style="width: 400px;">
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+
+  {% translate "Зарегистрироваться" as submit_button %}
+  {% include "includes/user_form.html" with submit_button=submit_button %}
+
+  <div class="container my-3">
+
+  </div>
+{% endblock content %}

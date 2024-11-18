@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+  {% translate "Список пользователей" %} - {% translate "Джангекс Маркет" %}
+{% endblock title %}
+
+{% block content %}
+  <div class="container my-3">
+    <h1>{% translate "Список пользователей" %}</h1>
+  </div>
+
+  <div class="container my-3">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">{% translate "Никнейм" %}</th>
+          <th scope="col">{% translate "Имя" %}</th>
+          <th scope="col">{% translate "Фамилия" %}</th>
+          <th scope="col">{% translate "Дата рождения" %}</th>
+          <th scope="col">{% translate "Аватар" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td><a href="{% url 'users:user_detail' user.id %}">{{ user.username }}</a></td>
+            <td>{% if user.first_name %}{{ user.first_name }}{% else %}<i>{% translate "Не указано" %}</i>{% endif %}</td>
+            <td>{% if user.last_name %}{{ user.last_name }}{% else %}<i>{% translate "Не указано" %}</i>{% endif %}</td>
+            <td>{% if user.profile.birthday %}{{ user.profile.birthday }}{% else %}<i>{% translate "Не указано" %}</i>{% endif %}</td>
+            <td>{% if user.profile.image %}<img src="{{ user.profile.get_image_50x50.url }}">{% else %}–{% endif %}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}

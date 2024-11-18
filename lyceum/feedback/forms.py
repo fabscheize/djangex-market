@@ -1,18 +1,10 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
+from core.forms import BaseModelForm
 from feedback import models
 
 __all__ = []
-
-
-class BaseModelForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.visible_fields():
-            field.field.widget.attrs['class'] = 'form-control'
-            if field.errors:
-                field.field.widget.attrs['class'] += ' is-invalid'
 
 
 class FeedbackForm(BaseModelForm):

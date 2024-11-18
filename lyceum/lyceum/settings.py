@@ -34,6 +34,11 @@ MAIL = env.str(
     default='no-reply@djangex-market.ru',
 )
 
+DEFAULT_USER_IS_ACTIVE = env.bool(
+    'DJANGO_DEFAULT_USER_IS_ACTIVE',
+    default=DEBUG,
+)
+
 INSTALLED_APPS = [
     'about.apps.AboutConfig',
     'catalog.apps.CatalogConfig',
@@ -167,3 +172,7 @@ FIXTURE_DIRS = [
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 
 EMAIL_FILE_PATH = BASE_DIR / 'send_mail'
+
+LOGIN_URL = '/auth/login'
+
+LOGIN_REDIRECT_URL = '/auth/profile'
