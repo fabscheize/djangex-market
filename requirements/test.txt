@@ -22,3 +22,4 @@ flake8-simplify==0.19.3
 flake8-use-pathlib==0.3.0
 parametrize==0.1.1
 pep8-naming==0.14.1
+pytz==2024.2
