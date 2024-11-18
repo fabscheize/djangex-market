@@ -38,16 +38,12 @@
           <div class="mb-3">
             <a class="btn btn-outline-warning" href="{% url 'homepage:coffee' %}" role="button">{% translate "Выпить кофе" %}</a>
           </div>
-
           <button type="submit" class="btn btn-warning">{% translate "Сохранить изменения" %}</button>
         </form>
 
         <div class="my-3">
           <a class="btn btn-secondary" href="{% url 'users:password_change' %}" role="button">{% translate "Изменить пароль" %}</a>
           <a class="btn btn-danger mx-3" href="{% url 'users:logout' %}" role="button">{% translate "Выйти" %}</a>
-        </div>
-
-        <div class="my-3">
         </div>
       </div>
     </div>
