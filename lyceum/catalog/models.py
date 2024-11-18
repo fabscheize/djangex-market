@@ -235,6 +235,7 @@ class ItemImageGallery(BaseImageModel):
         Item,
         on_delete=models.CASCADE,
         related_name='images',
+        related_query_name='image',
         verbose_name=_('товар'),
     )
 

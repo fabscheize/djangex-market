@@ -76,11 +76,12 @@ def activate(request, username):
             ),
         )
     else:
+        activation_path = reverse('users:send_mail', args=[user.username])
         messages.error(
             request,
             mark_safe(
                 _('Ссылка активации истекла :(') + '<br><a href='
-                f'"{reverse('users:send_mail', args=[user.username])}"'
+                f'"{activation_path}"'
                 ' class="alert-link">Отправить еще раз</a>',
             ),
         )

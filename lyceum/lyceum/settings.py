@@ -176,3 +176,5 @@ EMAIL_FILE_PATH = BASE_DIR / 'send_mail'
 LOGIN_URL = '/auth/login'
 
 LOGIN_REDIRECT_URL = '/auth/profile'
+
+LOGOUT_REDIRECT_URL = LOGIN_URL

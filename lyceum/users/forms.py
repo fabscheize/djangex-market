@@ -9,7 +9,7 @@ __all__ = []
 
 
 class UserCreationForm(BaseModelForm, auth_forms.UserCreationForm):
-    class Meta(auth_forms.UserCreationForm):
+    class Meta(auth_forms.UserCreationForm.Meta):
         model = models.User
 
         fields = [
@@ -26,7 +26,7 @@ class UserCreationForm(BaseModelForm, auth_forms.UserCreationForm):
 
 
 class UserChangeForm(BaseModelForm):
-    class Meta(auth_forms.UserChangeForm):
+    class Meta(auth_forms.UserChangeForm.Meta):
         model = models.User
 
         fields = [
