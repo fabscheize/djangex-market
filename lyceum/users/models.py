@@ -2,7 +2,6 @@ import sys
 import uuid
 
 from django.contrib.auth.models import User
-import django.core.validators
 from django.db import models
 from django.db.models.fields.related import ReverseOneToOneDescriptor
 from django.utils.translation import gettext_lazy as _
@@ -53,11 +52,11 @@ class Profile(BaseImageModel):
         blank=True,
         null=True,
     )
-    coffee_count = models.IntegerField(
+    coffee_count = models.PositiveIntegerField(
         verbose_name=_('счетчик кофе'),
         default=0,
     )
-    image = django.db.models.ImageField(
+    image = models.ImageField(
         upload_to=avatar_directory_path,
         verbose_name=_('аватар'),
         blank=True,

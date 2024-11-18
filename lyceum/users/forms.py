@@ -42,23 +42,36 @@ class UserChangeForm(BaseModelForm):
 
 
 class ProfileForm(BaseModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        coffee_count = models.Profile.coffee_count.field.name
+        self.fields[coffee_count].disabled = True
+        self.fields[coffee_count].widget.attrs[
+            'class'
+        ] = 'form-control-plaintext'
+
     class Meta:
         model = models.Profile
 
         fields = [
             models.Profile.birthday.field.name,
             models.Profile.image.field.name,
+            models.Profile.coffee_count.field.name,
         ]
         labels = {
             models.Profile.birthday.field.name: _('Дата рождения'),
             models.Profile.image.field.name: _('Изменить аватар'),
+            models.Profile.coffee_count.field.name: _('Сколько выпито кофе'),
         }
         widgets = {
             models.Profile.birthday.field.name: forms.DateInput(
                 attrs={'type': 'date'},
                 format='%Y-%m-%d',
             ),
-            'image': forms.FileInput(
+            models.Profile.image.field.name: forms.FileInput(
                 attrs={'class': 'form-control', 'accept': 'image/*'},
+            ),
+            models.Profile.coffee_count.field.name: forms.TextInput(
+                attrs={'required': False},
             ),
         }
