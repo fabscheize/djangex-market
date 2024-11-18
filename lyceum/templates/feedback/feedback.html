@@ -14,9 +14,9 @@
   <div class="container my-3">
     <form method="post" enctype="multipart/form-data" novalidate>
       {% csrf_token %}
-      {% for form in forms %}
-        {% include "includes/form.html" %}
-      {% endfor %}
+      {% include "includes/form.html" with form=feedback_author_form %}
+      {% include "includes/form.html" with form=feedback_form %}
+      {% include "includes/form.html" with form=feedback_file_form %}
 
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">

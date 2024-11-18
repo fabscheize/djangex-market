@@ -20,12 +20,16 @@ def feedback(request):
     feedback_author_form = forms.FeedbackAuthorForm(request.POST or None)
     feedback_file_form = forms.FeedbackFileForm(request.POST or None)
 
-    all_forms = (feedback_author_form, feedback_form, feedback_file_form)
     context = {
-        'forms': all_forms,
+        'feedback_author_form': feedback_author_form,
+        'feedback_form': feedback_form,
+        'feedback_file_form': feedback_file_form,
     }
 
-    if request.method == 'POST' and all(form.is_valid() for form in all_forms):
+    if request.method == 'POST' and all(
+        form.is_valid()
+        for form in (feedback_author_form, feedback_form, feedback_file_form)
+    ):
         send_mail(
             subject=_('Ответ по вашему обращению'),
             message=f'{feedback_form.cleaned_data["text"]}',

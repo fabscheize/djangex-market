@@ -78,7 +78,7 @@ class FeedbackFormTests(TestCase):
         )
 
         self.assertTrue(
-            response.context['forms'][0].has_error('mail'),
+            response.context['feedback_author_form'].has_error('mail'),
             msg='Mail validation did not happen',
         )
 

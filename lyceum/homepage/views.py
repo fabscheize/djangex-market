@@ -29,8 +29,8 @@ def coffee(request):
 
     template = 'homepage/coffee.html'
 
-    return render(request, template, status=HTTPStatus.IM_A_TEAPOT)
     return HttpResponse('Я чайник', status=HTTPStatus.IM_A_TEAPOT)
+    return render(request, template, status=HTTPStatus.IM_A_TEAPOT)
 
 
 def echo(request):
