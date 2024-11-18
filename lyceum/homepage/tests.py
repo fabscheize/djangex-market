@@ -4,6 +4,7 @@ from django.test import Client, override_settings, TestCase
 from django.urls import reverse
 
 from catalog.models import Item, Tag
+from users.models import User
 
 __all__ = []
 
@@ -37,9 +38,6 @@ class ContextTest(TestCase):
 
 
 class HomepageHttpResponseTest(TestCase):
-    def setUp(self):
-        self.client = Client()
-
     def test_homepage_status_code(self):
         response = self.client.get(reverse('homepage:home'))
         self.assertEqual(
@@ -48,15 +46,20 @@ class HomepageHttpResponseTest(TestCase):
             msg='Could not reach the endpoint',
         )
 
-    @override_settings(ALLOW_REVERSE=False)
+    @override_settings(ALLOW_REVERSE=False, DEFAULT_USER_ACTIVITY=True)
     def test_coffee_status_code(self):
+        user = User.objects.create(username='testuser')
+        user.set_password('AA385W3ersHHGv')
+        user.save()
+        self.client.login(username='testuser', password='AA385W3ersHHGv')
         response = self.client.get(reverse('homepage:coffee'))
+
         self.assertEqual(
             response.status_code,
             HTTPStatus.IM_A_TEAPOT,
             msg='Could not reach the endpoint',
         )
-        self.assertEqual(
+        self.assertIn(
             'Я чайник'.encode('utf-8'),
             response.content,
             msg='"Я чайник" is not the content',
