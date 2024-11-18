@@ -36,9 +36,7 @@
           {% endfor %}
 
           <div class="mb-3">
-            <label class="form-label">{% translate "Выпито кофе:" %}</label>
-            <strong>{{ coffee_count }}</strong>
-            <a class="btn btn-outline-warning btn-sm mx-3" href="{% url 'homepage:coffee' %}" role="button">{% translate "Выпить кофе" %}</a>
+            <a class="btn btn-outline-warning" href="{% url 'homepage:coffee' %}" role="button">{% translate "Выпить кофе" %}</a>
           </div>
 
           <button type="submit" class="btn btn-warning">{% translate "Сохранить изменения" %}</button>

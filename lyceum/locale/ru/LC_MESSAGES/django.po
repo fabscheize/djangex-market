@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 22:25+0700\n"
+"POT-Creation-Date: 2024-11-18 19:38+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,379 +23,651 @@ msgstr ""
 #: about/apps.py:10 templates/about/about.html:6 templates/about/about.html:11
 #: templates/includes/header.html:30
 msgid "О проекте"
-msgstr ""
+msgstr "О проекте"
 
 #: catalog/apps.py:10
 msgid "Каталог"
-msgstr ""
+msgstr "Каталог"
 
 #: catalog/models.py:75 catalog/models.py:123
 msgid "слаг"
-msgstr ""
+msgstr "слаг"
 
 #: catalog/models.py:80 catalog/models.py:128
 msgid "Только латинские буквы, цифры, знаки подчеркивания или дефиса. "
-msgstr ""
+msgstr "Только латинские буквы, цифры, знаки подчеркивания или дефиса. "
 
 #: catalog/models.py:83 catalog/models.py:131
 msgid "Максимум 200 символов"
-msgstr ""
+msgstr "Максимум 200 символов"
 
 #: catalog/models.py:87
 msgid "вес"
-msgstr ""
+msgstr "вес"
 
 #: catalog/models.py:93
 msgid "Значение от 1 до 32767"
-msgstr ""
+msgstr "Значение от 1 до 32767"
 
 #: catalog/models.py:96 catalog/models.py:135
 msgid "нормализованное имя"
-msgstr ""
+msgstr "нормализованное имя"
 
 #: catalog/models.py:103 catalog/models.py:168
 msgid "категория"
-msgstr ""
+msgstr "категория"
 
 #: catalog/models.py:104
 msgid "категории"
-msgstr ""
+msgstr "категории"
 
 #: catalog/models.py:117
 msgid "Категория с похожим именем уже существует."
-msgstr ""
+msgstr "Категория с похожим именем уже существует."
 
 #: catalog/models.py:142
 msgid "тег"
-msgstr ""
+msgstr "тег"
 
 #: catalog/models.py:143 catalog/models.py:172
 msgid "теги"
-msgstr ""
+msgstr "теги"
 
 #: catalog/models.py:156
 msgid "Тег с похожим именем уже существует."
-msgstr ""
+msgstr "Тег с похожим именем уже существует."
 
 #: catalog/models.py:162
 msgid "на главной"
-msgstr ""
+msgstr "на главной"
 
-#: catalog/models.py:175 feedback/models.py:27
+#: catalog/models.py:175 feedback/models.py:23
 msgid "текст"
-msgstr ""
+msgstr "текст"
 
 #: catalog/models.py:181
 msgid "В описании обязательно должно быть слово 'превосходно' или 'роскошно'"
-msgstr ""
+msgstr "В описании обязательно должно быть слово 'превосходно' или 'роскошно'"
 
-#: catalog/models.py:187 feedback/models.py:30
+#: catalog/models.py:187 feedback/models.py:26
 msgid "время создания"
-msgstr ""
+msgstr "время создания"
 
 #: catalog/models.py:192
 msgid "время изменения"
-msgstr ""
+msgstr "время изменения"
 
-#: catalog/models.py:200 catalog/models.py:222 catalog/models.py:238
+#: catalog/models.py:200 catalog/models.py:222 catalog/models.py:239
 msgid "товар"
-msgstr ""
+msgstr "товар"
 
 #: catalog/models.py:201
 msgid "товары"
-msgstr ""
+msgstr "товары"
 
 #: catalog/models.py:211 core/models.py:78
 msgid "Нет изображения"
-msgstr ""
+msgstr "Нет изображения"
 
 #: catalog/models.py:213 core/models.py:80
 msgid "превью"
-msgstr ""
+msgstr "превью"
 
 #: catalog/models.py:226
 msgid "главное изображение"
-msgstr ""
+msgstr "главное изображение"
 
 #: catalog/models.py:227
 msgid "главные изображения"
-msgstr ""
+msgstr "главные изображения"
 
-#: catalog/models.py:242 core/models.py:39
+#: catalog/models.py:243 core/models.py:39
 msgid "изображение"
-msgstr ""
+msgstr "изображение"
 
-#: catalog/models.py:243
+#: catalog/models.py:244
 msgid "изображения"
-msgstr ""
+msgstr "изображения"
 
 #: catalog/validators.py:23
 msgid "Убедитесь, что в тексте есть одно из следующих слов: "
-msgstr ""
+msgstr "Убедитесь, что в тексте есть одно из следующих слов: "
 
 #: catalog/views.py:49 templates/includes/list_navbar.html:10
 msgid "Новинки"
-msgstr ""
+msgstr "Новинки"
 
 #: catalog/views.py:58 templates/includes/list_navbar.html:13
 msgid "Пятница"
-msgstr ""
+msgstr "Пятница"
 
 #: catalog/views.py:70 templates/includes/list_navbar.html:16
 msgid "Непроверенное"
-msgstr ""
+msgstr "Непроверенное"
 
 #: core/apps.py:10
 msgid "База"
-msgstr ""
+msgstr "База"
 
 #: core/models.py:19
 msgid "название"
-msgstr ""
+msgstr "название"
 
 #: core/models.py:20
 msgid "Максимум 150 символов"
-msgstr ""
+msgstr "Максимум 150 символов"
 
 #: core/models.py:25
 msgid "опубликовано"
-msgstr ""
+msgstr "опубликовано"
 
 #: download/apps.py:10
 msgid "Загрузка"
-msgstr ""
+msgstr "Загрузка"
 
 #: feedback/apps.py:10 templates/feedback/feedback.html:6
 #: templates/feedback/feedback.html:11 templates/includes/header.html:35
 msgid "Обратная связь"
-msgstr ""
+msgstr "Обратная связь"
 
-#: feedback/forms.py:27
+#: feedback/forms.py:19
 msgid "Ваш вопрос или пожелание"
-msgstr ""
+msgstr "Ваш вопрос или пожелание"
 
-#: feedback/forms.py:30 feedback/forms.py:60
+#: feedback/forms.py:22 feedback/forms.py:52
 msgid "Обязательное поле"
-msgstr ""
+msgstr "Обязательное поле"
 
-#: feedback/forms.py:42
+#: feedback/forms.py:34
 msgid "Пожалуйста, заполните Ваше обращение"
-msgstr ""
+msgstr "Пожалуйста, заполните Ваше обращение"
 
-#: feedback/forms.py:56
+#: feedback/forms.py:48
 msgid "Ваше имя"
-msgstr ""
+msgstr "Ваше имя"
 
-#: feedback/forms.py:57
+#: feedback/forms.py:49
 msgid "Ваша электронная почта"
-msgstr ""
+msgstr "Ваша электронная почта"
 
-#: feedback/forms.py:73
+#: feedback/forms.py:65
 msgid "Пожалуйста, укажите Вашу электронную почту"
-msgstr ""
+msgstr "Пожалуйста, укажите Вашу электронную почту"
 
-#: feedback/forms.py:75
+#: feedback/forms.py:67
 msgid "Пожалуйста, введите корректный формат электронной почты"
-msgstr ""
+msgstr "Пожалуйста, введите корректный формат электронной почты"
 
-#: feedback/forms.py:104
+#: feedback/forms.py:96
 msgid "При необходимости прикрепите файлы"
-msgstr ""
+msgstr "При необходимости прикрепите файлы"
 
-#: feedback/models.py:16
+#: feedback/models.py:12
 msgid "Новый"
-msgstr ""
+msgstr "Новый"
+
+#: feedback/models.py:13
+msgid "В процессе"
+msgstr "В процессе"
+
+#: feedback/models.py:14
+msgid "Отвечен"
+msgstr "Отвечен"
 
 #: feedback/models.py:17
-msgid "В процессе"
-msgstr ""
-
-#: feedback/models.py:18
-msgid "Отвечен"
-msgstr ""
-
-#: feedback/models.py:21
 msgid "статус"
-msgstr ""
+msgstr "статус"
 
-#: feedback/models.py:36 feedback/models.py:94
+#: feedback/models.py:32 feedback/models.py:93
 msgid "отзыв"
-msgstr ""
+msgstr "отзыв"
 
-#: feedback/models.py:37
+#: feedback/models.py:33
 msgid "отзывы"
-msgstr ""
+msgstr "отзывы"
 
-#: feedback/models.py:50
+#: feedback/models.py:46
 msgid "имя"
-msgstr ""
+msgstr "имя"
 
-#: feedback/models.py:56
+#: feedback/models.py:52
 msgid "почта"
-msgstr ""
+msgstr "почта"
 
-#: feedback/models.py:61
+#: feedback/models.py:57
 msgid "автор отзыва"
-msgstr ""
+msgstr "автор отзыва"
 
-#: feedback/models.py:62
+#: feedback/models.py:58
 msgid "авторы отзывов"
-msgstr ""
+msgstr "авторы отзывов"
 
-#: feedback/models.py:72
+#: feedback/models.py:71
 msgid "файл"
-msgstr ""
+msgstr "файл"
+
+#: feedback/models.py:77
+msgid "прикрепленный файл"
+msgstr "прикрепленный файл"
 
 #: feedback/models.py:78
-msgid "прикрепленный файл"
-msgstr ""
-
-#: feedback/models.py:79
 msgid "прикрепленные файлы"
-msgstr ""
+msgstr "прикрепленные файлы"
 
-#: feedback/models.py:84
+#: feedback/models.py:83 users/models.py:48
 msgid "пользователь"
-msgstr ""
+msgstr "пользователь"
 
-#: feedback/models.py:90
+#: feedback/models.py:89
 msgid "время"
-msgstr ""
+msgstr "время"
 
-#: feedback/models.py:100
+#: feedback/models.py:99
 msgid "из статуса"
-msgstr ""
+msgstr "из статуса"
 
-#: feedback/models.py:105
+#: feedback/models.py:104
 msgid "в статус"
-msgstr ""
+msgstr "в статус"
+
+#: feedback/models.py:110
+msgid "лог статуса"
+msgstr "лог статуса"
 
 #: feedback/models.py:111
-msgid "лог статуса"
-msgstr ""
-
-#: feedback/models.py:112
 msgid "логи статусов"
-msgstr ""
+msgstr "логи статусов"
 
-#: feedback/views.py:30
+#: feedback/views.py:34
 msgid "Ответ по вашему обращению"
-msgstr ""
+msgstr "Ответ по вашему обращению"
 
-#: feedback/views.py:52
+#: feedback/views.py:56
 msgid "Ваше обращение успешно отправлено. Спасибо!"
-msgstr ""
+msgstr "Ваше обращение успешно отправлено. Спасибо!"
 
 #: homepage/apps.py:10 templates/homepage/main.html:7
 #: templates/includes/header.html:20
 msgid "Главная"
-msgstr ""
+msgstr "Главная"
 
 #: homepage/forms.py:9
 msgid "Введите текст"
-msgstr ""
+msgstr "Введите текст"
 
 #: homepage/forms.py:12
 msgid "Пожалуйста, заполните поле"
-msgstr ""
+msgstr "Пожалуйста, заполните поле"
 
-#: lyceum/settings.py:128
+#: lyceum/settings.py:134
 msgid "Russian"
 msgstr "Русский"
 
-#: lyceum/settings.py:129
+#: lyceum/settings.py:135
 msgid "English"
 msgstr "Английский"
 
 #: templates/404.html:7 templates/404.html:12
 msgid "Страница не найдена"
-msgstr ""
+msgstr "Страница не найдена"
 
 #: templates/about/about.html:6 templates/base.html:17
 #: templates/catalog/item.html:7 templates/catalog/item_list.html:6
 #: templates/catalog/special.html:7 templates/feedback/feedback.html:6
 #: templates/homepage/echo.html:6 templates/homepage/main.html:7
 #: templates/includes/header.html:8 templates/includes/header.html:11
+#: templates/users/login.html:6 templates/users/logout.html:7
+#: templates/users/password_change.html:7
+#: templates/users/password_change_done.html:6
+#: templates/users/password_reset.html:6
+#: templates/users/password_reset_complete.html:7
+#: templates/users/password_reset_confirm.html:6
+#: templates/users/password_reset_done.html:7 templates/users/profile.html:7
+#: templates/users/signup.html:7 templates/users/user_detail.html:7
+#: templates/users/user_list.html:7
 msgid "Джангекс Маркет"
-msgstr ""
+msgstr "Джангекс Маркет"
 
 #: templates/about/about.html:15
 msgid "Тут нечего сказать"
-msgstr ""
+msgstr "Тут нечего сказать"
 
 #: templates/base.html:26
 msgid "Контента не будет, расходимся"
-msgstr ""
+msgstr "Контента не будет, расходимся"
 
 #: templates/catalog/item.html:24
 msgid "Главное изображение товара"
-msgstr ""
+msgstr "Главное изображение товара"
 
 #: templates/catalog/item.html:27 templates/catalog/item.html:36
 msgid "Скачать изображение"
-msgstr ""
+msgstr "Скачать изображение"
 
 #: templates/catalog/item.html:46
 msgid "Назад"
-msgstr ""
+msgstr "Назад"
 
 #: templates/catalog/item.html:50
 msgid "Вперед"
-msgstr ""
+msgstr "Вперед"
 
 #: templates/catalog/item.html:59
 msgid "Категория:"
-msgstr ""
+msgstr "Категория:"
 
 #: templates/catalog/item_list.html:6 templates/catalog/item_list.html:11
 #: templates/catalog/special.html:12 templates/includes/header.html:25
 msgid "Список товаров"
-msgstr ""
+msgstr "Список товаров"
 
 #: templates/catalog/item_list.html:33 templates/includes/simple_list.html:14
 msgid "Всё раскупили!"
-msgstr ""
+msgstr "Всё раскупили!"
 
 #: templates/feedback/feedback.html:23
 msgid "Подтверждаю, что я сладкая булочка"
-msgstr ""
+msgstr "Подтверждаю, что я сладкая булочка"
 
 #: templates/feedback/feedback.html:26 templates/homepage/echo.html:20
+#: templates/users/password_reset.html:20
 msgid "Отправить"
-msgstr ""
+msgstr "Отправить"
 
 #: templates/homepage/coffee.html:7 templates/homepage/coffee.html:12
 msgid "Я чайник"
-msgstr ""
+msgstr "Я чайник"
 
 #: templates/homepage/echo.html:6 templates/homepage/echo.html:11
 msgid "Эхо"
-msgstr ""
+msgstr "Эхо"
 
 #: templates/includes/footer.html:6
 msgid "ООО Джангекс Маркет"
-msgstr ""
+msgstr "ООО Джангекс Маркет"
 
-#: templates/includes/header.html:41
+#: templates/includes/header.html:47 templates/users/login.html:25
+msgid "Войти"
+msgstr "Войти"
+
+#: templates/includes/header.html:54
 msgid "Админка"
-msgstr ""
+msgstr "Админка"
 
 #: templates/includes/item_card.html:31
 msgid "Теги отсутствуют"
-msgstr ""
+msgstr "Теги отсутствуют"
 
 #: templates/includes/item_card.html:34
 msgid "и еще "
-msgstr ""
+msgstr "и еще "
 
 #: templates/includes/item_card.html:34
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: templates/includes/list_navbar.html:7
 msgid "Все"
-msgstr ""
+msgstr "Все"
 
 #: templates/includes/simple_list.html:17
 msgid "Нет товаров, подходящих под фильтр :("
-msgstr ""
+msgstr "Нет товаров, подходящих под фильтр :("
+
+#: templates/includes/user_form.html:51
+msgid "Забыли пароль?"
+msgstr "Забыли пароль?"
+
+#: templates/users/login.html:6
+msgid "Вход"
+msgstr "Вход"
+
+#: templates/users/login.html:11
+msgid "Войти в аккаунт"
+msgstr "Войти в аккаунт"
+
+#: templates/users/login.html:30
+msgid "Впервые у нас?"
+msgstr "Впервые у нас?"
+
+#: templates/users/login.html:30 templates/users/signup.html:26
+msgid "Зарегистрироваться"
+msgstr "Зарегистрироваться"
+
+#: templates/users/logout.html:7
+msgid "Выход"
+msgstr "Выход"
+
+#: templates/users/logout.html:12
+msgid "Вы вышли и аккаунта"
+msgstr "Вы вышли и аккаунта"
+
+#: templates/users/logout.html:15
+msgid "Мы будем скучать!"
+msgstr "Мы будем скучать!"
+
+#: templates/users/logout.html:26
+msgid "Войти снова"
+msgstr "Войти снова"
+
+#: templates/users/password_change.html:7
+msgid "Изменение пароля"
+msgstr "Изменение пароля"
+
+#: templates/users/password_change.html:12
+#: templates/users/password_reset_confirm.html:17
+#: templates/users/profile.html:48
+msgid "Изменить пароль"
+msgstr "Изменить пароль"
+
+#: templates/users/password_change.html:15
+msgid "Изменить"
+msgstr "Изменить"
+
+#: templates/users/password_change_done.html:6
+#: templates/users/password_change_done.html:11
+msgid "Пароль успешно изменен"
+msgstr "Пароль успешно изменен"
+
+#: templates/users/password_change_done.html:14
+msgid "Жизнь прекрасна!"
+msgstr "Жизнь прекрасна!"
+
+#: templates/users/password_change_done.html:19
+msgid "Назад в личный кабинет"
+msgstr "Назад в личный кабинет"
+
+#: templates/users/password_reset.html:6
+msgid "Восстановление пароля"
+msgstr "Восстановление пароля"
+
+#: templates/users/password_reset.html:11
+msgid "Восстановить пароль"
+msgstr "Восстановить пароль"
+
+#: templates/users/password_reset.html:14
+msgid "Забыли пароль? Не беда!"
+msgstr "Забыли пароль? Не беда!"
+
+#: templates/users/password_reset.html:17
+msgid ""
+"Введите адрес электронной почты, с которым Вы регистрировались, и мы вышлем "
+"Вам инструкцию для восстановления."
+msgstr "Введите адрес электронной почты, с которым Вы регистрировались, и мы вышлем Вам инструкцию для восстановления."
+
+#: templates/users/password_reset_complete.html:7
+#: templates/users/password_reset_complete.html:12
+msgid "Восстановление пароля завершено"
+msgstr "Восстановление пароля завершено"
+
+#: templates/users/password_reset_complete.html:15
+msgid "Ваш пароль успешно восстановлен. Ура!"
+msgstr "Ваш пароль успешно восстановлен. Ура!"
+
+#: templates/users/password_reset_complete.html:20
+msgid "Войти в личный кабинет"
+msgstr "Войти в личный кабинет"
+
+#: templates/users/password_reset_confirm.html:6
+#: templates/users/password_reset_confirm.html:11
+msgid "Подтверждение восстановления пароля"
+msgstr "Подтверждение восстановления пароля"
+
+#: templates/users/password_reset_confirm.html:14
+msgid "Введите новый пароль"
+msgstr "Введите новый пароль"
+
+#: templates/users/password_reset_done.html:7
+#: templates/users/password_reset_done.html:12
+msgid "Письмо успешно отправлено"
+msgstr "Письмо успешно отправлено"
+
+#: templates/users/password_reset_done.html:15
+msgid ""
+"В ближайшее время Вы получите письмо счастья с инструкцией по восстановлению "
+"своего пароля"
+msgstr "В ближайшее время Вы получите письмо счастья с инструкцией по восстановлению своего пароля"
+
+#: templates/users/password_reset_done.html:18
+msgid "(не забудьте проверить папку спам)"
+msgstr "(не забудьте проверить папку спам)"
+
+#: templates/users/password_reset_done.html:23
+msgid "На главную"
+msgstr "На главную"
+
+#: templates/users/profile.html:7 templates/users/profile.html:12
+msgid "Личный кабинет"
+msgstr "Личный кабинет"
+
+#: templates/users/profile.html:19
+msgid "Здравствуй, "
+msgstr "Здравствуй, "
+
+#: templates/users/profile.html:39
+msgid "Выпито кофе:"
+msgstr "Выпито кофе:"
+
+#: templates/users/profile.html:41
+msgid "Выпить кофе"
+msgstr "Выпить кофе"
+
+#: templates/users/profile.html:44
+msgid "Сохранить изменения"
+msgstr "Сохранить изменения"
+
+#: templates/users/profile.html:49
+msgid "Выйти"
+msgstr "Выйти"
+
+#: templates/users/signup.html:7 templates/users/signup.html:12
+msgid "Регистрация"
+msgstr "Регистрация"
+
+#: templates/users/user_detail.html:7 templates/users/user_detail.html:12
+msgid "Пользователь "
+msgstr "Пользователь "
+
+#: templates/users/user_detail.html:26 templates/users/user_list.html:21
+#: users/forms.py:38
+msgid "Имя"
+msgstr "Имя"
+
+#: templates/users/user_detail.html:26 templates/users/user_detail.html:27
+#: templates/users/user_detail.html:28 templates/users/user_detail.html:29
+#: templates/users/user_list.html:32 templates/users/user_list.html:33
+#: templates/users/user_list.html:34
+msgid "Не указано"
+msgstr "Не указано"
+
+#: templates/users/user_detail.html:27 templates/users/user_list.html:22
+#: users/forms.py:39
+msgid "Фамилия"
+msgstr "Фамилия"
+
+#: templates/users/user_detail.html:28 users/forms.py:21 users/forms.py:40
+msgid "Почта"
+msgstr "Почта"
+
+#: templates/users/user_detail.html:29 templates/users/user_list.html:23
+#: users/forms.py:62
+msgid "Дата рождения"
+msgstr "Дата рождения"
+
+#: templates/users/user_detail.html:30 users/forms.py:64
+msgid "Сколько выпито кофе"
+msgstr "Сколько выпито кофе"
+
+#: templates/users/user_list.html:7 templates/users/user_list.html:12
+msgid "Список пользователей"
+msgstr "Список пользователей"
+
+#: templates/users/user_list.html:20 users/forms.py:20
+msgid "Никнейм"
+msgstr "Никнейм"
+
+#: templates/users/user_list.html:24
+msgid "Аватар"
+msgstr "Аватар"
+
+#: users/apps.py:10
+msgid "Пользователи"
+msgstr "Пользователи"
+
+#: users/forms.py:24
+msgid "Обязательное поле."
+msgstr "Обязательное поле."
+
+#: users/forms.py:63
+msgid "Изменить аватар"
+msgstr "Изменить аватар"
+
+#: users/models.py:51
+msgid "дата рождения"
+msgstr "дата рождения"
+
+#: users/models.py:56
+msgid "счетчик кофе"
+msgstr "счетчик кофе"
+
+#: users/models.py:61
+msgid "аватар"
+msgstr "аватар"
+
+#: users/models.py:67
+msgid "профиль пользователя"
+msgstr "профиль пользователя"
+
+#: users/models.py:68
+msgid "профили пользователей"
+msgstr "профили пользователей"
+
+#: users/views.py:25
+msgid "Подтверждение регистрации"
+msgstr "Подтверждение регистрации"
+
+#: users/views.py:26
+msgid "Для активации перейдите по ссылке: "
+msgstr "Для активации перейдите по ссылке: "
+
+#: users/views.py:35
+msgid ""
+"Чтобы активировать свой аккаунт перейдите по ссылке в отправленном нами "
+"письме"
+msgstr "Чтобы активировать свой аккаунт перейдите по ссылке в отправленном нами письме"
+
+#: users/views.py:57
+msgid "Регистрация завершена."
+msgstr "Регистрация завершена."
+
+#: users/views.py:74
+msgid "Активация прошла успешно! Теперь Вы можете войти в свой аккаунт"
+msgstr "Активация прошла успешно! Теперь Вы можете войти в свой аккаунт"
+
+#: users/views.py:83
+msgid "Ссылка активации истекла :("
+msgstr "Ссылка активации истекла :("
+
+#: users/views.py:112
+msgid "Профиль обновлен успешно!"
+msgstr "Профиль обновлен успешно!"

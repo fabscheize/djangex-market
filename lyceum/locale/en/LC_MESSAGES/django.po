@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 22:25+0700\n"
+"POT-Creation-Date: 2024-11-18 19:38+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,7 +83,7 @@ msgstr "A tag with a similar name already exists."
 msgid "на главной"
 msgstr "on main"
 
-#: catalog/models.py:175 feedback/models.py:27
+#: catalog/models.py:175 feedback/models.py:23
 msgid "текст"
 msgstr "text"
 
@@ -91,7 +91,7 @@ msgstr "text"
 msgid "В описании обязательно должно быть слово 'превосходно' или 'роскошно'"
 msgstr "The description must contain 'превосходно' or 'роскошно'"
 
-#: catalog/models.py:187 feedback/models.py:30
+#: catalog/models.py:187 feedback/models.py:26
 msgid "время создания"
 msgstr "create time"
 
@@ -101,7 +101,7 @@ msgstr "create time"
 msgid "время изменения"
 msgstr "update time"
 
-#: catalog/models.py:200 catalog/models.py:222 catalog/models.py:238
+#: catalog/models.py:200 catalog/models.py:222 catalog/models.py:239
 msgid "товар"
 msgstr "item"
 
@@ -125,11 +125,11 @@ msgstr "main image"
 msgid "главные изображения"
 msgstr "main images"
 
-#: catalog/models.py:242 core/models.py:39
+#: catalog/models.py:243 core/models.py:39
 msgid "изображение"
 msgstr "image"
 
-#: catalog/models.py:243
+#: catalog/models.py:244
 msgid "изображения"
 msgstr "images"
 
@@ -174,129 +174,129 @@ msgstr "Download"
 msgid "Обратная связь"
 msgstr "Feedback"
 
-#: feedback/forms.py:27
+#: feedback/forms.py:19
 msgid "Ваш вопрос или пожелание"
 msgstr "Your feedback"
 
-#: feedback/forms.py:30 feedback/forms.py:60
+#: feedback/forms.py:22 feedback/forms.py:52
 msgid "Обязательное поле"
 msgstr "Required field"
 
-#: feedback/forms.py:42
+#: feedback/forms.py:34
 #, fuzzy
 #| msgid "Пожалуйста, заполните поле."
 msgid "Пожалуйста, заполните Ваше обращение"
 msgstr "Please enter your feedback"
 
-#: feedback/forms.py:56
+#: feedback/forms.py:48
 msgid "Ваше имя"
 msgstr "Your name"
 
-#: feedback/forms.py:57
+#: feedback/forms.py:49
 msgid "Ваша электронная почта"
 msgstr "Your email"
 
-#: feedback/forms.py:73
+#: feedback/forms.py:65
 #, fuzzy
 #| msgid "Пожалуйста, заполните поле."
 msgid "Пожалуйста, укажите Вашу электронную почту"
 msgstr "Please enter your email"
 
-#: feedback/forms.py:75
+#: feedback/forms.py:67
 msgid "Пожалуйста, введите корректный формат электронной почты"
 msgstr "Please enter valid email format"
 
-#: feedback/forms.py:104
+#: feedback/forms.py:96
 msgid "При необходимости прикрепите файлы"
 msgstr "Upload files if required"
 
-#: feedback/models.py:16
+#: feedback/models.py:12
 msgid "Новый"
 msgstr "New"
 
-#: feedback/models.py:17
+#: feedback/models.py:13
 #, fuzzy
 #| msgid "О проекте"
 msgid "В процессе"
 msgstr "About"
 
-#: feedback/models.py:18
+#: feedback/models.py:14
 msgid "Отвечен"
 msgstr "Answered"
 
-#: feedback/models.py:21
+#: feedback/models.py:17
 msgid "статус"
 msgstr "status"
 
-#: feedback/models.py:36 feedback/models.py:94
+#: feedback/models.py:32 feedback/models.py:93
 msgid "отзыв"
 msgstr "feedback"
 
-#: feedback/models.py:37
+#: feedback/models.py:33
 msgid "отзывы"
 msgstr "feedbacks"
 
-#: feedback/models.py:50
+#: feedback/models.py:46
 msgid "имя"
 msgstr "name"
 
-#: feedback/models.py:56
+#: feedback/models.py:52
 msgid "почта"
 msgstr "email"
 
-#: feedback/models.py:61
+#: feedback/models.py:57
 #, fuzzy
 #| msgid "отзыв"
 msgid "автор отзыва"
 msgstr "feedback"
 
-#: feedback/models.py:62
+#: feedback/models.py:58
 msgid "авторы отзывов"
 msgstr "feedback authors"
 
-#: feedback/models.py:72
+#: feedback/models.py:71
 msgid "файл"
 msgstr "file"
 
-#: feedback/models.py:78
+#: feedback/models.py:77
 msgid "прикрепленный файл"
 msgstr "uploaded file"
 
-#: feedback/models.py:79
+#: feedback/models.py:78
 msgid "прикрепленные файлы"
 msgstr "uploaded files"
 
-#: feedback/models.py:84
+#: feedback/models.py:83 users/models.py:48
 msgid "пользователь"
 msgstr "user"
 
-#: feedback/models.py:90
+#: feedback/models.py:89
 msgid "время"
 msgstr "time"
 
-#: feedback/models.py:100
+#: feedback/models.py:99
 msgid "из статуса"
 msgstr "from status"
 
-#: feedback/models.py:105
+#: feedback/models.py:104
 msgid "в статус"
 msgstr "to status"
 
-#: feedback/models.py:111
+#: feedback/models.py:110
 msgid "лог статуса"
 msgstr "status log"
 
-#: feedback/models.py:112
+#: feedback/models.py:111
 msgid "логи статусов"
 msgstr "status logs"
 
-#: feedback/views.py:30
+#: feedback/views.py:34
 #, fuzzy
 #| msgid "Ответ по вашему обращению, "
 msgid "Ответ по вашему обращению"
 msgstr "The answer to your feedback"
 
-#: feedback/views.py:52
+#: feedback/views.py:56
 msgid "Ваше обращение успешно отправлено. Спасибо!"
 msgstr "Your feedback has been sent successfully. Thanks!"
 
@@ -315,13 +315,13 @@ msgstr "Enter your text"
 msgid "Пожалуйста, заполните поле"
 msgstr "Please fill in the text field"
 
-#: lyceum/settings.py:128
+#: lyceum/settings.py:134
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
-#: lyceum/settings.py:129
+#: lyceum/settings.py:135
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: templates/404.html:7 templates/404.html:12
 msgid "Страница не найдена"
@@ -332,6 +332,15 @@ msgstr "Page not found"
 #: templates/catalog/special.html:7 templates/feedback/feedback.html:6
 #: templates/homepage/echo.html:6 templates/homepage/main.html:7
 #: templates/includes/header.html:8 templates/includes/header.html:11
+#: templates/users/login.html:6 templates/users/logout.html:7
+#: templates/users/password_change.html:7
+#: templates/users/password_change_done.html:6
+#: templates/users/password_reset.html:6
+#: templates/users/password_reset_complete.html:7
+#: templates/users/password_reset_confirm.html:6
+#: templates/users/password_reset_done.html:7 templates/users/profile.html:7
+#: templates/users/signup.html:7 templates/users/user_detail.html:7
+#: templates/users/user_list.html:7
 msgid "Джангекс Маркет"
 msgstr "Djangex Market"
 
@@ -379,6 +388,7 @@ msgid "Подтверждаю, что я сладкая булочка"
 msgstr "I accept I am a sweet bun"
 
 #: templates/feedback/feedback.html:26 templates/homepage/echo.html:20
+#: templates/users/password_reset.html:20
 msgid "Отправить"
 msgstr "Send"
 
@@ -394,7 +404,11 @@ msgstr "Echo"
 msgid "ООО Джангекс Маркет"
 msgstr "Djangex Market LCC"
 
-#: templates/includes/header.html:41
+#: templates/includes/header.html:47 templates/users/login.html:25
+msgid "Войти"
+msgstr "Login"
+
+#: templates/includes/header.html:54
 msgid "Админка"
 msgstr "Admin"
 
@@ -417,3 +431,291 @@ msgstr "All"
 #: templates/includes/simple_list.html:17
 msgid "Нет товаров, подходящих под фильтр :("
 msgstr "No items matching the filter :("
+
+#: templates/includes/user_form.html:51
+msgid "Забыли пароль?"
+msgstr "Forgot password?"
+
+#: templates/users/login.html:6
+msgid "Вход"
+msgstr "Login"
+
+#: templates/users/login.html:11
+msgid "Войти в аккаунт"
+msgstr "Log in to account"
+
+#: templates/users/login.html:30
+msgid "Впервые у нас?"
+msgstr "First time here?"
+
+#: templates/users/login.html:30 templates/users/signup.html:26
+msgid "Зарегистрироваться"
+msgstr "Register"
+
+#: templates/users/logout.html:7
+msgid "Выход"
+msgstr "Log out"
+
+#: templates/users/logout.html:12
+msgid "Вы вышли и аккаунта"
+msgstr "You have logged out"
+
+#: templates/users/logout.html:15
+msgid "Мы будем скучать!"
+msgstr "We will miss you!"
+
+#: templates/users/logout.html:26
+msgid "Войти снова"
+msgstr "Log in again"
+
+#: templates/users/password_change.html:7
+msgid "Изменение пароля"
+msgstr "Password changing"
+
+#: templates/users/password_change.html:12
+#: templates/users/password_reset_confirm.html:17
+#: templates/users/profile.html:48
+msgid "Изменить пароль"
+msgstr "Change password"
+
+#: templates/users/password_change.html:15
+msgid "Изменить"
+msgstr "Change"
+
+#: templates/users/password_change_done.html:6
+#: templates/users/password_change_done.html:11
+msgid "Пароль успешно изменен"
+msgstr "Password has changed successfully"
+
+#: templates/users/password_change_done.html:14
+msgid "Жизнь прекрасна!"
+msgstr "Life is wonderful!"
+
+#: templates/users/password_change_done.html:19
+msgid "Назад в личный кабинет"
+msgstr "Back to profile"
+
+#: templates/users/password_reset.html:6
+msgid "Восстановление пароля"
+msgstr "Password reset"
+
+#: templates/users/password_reset.html:11
+msgid "Восстановить пароль"
+msgstr "Reset password"
+
+#: templates/users/password_reset.html:14
+msgid "Забыли пароль? Не беда!"
+msgstr "Forgot your password? No sweat!"
+
+#: templates/users/password_reset.html:17
+msgid ""
+"Введите адрес электронной почты, с которым Вы регистрировались, и мы вышлем "
+"Вам инструкцию для восстановления."
+msgstr "Enter the email address you registered with, and we will send you instructions for recovery."
+
+#: templates/users/password_reset_complete.html:7
+#: templates/users/password_reset_complete.html:12
+msgid "Восстановление пароля завершено"
+msgstr "Password reset complete"
+
+#: templates/users/password_reset_complete.html:15
+#, fuzzy
+#| msgid "Ваше обращение успешно отправлено. Спасибо!"
+msgid "Ваш пароль успешно восстановлен. Ура!"
+msgstr "Your feedback has been sent successfully. Thanks!"
+
+#: templates/users/password_reset_complete.html:20
+msgid "Войти в личный кабинет"
+msgstr "Log in to your profile"
+
+#: templates/users/password_reset_confirm.html:6
+#: templates/users/password_reset_confirm.html:11
+msgid "Подтверждение восстановления пароля"
+msgstr "Password reset confirm"
+
+#: templates/users/password_reset_confirm.html:14
+#, fuzzy
+#| msgid "Введите текст"
+msgid "Введите новый пароль"
+msgstr "Enter new password"
+
+#: templates/users/password_reset_done.html:7
+#: templates/users/password_reset_done.html:12
+#, fuzzy
+#| msgid "Ваше обращение успешно отправлено. Спасибо!"
+msgid "Письмо успешно отправлено"
+msgstr "Email sent successfully"
+
+#: templates/users/password_reset_done.html:15
+msgid ""
+"В ближайшее время Вы получите письмо счастья с инструкцией по восстановлению "
+"своего пароля"
+msgstr "You will soon receive a letter of happiness with instructions on how to restore your password"
+
+#: templates/users/password_reset_done.html:18
+msgid "(не забудьте проверить папку спам)"
+msgstr "(don't forget to check spam folder)"
+
+#: templates/users/password_reset_done.html:23
+#, fuzzy
+#| msgid "на главной"
+msgid "На главную"
+msgstr "on main"
+
+#: templates/users/profile.html:7 templates/users/profile.html:12
+msgid "Личный кабинет"
+msgstr "Profile"
+
+#: templates/users/profile.html:19
+msgid "Здравствуй, "
+msgstr "Hello, "
+
+#: templates/users/profile.html:39
+msgid "Выпито кофе:"
+msgstr "Coffee count"
+
+#: templates/users/profile.html:41
+msgid "Выпить кофе"
+msgstr "Drink coffee"
+
+#: templates/users/profile.html:44
+#, fuzzy
+#| msgid "Нет изображения"
+msgid "Сохранить изменения"
+msgstr "Save changes"
+
+#: templates/users/profile.html:49
+msgid "Выйти"
+msgstr "Log out"
+
+#: templates/users/signup.html:7 templates/users/signup.html:12
+msgid "Регистрация"
+msgstr "Register"
+
+#: templates/users/user_detail.html:7 templates/users/user_detail.html:12
+#, fuzzy
+#| msgid "пользователь"
+msgid "Пользователь "
+msgstr "User "
+
+#: templates/users/user_detail.html:26 templates/users/user_list.html:21
+#: users/forms.py:38
+#, fuzzy
+#| msgid "имя"
+msgid "Имя"
+msgstr "First name"
+
+#: templates/users/user_detail.html:26 templates/users/user_detail.html:27
+#: templates/users/user_detail.html:28 templates/users/user_detail.html:29
+#: templates/users/user_list.html:32 templates/users/user_list.html:33
+#: templates/users/user_list.html:34
+msgid "Не указано"
+msgstr "Not specified"
+
+#: templates/users/user_detail.html:27 templates/users/user_list.html:22
+#: users/forms.py:39
+msgid "Фамилия"
+msgstr "Last name"
+
+#: templates/users/user_detail.html:28 users/forms.py:21 users/forms.py:40
+#, fuzzy
+#| msgid "почта"
+msgid "Почта"
+msgstr "Email address"
+
+#: templates/users/user_detail.html:29 templates/users/user_list.html:23
+#: users/forms.py:62
+#, fuzzy
+#| msgid "изображения"
+msgid "Дата рождения"
+msgstr "Date of birth"
+
+#: templates/users/user_detail.html:30 users/forms.py:64
+msgid "Сколько выпито кофе"
+msgstr "Coffee count"
+
+#: templates/users/user_list.html:7 templates/users/user_list.html:12
+#, fuzzy
+#| msgid "пользователь"
+msgid "Список пользователей"
+msgstr "User list"
+
+#: templates/users/user_list.html:20 users/forms.py:20
+msgid "Никнейм"
+msgstr "Username"
+
+#: templates/users/user_list.html:24
+msgid "Аватар"
+msgstr "Avatar"
+
+#: users/apps.py:10
+#, fuzzy
+#| msgid "пользователь"
+msgid "Пользователи"
+msgstr "Users"
+
+#: users/forms.py:24
+#, fuzzy
+#| msgid "Обязательное поле"
+msgid "Обязательное поле."
+msgstr "Required field."
+
+#: users/forms.py:63
+msgid "Изменить аватар"
+msgstr "Change avatar"
+
+#: users/models.py:51
+#, fuzzy
+#| msgid "изображения"
+msgid "дата рождения"
+msgstr "date of birth"
+
+#: users/models.py:56
+msgid "счетчик кофе"
+msgstr "coffee counter"
+
+#: users/models.py:61
+msgid "аватар"
+msgstr "avatar"
+
+#: users/models.py:67
+#, fuzzy
+#| msgid "пользователь"
+msgid "профиль пользователя"
+msgstr "user profile"
+
+#: users/models.py:68
+#, fuzzy
+#| msgid "пользователь"
+msgid "профили пользователей"
+msgstr "users profiles"
+
+#: users/views.py:25
+msgid "Подтверждение регистрации"
+msgstr "Registration confirm"
+
+#: users/views.py:26
+msgid "Для активации перейдите по ссылке: "
+msgstr "Click the link to activate:"
+
+#: users/views.py:35
+msgid ""
+"Чтобы активировать свой аккаунт перейдите по ссылке в отправленном нами "
+"письме"
+msgstr "Follow the link in the email we sent to activate your account"
+
+#: users/views.py:57
+msgid "Регистрация завершена."
+msgstr "Registration complete. "
+
+#: users/views.py:74
+msgid "Активация прошла успешно! Теперь Вы можете войти в свой аккаунт"
+msgstr "Activation was successful! Now you can log in to your account"
+
+#: users/views.py:83
+msgid "Ссылка активации истекла :("
+msgstr "The activation link has expired :("
+
+#: users/views.py:112
+msgid "Профиль обновлен успешно!"
+msgstr "Profile has been updated successfully!"
